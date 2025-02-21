@@ -1,0 +1,202 @@
+XFS32 Version 1.91 (Junuary 3, 1995)
+====================================
+Fixed:
+------
+	* DOS-compatible file date/time stamps
+
+
+XFS Version 1.89 (December 10, 1994)
+====================================
+Fixed:
+------
+         * XFSKRNLF.EXE: IP Fragmentation code corrected
+
+
+XFS Version 1.88 (November 10, 1994)
+====================================
+Fixed:
+------
+         * A lower rsize has resulted in less displayed files.
+
+
+XFS Version 1.87 (November 1, 1994)
+===================================
+Fixed:
+------
+         * There was no error message while trying to
+           display an unreadable file (-rw-------).
+
+What's new:
+-----------
+         * SHOWMNT.EXE displays the export list of a given NFS server.
+
+
+XFS Version 1.86 (September 21, 1994)
+=====================================
+Fixed:
+------
+         * Security problem
+
+XFS Version 1.85 (September 5, 1994)
+====================================
+What's new:
+-----------
+         * The variable $user and/or $hostname can be included in a
+           <filesystem>:
+
+           xfstool mount h: speedy:/home/$user
+
+         * xfstool echo $user
+           xfstool echo $hostname
+
+Fixed:
+------
+         * File search bug.
+
+
+XFS Version 1.81 (August 22, 1994)
+==================================
+What's new:
+-----------
+         CHMOD.EXE
+
+
+XFS Version 1.79 (August 10, 1994)
+==================================
+
+Fixed:	 * "XCOPY /S" doesn't copy if directories already exist.
+------   
+         * The umask was incorrectly set
+
+
+XFS Version 1.78 (August 5, 1994)
+=================================
+
+Fixed:   * Files was truncated to 0 bytes under some circumstances.
+------
+         * The umask was incorrectly printed.
+
+         * A timezone offset >= | 10 | (eg. Australia) was incorrectly handled.
+
+
+What's new:
+-----------
+
+         Optimized memory requirement in redirector.
+
+
+XFS Version 1.77 (July 12, 1994)
+================================
+
+Fixed:   COPY bug (described in the BUGS file of XFS 1.7x)
+------
+
+What's new:
+-----------
+
+       * With XFSKRNLF.EXE you can use write sizes (wsize) up to 8192 (8K).
+         Due the IP fragamentation code, XFSKRNLF is a little bigger then
+         XFSKRNL and allows less mounted drives. Be shure that your NFS
+         servers or respective your gateways are able to handle fragmented
+         IP packets! Also try to use a multiple of 1024 as write size,
+         especially in conjuction with NeXTStep!
+                 
+       * Improved per-drive-authentication with multiple pcnsfsd servers
+         (see LOGIN.TXT).
+
+
+XFS Version 1.76 (June 18, 1994)
+================================
+
+Fixed: Multiplexor bug due 32-bit instructions (with XWIN, a Xwindows demo).
+------
+       The port number received from the server's PORMAP was incorrectly
+       handled. The result was:
+
+		Xfstool(mount): an error ocurres
+
+       (The error code was the port number :)
+
+What's new:
+-----------
+
+       XFSAPI.ZIP: Windows API for XFS. It supports mount/umount/login
+       for own applications. The XFSFMX dialogs can also be used by own
+       apps (see XFSAPI.TXT)
+
+
+XFS Version 1.75 (June 13, 1994)
+================================
+
+Fixed:	MS Word 6.0 file creation (I hope, the LAST Word 6.0 problem :)
+------	Some ARP bugs
+
+What's new:
+-----------
+
+       Source code available (see ORDER.FRM, or drop a email)
+       Memory usage: 61K
+
+       Mount option `map=upper', useful for UPPERCASED filesystems,
+       like CD-ROMS. Note, that it works ONLY for uppercased filesystems.
+       You'll see an empty drive, when you try to mount a mixed filesystem.
+
+
+XFS Version 1.73 (May 28, 1994)
+================================
+
+Fixed:
+------
+	Printing doesn't work, when  printer host <> login host, e.g:
+
+		xfstool pcnfsd foo
+		               ===
+		xfstool mount LPT1: bar:laser
+		                    ===
+
+What's new:
+-----------
+
+	The manual contains now all *.DOC released after 1.71.
+	The manual extension is now *.TXT. Please delete all *.DOC
+	befor upgrading.
+	
+	XFSTOOL blink {on | off}  controls the traffic symbols now.
+
+	
+XFS Version 1.72a  (May 27, 1994)
+==================================
+
+XFSTOOL.EXE, XPING.EXE, XFSFMX.DLL:
+		The UDP port of your NFS server is obtained from PORTMAP now.
+		Usually, the port number assigned to a NFS server is 2049,
+		but it appears not to be a standard.
+
+XFSKRNL.EXE	An ugly bug (detected with MS Write) fixed.
+
+PKTMUX.DOC	How to use PKTMUX over XFS.
+
+*.EXE		HOSTS database functionality completed.
+
+
+	
+XFS Version 1.72  (May 20, 1994)
+================================
+
+What's new:
+-----------
+
+	XFSFMX.*	Windows File Manager Extension
+	PRINTERS.DOC	PCNFSD & Printing Manual
+
+Fixed:
+------
+
+	XFSKRNL.EXE
+	  Multiplexor:	some UDP problems (XDMCP, DNS)
+	  Redirector:	file creation problems (MS Word 6.0 works now)
+	  Printing:	concurrent printing bug corrected
+
+	XFSTOOL.EXE
+	  Returns an errorlevel yet (I hope).
+

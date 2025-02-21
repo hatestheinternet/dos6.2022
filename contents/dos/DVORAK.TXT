@@ -1,0 +1,209 @@
+DVORAK KEYBOARD LAYOUTS FOR MS-DOS
+----------------------------------
+Microsoft distributes Dvorak keyboard layouts that make the most 
+frequently typed characters on a keyboard more accessible to people 
+who have difficulty using the standard "QWERTY" layout. There are 
+three Dvorak layouts: one for two-handed users, one for people who 
+type only with their left hand, and one for people who type only 
+with their right hand. The left or right hand keyboard layouts can 
+also be used by people who type with a wand.
+
+The MS-DOS Supplemental Disk includes the DVORAK.SYS file, which 
+provides three new keyboard layouts for Microsoft MS-DOS.
+
+This document explains how to install these layouts and restore 
+your original layout. It also provides illustrations of the layouts.
+
+WHAT IS A KEYBOARD LAYOUT?
+--------------------------
+A keyboard layout is a map or a definition of how keys are laid 
+out on your keyboard. The keyboard layout you use is determined 
+by software in your computer. The letters on your keys indicate 
+the standard layout for your keyboard. There are many different 
+keyboard layouts in use throughout the world. The one you ordinarily 
+use depends on the country you are in or the language you use.
+
+DVORAK KEYBOARD LAYOUTS
+-----------------------
+Dvorak keyboard layouts are based on designs created by August 
+Dvorak, a professor at the University of Washington during the 
+1930s and 1940s. Dr. Dvorak studied the way people type standard 
+English, and determined the most common letter combinations. He 
+then designed new keyboard layouts to speed up typing and reduce 
+fatigue. These layouts, now called Dvorak or simplified keyboards, 
+were initially developed for two-handed typists. Following World 
+War II, Dvorak layouts were developed for typists who use the right 
+or left hand alone.
+
+INSTALLING A DVORAK KEYBOARD LAYOUT FOR MS-DOS
+----------------------------------------------
+The MS-DOS Supplemental Disk provides the DVORAK.SYS file. This 
+file supports the Dvorak keyboard layouts for two-handed and 
+single-handed typists who use MS-DOS 6.22.
+
+To install a United States (U.S.) Dvorak keyboard layout for MS-DOS:
+
+1. Run the Setup program included with the Supplemental disk files.
+   For example, if your Supplemental disk files are on a floppy
+   disk for drive A, insert the disk in drive A, and change to
+   that drive by typing the following at the command prompt:
+
+   A:
+
+   To run the Setup program, you need to specify the drive and directory
+   to which you want to install the files. For example, if you want to
+   install the files on drive C in a directory called SUPP, type
+   the following at the command prompt:
+
+   SETUP C:\SUPP
+
+   Follow the instructions on your screen.
+
+2. Copy the DVORAK.SYS file to the directory that contains your
+   MS-DOS files. For example, if the file is in C:\SUPP and your
+   MS-DOS files are contained in C:\DOS, type the following at
+   the command prompt:
+
+   COPY C:\SUPP\DVORAK.SYS C:\DOS\DVORAK.SYS
+   
+3. To begin using one of the new keyboard layouts, type the 
+   appropriate command (as shown in the table below) at the MS-DOS 
+   command prompt and press ENTER.
+        
+   Keyboard Layout          Command
+   ---------------------------------------------------------
+   Two-handed Dvorak        KEYB DV,,C:\DOS\DVORAK.SYS
+
+   Right-handed Dvorak      KEYB RH,,C:\DOS\DVORAK.SYS
+
+   Left-handed Dvorak       KEYB LH,,C:\DOS\DVORAK.SYS
+
+To load one of these keyboard layouts automatically when your 
+computer starts, include the appropriate KEYB command in your 
+AUTOEXEC.BAT file. The KEYB command should be placed after a 
+PATH command that includes your MS-DOS directory. If your 
+AUTOEXEC.BAT file includes the win or dosshell command, make 
+sure the KEYB command comes before the WIN or DOSSHELL command.
+
+Once you have loaded one of the Dvorak layouts, you can easily 
+switch between the Dvorak layout and the U.S. standard layout.
+
+* To switch back to the U.S. standard layout, press CTRL+ALT+F1.
+
+* To switch to the Dvorak layout, press CTRL+ALT+F2.
+
+* To disable the United States (U.S.) Dvorak keyboard layout 
+  for MS-DOS
+
+* To disable the United States (U.S.) Dvorak keyboard layout 
+  for MS-DOS, delete the line with the KEYB command from your
+  AUTOEXEC.BAT file. 
+
+LEARNING TO USE THE DVORAK KEYBOARD LAYOUTS
+-------------------------------------------
+The illustrations on the next page can help you learn a new 
+keyboard layout. You may want to take a class or purchase stickers 
+to put on your keys so you see the new layout as you type. For 
+information about classes and stickers, contact:
+
+KEYTIME
+4516 NE 54th St.
+Seattle, WA  98105-2933 
+(206) 324-7219 (voice and fax)
+
+DVORAK KEYBOARD LAYOUTS FOR WINDOWS
+-----------------------------------
+Microsoft also provides Dvorak keyboard layouts for Microsoft 
+Windows, Microsoft Windows for Workgroups and Microsoft 
+Windows NT. Windows includes the Dvorak keyboard layout for 
+two-handed typists. The Dvorak layouts for single-handed typists 
+are available on the GA0650.ZIP file. If you have a modem, 
+you can download the GA0650.ZIP file from network services, 
+including the following:
+
+* CompuServe
+
+* GEnie
+
+* Microsoft OnLine
+
+* Microsoft Download Service (MSDL), which you can reach in the
+  United States by calling (206) 936-6735 or in Canada by calling 
+  (416) 507-3022. Use a baud rate of 1200, 2400, or 9600, no parity bit, 
+  8 data bits, and 1 stop bit. The file containing the layouts on 
+  MSDL is named GA0650.EXE.
+
+* Various user-group bulletin boards (such as the bulletin-board 
+  services on the Association of PC User Groups network)
+
+Users within the United States who do not have a modem can order 
+application note GA0650 by calling Microsoft Product Support 
+Services at (206) 637-7098 or (206) 635-4948 (text telephone).
+
+NOTE: If you use MS-DOS-based applications with Windows, you must 
+install the Dvorak layouts for MS-DOS to get Dvorak support for 
+those applications. 
+
+
+STANDARD QWERTY KEYBOARD LAYOUT
+--------------------------------------------
+ ~  !  @  #  $  %  ^  &  *  (  )  _  +     
+ `  1  2  3  4  5  6  7  8  9  0  -  =  bks 
+--------------------------------------------
+                                   {  }  |
+ tb  Q  W  E  R  T  Y  U  I  O  P  [  ]  \  
+--------------------------------------------
+ cps                             :  "       
+ lck  A  S  D  F  G  H  J  K  L  ;  '  entr 
+--------------------------------------------
+                            <  >  ?
+ shft  Z  X  C  V  B  N  M  ,  .  /   shft  
+--------------------------------------------
+
+
+TWO-HANDED DVORAK KEYBOARD LAYOUT
+--------------------------------------------
+ ~  !  @  #  $  %  ^  &  *  (  )  {  }      
+ `  1  2  3  4  5  6  7  8  9  0  [  ]  bks 
+--------------------------------------------
+     "  <  >                       ?  +
+ tb  '  ,  .  P  Y  F  G  C  R  L  /  =  \  
+--------------------------------------------
+ cps                                _       
+ lck  A  O  E  U  I  D  H  T  N  S  -  entr 
+--------------------------------------------
+           :                                    
+ shft  ;  Q  J  K  X  B  M  W  V  Z   shft  
+--------------------------------------------
+
+
+RIGHT SINGLE-HANDED DVORAK KEYBOARD LAYOUT
+--------------------------------------------
+ ~  !  @  #  $                 ?  {  }      
+ `  1  2  3  4  J  L  M  F  P  /  [  ]  bks 
+--------------------------------------------
+     %  ^     >                    :  +  |
+ tb  5  6  Q  .  O  R  S  U  Y  B  ;  =  \  
+--------------------------------------------
+ cps  &  *                          _       
+ lck  7  8  Z  A  E  H  T  D  C  K  -  entr 
+--------------------------------------------
+       (  )     <                 "
+ shft  9  0  X  ,  I  N  W  V  G  '   shft  
+--------------------------------------------
+
+
+LEFT SINGLE-HANDED DVORAD KEYBOARD LAYOUT
+--------------------------------------------
+ ~  {  }  ?                 $  #  @  !      
+ `  [  ]  /  P  F  M  L  J  4  3  2  1  bks 
+--------------------------------------------
+     :                       >  ^  %  +  |
+ tb  ;  Q  B  Y  U  R  S  O  .  6  5  =  \  
+--------------------------------------------
+ cps  _                          *  &       
+ lck  -  K  C  D  T  H  E  A  Z  8  7  entr 
+--------------------------------------------
+       "                    <  )  (
+ shft  '  X  G  V  W  N  I  ,  0  9   shft  
+--------------------------------------------

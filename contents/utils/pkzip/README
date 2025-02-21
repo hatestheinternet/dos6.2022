@@ -1,0 +1,55 @@
+NOTE:
+
+  This disk contains the REGISTERED versions of PKZIP/PKUNZIP etc. These 
+  files are not for distribution as Shareware.  The Shareware versions of 
+  PKZIP/PKUNZIP are included in the file PKZ204G.EXE. (Due to space 
+  limitations, this is included in 3.5" diskette packages only) If you 
+  distribute PKUNZIP, PKZIP, and PKSFX to friends, associates, or to a 
+  computer bulletin board system (BBS), please distribute the Shareware 
+  file PKZ204g.EXE rather than the individual files for PKUNZIP, PKZIP and 
+  PKSFX.
+
+
+The files on this disk are:
+---------------------------
+
+readme			This file
+install.bat		Batch file for installing PKZIP onto your
+			hard disk.  Usage: install [src:] [dest:]
+
+			Example:  install a: c:
+			
+			will install the software from the A: drive
+			to the C: drive.
+
+addendum.doc		Update information not in the PKZIP manual.
+whatsnew.204		Highlights of new features in version 2.04
+v204g.new		Changes/updates in version 2.04g from 2.04c
+hints.txt		Hints to using PKZIP/PKUNZIP most efficiently
+			and answers to frequently asked questions about
+			the software.
+
+pkzip.exe		PKZIP 2.04g REGISTERED version
+pkunzip.exe		PKUNZIP 2.04g REGISTERED version
+pkzipfix.exe		PKZIPFIX version 2.04g
+zip2exe.exe		ZIP2EXE (PKSFX) 2.04g REGISTERED version
+pkunzjr.com		PKUNZJR (PKUNZIP junior) version 2.04g
+putav.exe		PUTAV version 2.04g
+pkcfg.exe		PKCFG (PK config) version 2.04g - FREE BONUS!!
+pksfansi.com		PKSFANSI (PKSafeAnsi) 2.04g	- FREE BONUS!!
+
+pksfansi.doc		Doc file for PKSafeAnsi 2.04g
+license.doc		Information on Site and Distribution licenses
+order.doc		Order form for PKZIP
+appnote.txt		Application notes for the .ZIP file format
+ombudsmn.asp		Association of Shareware Professionals Ombudsman
+			information file.
+pkzip.ico		Windows icon for PKZIP/PKUNZIP.
+authveri.frm		Authenticity Verification application form
+
+
+PKZ204G.EXE is the Shareware version of PKZIP 2.04g which can be
+distributed to BBS's etc.  This is only included in 3.5" disk packages.
+-----------------------------------------------------------------------
+pkz204g.exe		Shareware version of PKZIP 2.04g
+

@@ -1,0 +1,54 @@
+XFS 1.77 - Improved Pcnfsd Login
+================================
+
+
+  The new per-drive-authentication supports the use of multiple 
+pcnfsd-domains (eg. NIS domains) and the use of multiple user names 
+for each mounted drive:
+
+#
+# Login Script Sample
+#
+
+  pcnfsd auth-server-1         // 1st. auth domain (eg. NIS domain)
+  
+    login robertj test
+    mount d: server:/fs        // use robertj's uid/gid
+  
+    login admin test
+    mount e: server:/fs        // use admin's uid/gid
+
+  pcnfsd auth-2                // 2nd. auth domain
+  
+    login robertj test
+    mount f: other-server:/fs  // robertj's uid/gid in auth-2 domain
+
+
+  dlogin e:    // (new) change the login (uid/gid/username)) for drive e:
+  logout d:    // logout from d: (the drive remains mounted 
+               //   but the user is nobody (-1,-1)
+  logout all   // logout from all drives
+
+
+New Commands
+------------
+
+dlogin {drive: | LPTn: | ALL}    re-authenticate yourself
+logout [drive: | LPTn: | ALL]    logout from device
+
+
+Changed
+-------
+
+login [[user] | [user passwd]]   `login <user>' is possible now.
+                                 In this case Xfstool will ask for
+                                 <user>'s password only.
+                                 
+
+Note
+----
+
+XFS ever uses for new drive mounts the last uid/gid/username obtained
+from `login', `dlogin' or `logout'. If you're planing to mount drives
+within one authentication domain (uid/gid name space) and under one
+login name only, you'll need to execute only one `login' command.

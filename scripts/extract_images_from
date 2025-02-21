@@ -1,0 +1,62 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]; then
+	echo "You need to specify a source file and destination directory"
+	exit 1
+fi
+
+DIR_PER=0
+
+SRCFIL=$1
+shift 1
+
+if [ "x${SRCFIL}" = "x-d" ]; then
+	echo "Creating one subdirectory per disk"
+	DIR_PER=1
+	
+	SRCFIL=$1
+	shift 1
+fi
+
+if [ ! -f "${SRCFIL}" ]; then
+	echo "Unable to find ${SRCFIL}"
+	exit 1
+fi
+
+DEST=$1
+shift
+
+if [ -e "${DEST}" ]; then
+	echo "Destination ${DEST} exists!"
+	exit 1
+fi
+
+. scripts/functions.inc
+
+EXTRACT_TO=$(junk_name)
+FLOPPY_MOUNT=$(junk_name)
+
+run_extractor "${SRCFIL}" "${EXTRACT_TO}"
+
+mkdir -pv "${EXTRACT_TO}"
+mkdir -pv "${FLOPPY_MOUNT}"
+find ${EXTRACT_TO} -name \*.img -type f | while read file; do
+	TO_DIR=${DEST}
+	if [ ${DIR_PER} -eq 1 ]; then
+		DISKNUM=`echo ${file} | sed -E -e 's@.*disk([0-9]+)\.img@\1@i' -e 's/^0*([0-9]+)/\1/'`
+		TO_DIR=${DEST}/DISK${DISKNUM}
+	fi
+
+	if [ ! -d "${TO_DIR}" ]; then
+		mkdir -pv "${TO_DIR}"
+	fi
+
+	sudo mount -v "${file}" ${FLOPPY_MOUNT}
+	cp -av ${FLOPPY_MOUNT}/* ${TO_DIR}/
+	sync
+	sudo umount -vf "${FLOPPY_MOUNT}"
+done
+
+rm -rf "${EXTRACT_TO}"
+rm -rf "${FLOPPY_MOUNT}"
+

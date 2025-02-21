@@ -1,0 +1,33 @@
+#
+# XFS Version 1.8
+# Command Script
+#
+# see  `Xfstool help <command>'  for more
+#
+# `dino' is  NFS-CLIENT
+# `speedy' is  NFS-SERVER
+# `speedy' is also PCNFSD-SERVER
+#
+
+init dino sm=255.255.255.0 gw=131.245.2.1 csum=off
+
+# or
+# init dino csum=off
+# or
+# init BOOTP csum=off
+
+# authentication
+
+pcnfsd speedy
+login
+
+mount    f: speedy:/usr/share/dos
+mount lpt2: speedy:laser timeo=30
+
+show
+rdate speedy
+
+# per-drive re-authentication
+# dlogin  f:
+# dlogin all
+

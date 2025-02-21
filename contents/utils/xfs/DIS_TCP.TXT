@@ -1,0 +1,22 @@
+
+DIS_PKT9.TCP
+============
+
+This is a minor modified version of DIS_PKT9.DOS, which allows
+concurrent use of IP stacks over NDIS and Packet Driver, like:
+
+	- XFS over Packet Driver and
+	- MS TCP/IP-(16/32 Bit) over NDIS
+	
+Please consult XFS.DOC for installing DIS_PKT9.TCP or DIS_PKT9.DOS.
+	
+The free source code is available from the author.
+
+BUGS
+====
+There are, I think, some timing problems with this version. It works
+for us on several 386DX/40 + SMC Elite running eXceed and other WINSOCK tools,
+but I've received at least one bug report that I can't fix.
+
+Robert Juhasz, May 10, 1994
+(robertj@lwfws1.uni-paderborn.de)

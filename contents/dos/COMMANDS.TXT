@@ -1,0 +1,2347 @@
+4201.CPI---------------------------------------------------------------------
+
+Code-page information file for IBM Proprinters II and III Model 4201,
+and IBM Proprinters II and III XL Model 4202.
+
+4208.CPI---------------------------------------------------------------------
+
+Code-page information file for IBM Proprinter X24E Model 4207, and 
+IBM Proprinter XL24E Model 4208.
+
+5202.CPI---------------------------------------------------------------------
+
+Code-page information file for IBM Quietwriter III printer.
+
+ADOS-------------------------------------------------------------------------
+
+Starts AccessDOS, a package of MS-DOS extensions for persons with motion 
+and hearing disabilities.
+
+See ADOS.TXT for information about using AccessDOS.
+
+SYNTAX
+------
+ADOS [/A] [/C] [/L] [/M] [/X]
+
+SWITCHES
+--------
+/A
+   Installs AccessDOS.
+
+/C
+   Runs AcessDOS in color mode.
+
+/L
+   Runs AccessDOS in LCD mode.
+
+/M
+   Runs AccessDOS in monochrome mode.
+
+/X
+   Runs AccessDOS in minimal mode.
+
+ASSIGN-----------------------------------------------------------------------
+
+Redirects requests for disk operations on one drive to a different drive. 
+
+Some older programs can read and write files only on drives A and B. With 
+the ASSIGN command, you can redirect disk operations for those programs so 
+that you can read and write files on drives other than A and B. 
+
+SYNTAX 
+------
+ASSIGN [x[:]=y[:][...]] 
+
+To redirect all drive letters to their original drives, use the following 
+syntax: 
+
+ASSIGN 
+
+To display a list of the current assignments, use the following syntax: 
+
+ASSIGN /STATUS 
+
+PARAMETERS 
+----------
+x  
+   Specifies the drive from which you want to redirect read and write 
+   operations. This value must be a letter. The use of the colon (:) 
+   is optional. y Specifies the existing drive to which you want to redirect 
+   read and write operations. This value must be a letter. The use of the 
+   colon (:) is optional. 
+  
+SWITCH
+------
+/STATUS  
+   Lists current assignments. You can abbreviate this switch as 
+   /STA or /S. 
+	 
+NOTES
+-----
+
+Invalid uses of ASSIGN 
+----------------------
+You must not assign the drive letter of your hard disk to another drive. 
+You should not use ASSIGN for a drive that is in use by a program. 
+
+You cannot use the drive letter of a hard disk drive that does not 
+exist for either the x or the y parameter. 
+
+Avoid the use of ASSIGN in the following cases: 
+o With commands requiring drive information (BACKUP, JOIN, LABEL, RESTORE, 
+  SUBST) 
+
+o With the DISKCOPY and FORMAT commands, which ignore drive reassignments 
+
+o During typical use of MS-DOS, unless a program cannot read and write files 
+  on the specified drive 
+
+Using ASSIGN with the APPEND command 
+------------------------------------
+If you use both the ASSIGN and APPEND commands, you must use APPEND first, 
+even if the commands affect different drives. 
+
+Using ASSIGN for network drives 
+-------------------------------
+You can use the ASSIGN command for network drives. 
+
+Canceling a previous assignment as the result of a new assignment 
+-----------------------------------------------------------------
+Assigning a drive letter to a drive cancels previous assignments to it. 
+Suppose you assign drive A to drive letter C, as the following example 
+shows: 
+
+ASSIGN A=C
+
+Later you assign drive B to drive letter C, as the following example shows: 
+
+ASSIGN B=C
+
+As a result, drive A is no longer assigned to drive letter C. 
+
+Using the SUBST command instead of ASSIGN 
+-----------------------------------------
+You should use the SUBST command instead of ASSIGN. The following commands 
+are equivalent: 
+
+ASSIGN A=C
+SUBST A: C:\
+
+EXAMPLES
+--------
+Suppose you want to use drive C to read and write files, but your program 
+requires you to put your program disk into drive A and your data disk into 
+drive B. To reassign the drive letters A and B to drive C, type the 
+following command: 
+
+ASSIGN A=C B=C
+
+This command causes MS-DOS to look for your program and data files on 
+drive C. 
+
+To reset all drive letters to their original drives, type the ASSIGN 
+command without parameters, as follows: 
+
+ASSIGN
+
+BACKUP---------------------------------------------------------------------
+
+Backs up one or more files from one disk onto another. 
+
+You can back up files onto either a hard disk or floppy disk(s). 
+Files can also be backed up from one floppy disk onto another, even 
+if the disks have different numbers of sides or sectors. MS-DOS displays 
+the name of each file it backs up. 
+
+SYNTAX 
+------
+BACKUP source destination-drive: [/S] [/M] [/A][/F[:size]] 
+   [/D:date [/T:time]][/L[:[drive:][path]logfile]] 
+
+PARAMETERS
+----------
+source  
+   Specifies the location of files you want to back up. 
+   Source can consist of a drive letter and colon, a directory name, 
+   a filename, or a combination. 
+	
+destination-drive:  
+   Specifies the drive that contains the disk on which you want to store 
+   any backup files. The backup files are stored in the BACKUP.nnn and 
+   CONTROL.nnn files. That is, BACKUP assigns the names BACKUP.001 
+   and CONTROL.001 to the files it creates on the first backup disk you 
+   use, BACKUP.002 and CONTROL.002 to the files it creates on the second 
+   backup disk, and so on. 
+   
+SWITCHES
+/S 
+   Backs up the contents of all subdirectories. 
+   
+/M 
+   Backs up only files that have changed since the last backup, 
+   and turns off the archive attribute of the original files. 
+   
+/A 
+   Adds backup files to an existing backup disk without deleting 
+   existing files. (The /A switch is ignored if the existing backup 
+   disk contains backup files that were created by using the BACKUP 
+   command from MS-DOS version 3.2 or earlier.) 
+   
+/F[:size] 
+   Formats the backup disk to the size you specify. (The FORMAT command 
+   must be present in the current path.) With this switch, you direct 
+   BACKUP to format floppy disks that do not match the default size of 
+   the drive. The BACKUP command formats an unformatted destination disk 
+   even if you do not specify the /F switch. When BACKUP finishes 
+   formatting, it begins backing up files onto the last disk it formatted. 
+   Size specifies the size in kilobytes of the disk to be formatted. If 
+   you do not specify size, the /F switch uses the default size of the 
+   drive. The following list shows the valid values for size and a brief 
+   description of each size: 
+   
+   160 or 160k or 160kb 
+      160K, single-sided, double-density, 5.25-inch disk 
+   180 or 180k or 180kb 
+      180K, single-sided, double-density, 5.25-inch disk 
+   320 or 320k or 320kb 
+      320K, double-sided, double-density, 5.25-inch disk 
+   360 or 360k or 360kb 
+      360K, double-sided, double-density, 5.25-inch disk 
+   720 or 720k or 720kb 
+      720K, double-sided, double-density, 3.5-inch disk 
+   1200 or 1200k or 1200kb or 1.2 or 1.2m or 1.2mb 
+      1.2-MB, double-sided, quadruple-density, 5.25-inch disk 
+   1440 or 1440k or 1440kb or 1.44 or 1.44m or 1.44mb 
+      1.44-MB, double-sided, quadruple-density, 3.5-inch disk 
+   2880 or 2880k or 2880kb or 2.88 or 2.88m or 2.88mb 
+      2.88-MB, double-sided, 3.5-inch disk 
+
+/D:date 
+   Backs up only files modified on or after the specified date. The 
+   date format depends on the setting you are using for the COUNTRY 
+   command. 
+/T:time Backs up only files modified at or after the specified time. 
+   The time format depends on the setting you are using for the COUNTRY 
+   command. 
+/L[:[drive:][path]logfile] 
+   Creates a log file and adds an entry to that file to record the 
+   backup operation. If you do not specify a location for the log file, 
+   BACKUP puts the file in the root directory of the source drive. If 
+   you do not specify logfile, BACKUP names the file BACKUP.LOG. You 
+   should not specify a removable drive (such as a floppy disk drive) 
+   for this parameter; but once the backup is complete, you can copy the 
+   log file to a floppy disk. 
+
+NOTES
+-----
+
+Backing up onto a disk with files
+---------------------------------
+Unless you use the /A switch, BACKUP deletes old files (including 
+read-only files) from a backup disk before adding new files to it. 
+
+Backup log file 
+---------------
+If you use the /L switch and do not specify a name and location for 
+the log file, the BACKUP command adds a file named BACKUP.LOG to the 
+root directory of the source drive. If the BACKUP.LOG file already 
+exists, BACKUP adds the current entry to the file. A backup log-file 
+entry uses the following format: 
+
+o The date and time of the backup appear on the first line. 
+o Each filename appears on a separate line with the number of 
+  the backup disk that contains the file. 
+
+The backup log file can assist you later, when you need to identify 
+the files you want to restore. The RESTORE command always returns a 
+file to the original directory or subdirectory recorded in the backup 
+log, creating the subdirectory if necessary. 
+
+Labeling backup disks 
+---------------------
+It is important to label and number backup disks consecutively. As each 
+disk is filled, BACKUP prompts you for the next disk. When you restore 
+files, you need to insert the backup disks into the disk drive in the 
+same sequence. To check the sequence of backup disks (MS-DOS version 3.3 
+or later), use the DIR command to check the disk number. 
+
+BACKUP and system files 
+-----------------------
+The BACKUP command cannot back up the system files IO.SYS, MSDOS.SYS, 
+and COMMAND.COM. You can use the SYS command to copy these files onto 
+a floppy disk. 
+
+Using an old version of the RESTORE command 
+-------------------------------------------
+You cannot use an old version of the RESTORE command (MS-DOS version 
+3.2 or earlier) for files backed up with MS-DOS version 3.3 or later. 
+If you attempt this, MS-DOS displays the following message: 
+   
+   Source does not contain backup files 
+   
+This error occurs because the format of old backup files differs from 
+the format of files backed up with MS-DOS versions 3.3 and later. 
+
+Using BACKUP with networks or redirected drives or directories 
+--------------------------------------------------------------
+If you are sharing files on a network, you can back up only those 
+files to which you have access. You should not use BACKUP with a drive 
+that has been redirected with the ASSIGN, JOIN, or SUBST command. If you 
+do, the RESTORE command may not be able to restore the files. 
+
+Backup exit codes 
+-----------------
+The following list shows each exit code and a brief description of its 
+meaning: 
+
+0    The backup was successful.
+
+1    No files were found to back up.
+
+2    Some files were not backed up because of file-sharing conflicts.
+
+3    The user pressed CTRL+C to stop the process.
+
+4    The process stopped because of an error.
+
+You can use the ERRORLEVEL parameter on the IF command line in a 
+batch program to process exit codes returned by the BACKUP command. 
+ 
+EXAMPLES
+--------
+Suppose you want to back up all the files in the \PUBLIC\SMITH directory 
+on drive C onto a blank, formatted disk in drive A. To do so, type the 
+following: 
+
+BACKUP C:\PUBLIC\SMITH\*.* A:
+ 
+Suppose you need to back up all files in the \PUBLIC\SMITH directory 
+on drive C onto a 720K floppy disk in drive B. If the floppy disk is 
+unformatted, BACKUP formats it before backing up any files. Because the 
+/S switch is not specified in the following command, files in 
+subdirectories are not backed up: 
+
+BACKUP C:\PUBLIC\SMITH\*.* B: /F:720K
+
+To write a simple batch program named SMITH that supports the BACKUP 
+command's exit codes and the /S switch, you can type the following 
+commands by using MS-DOS Editor: 
+
+echo off
+rem Smith's backup command
+backup c:\public\smith\*.* b: /s
+if errorlevel 4 goto error
+if errorlevel 3 goto abort
+if errorlevel 2 goto conflict
+if errorlevel 1 goto no_files
+if errorlevel 0 goto success
+:error
+echo Backup stopped the process due to an error
+goto exit
+:abort
+echo You just pressed CTRL+C to stop the backup
+goto exit
+:conflict
+echo One or more files were not backed up due to a sharing conflict
+goto exit
+:no_files
+echo Sorry, but there were no files to back up
+goto exit
+:success
+echo The backup was successful
+goto exit
+:exit
+
+CHOICE----------------------------------------------------------------------
+
+A command used by the Setup program. The CHOICE.COM file is the same one
+included with MS-DOS 6.22.
+
+COMP------------------------------------------------------------------------
+
+Compares the contents of two files or sets of files byte by byte. 
+
+COMP can compare files on the same drive or on different drives, in 
+the same directory or in different directories. As COMP compares the 
+files, it displays their locations and filenames.
+ 
+SYNTAX 
+------
+COMP [data1] [data2] [/D] [/A] [/L] [/N=number] [/C]
+
+PARAMETERS
+---------- 
+data1 
+   Specifies the location and name of the first file or set of files 
+   you want to compare. You can use wildcards (* and ?) to specify 
+   multiple files. 
+
+data2 
+   Specifies the location and name of the second file or set of files 
+   you want to compare. You can use wildcards (* and ?) to specify 
+   multiple files. 
+
+SWITCHES
+--------
+/D 
+   Displays differences in decimal format. (The default format is 
+   hexadecimal.) 
+
+/A 
+   Displays differences as characters. 
+
+/L 
+   Displays the number of the line on which a difference occurs, 
+   instead of displaying the byte offset. 
+
+/N=number 
+   Compares the first number of lines of both files, even if the 
+   files are different sizes. 
+
+/C 
+   Performs a comparison that is not case-sensitive. 
+
+NOTES
+-----
+
+Comparing files with the same names
+-----------------------------------
+The files you want to compare can have the same filename, provided 
+they are in different directories or on different drives. If you do 
+not specify a filename for data2, the default filename for data2 is 
+the same as the filename in data1. You can use wildcards (* and ?) 
+to specify filenames. 
+
+Special cases for data1 and data2 
+---------------------------------
+If you omit necessary components of either data1 or data2 or if you 
+omit data2, COMP prompts you for the missing information. If data1 
+contains only a drive letter or a directory name with no filename, 
+the default filename for data1 is *.*. Therefore, COMP compares all 
+the files in the specified directory to the file specified in data2. 
+If data2 contains only a drive letter or a directory name, the 
+default filename for data2 is the same as that in data1. 
+
+How the COMP command identifies mismatching information 
+-------------------------------------------------------
+During the comparison, COMP displays messages to identify the 
+locations of unequal information in the two files. Each message 
+indicates the offset memory address of the unequal bytes and the 
+contents of the bytes themselves (in hexadecimal notation unless 
+you specify the /A or /D switch). The message has the following 
+format: 
+
+   Compare error at OFFSET xxxxxxxx
+   file1 = xx
+   file2 = xx
+
+After 10 unequal comparisons, COMP stops comparing the files and 
+displays the following message: 
+
+   10 Mismatches – ending compare 
+
+Comparing files of different sizes 
+----------------------------------
+You cannot compare files of different sizes unless you specify the 
+/N switch. If the file sizes are different, COMP displays the 
+following message: 
+
+   Files are different sizes
+   Compare more files (Y/N)?
+
+Press Y to compare another pair of files. Press N to stop the COMP 
+command. 
+
+If you press Y in response to the prompt, COMP includes any switches 
+you specified on the command line in every comparison it makes, 
+until you press N or retype the command. 
+
+When comparing files of different sizes, use the /N switch to 
+compare only the first portion of each file. 
+
+Comparing files sequentially 
+----------------------------
+If you use wildcards to specify multiple files, COMP finds the first 
+file matching data1 and compares it with the corresponding file in 
+data2, if it exists. COMP reports the results of the comparison, 
+then does the same for each file matching data1. When finished, 
+COMP displays the following message: 
+
+   Compare more files (Y/N)? 
+
+To compare more files, press Y. COMP prompts you for the locations 
+and names of the new files. To stop the comparisons, press N. When 
+you press Y, COMP prompts you for switches to use. If you don't 
+specify any switches, COMP uses the ones you specified before. 
+
+If COMP cannot find the files 
+-----------------------------
+If COMP cannot find the file(s) you specify, it prompts you with a 
+message to determine whether you want to compare more files. 
+
+CV--------------------------------------------------------------------------
+
+Starts CodeView versions 3.0 through 3.13.
+
+CAUTION: Using versions 3.0 to 3.13 of the CodeView CV.EXE
+file may cause data loss if your system has a 80386 memory
+manager (such as EMM386.EXE) and device drivers or programs
+that use extended memory. To determine which version you
+have, type CV.EXE at the command prompt.
+
+To start CodeView versions 3.0 to 3.13 safely, use the
+CV.COM file included with the Supplemental disk, and HIMEM.SYS 
+version 2.77 or later.
+
+To use the CV.COM file included with the Supplemental disks, copy it
+to the directory that contains your CV.EXE file.
+
+This problem has been fixed in CodeView version 3.14. Call
+Microsoft C Support to get this version.
+
+DRVBOOT---------------------------------------------------------------------
+
+Creates a bootable DriveSpace floppy disk. 
+
+SYNTAX
+------
+DRVBOOT [drive:]
+
+PARAMETER
+---------
+[drive:]
+   Specifies the floppy disk drive for the DriveSpace floppy disk.
+
+NOTES
+-----
+You can use the floppy disk to start any system with MS-DOS 6.22.
+Because the disk is compressed, you can include many more
+files on the disk than on most uncompressed disks.
+
+Before you can use DRVBOOT, you must install DriveSpace on your
+hard disk. DRVBOOT only works with high-density (1.44 or 1.2 MB) 
+floppy disks.
+
+DVORAK.SYS------------------------------------------------------------------
+
+Provides alternative keyboard layouts for people who have difficulty
+using the standard QWERTY layout.
+
+The commands for installing the layouts in your CONFIG.SYS file are as 
+follows. (If DOS is not the directory that contains your MS-DOS files, 
+substitute the correct directory name in the commands below.)
+
+Two-handed layout
+-----------------
+keyb dv,,c:\dos\dvorak.sys
+
+Left-handed layout
+------------------
+keyb lh,,c:\dos\dvorak.sys
+
+Right-handed layout
+-------------------
+keyb rh,,c:\dos\dvorak.sys
+
+EDLIN-----------------------------------------------------------------------
+
+Starts Edlin, a line-oriented text editor with which you can create 
+and change ASCII files. 
+
+Edlin numbers each line of the text file that is located in memory. 
+You can use Edlin to insert, modify, copy, move, and delete lines 
+of the file. If you want to use a full-screen editor, use the EDIT 
+command. 
+
+SYNTAX
+------
+EDLIN [drive:][path] filename [/B] 
+
+PARAMETER
+---------
+[drive:][path] filename 
+   Specifies the location and name of an ASCII file on a disk. If 
+   the file exists, Edlin opens it. If the file does not exist, 
+   Edlin creates a file in memory and uses the specified location 
+   and filename to create the file on a disk when you use the Edlin 
+   E command. 
+
+SWITCH
+------
+/B 
+   Specifies that Edlin is to ignore the end-of-file character 
+   (CTRL+Z). 
+
+NOTES
+-----
+
+Maximum line length 
+-------------------
+Edlin accepts a maximum of 253 characters per line. 
+
+Edlin commands 
+--------------
+The following is a list of Edlin commands with a brief description 
+of each command: 
+
+[line] 
+   Displays the line you specify. 
+
+? 
+   Displays a list of Edlin commands. 
+
+A 
+   Loads a portion of a file into memory when insufficient memory 
+   prohibits loading the entire file. 
+
+C 
+   Copies a block of consecutive lines to the line number you 
+   specify. 
+
+D 
+   Deletes a block of consecutive lines. 
+
+E 
+   Writes the edited file from memory to a disk (saves the file), 
+   and stops the Edlin session. 
+
+I 
+   Inserts one or more lines. 
+
+L 
+   Displays a block of consecutive lines. 
+
+M 
+   Moves a block of consecutive lines. 
+
+P 
+   Displays a file one page at a time. 
+
+Q 
+   Stops the Edlin session without writing the edited file from 
+   memory to a disk. 
+
+R 
+   Searches for a string of one or more characters, and replaces 
+   it. 
+
+S 
+   Searches for a string of one or more characters. 
+
+T 
+   Merges the contents of another file on a disk with the contents 
+   of the file that is in memory. 
+
+W 
+   Writes the first portion of the file in memory to a disk. 
+
+Meaning of the asterisk character in Edlin 
+------------------------------------------
+The asterisk (*) is used for two purposes in Edlin. When an 
+asterisk appears as the only character on the display line, it is 
+the Edlin prompt after which you type Edlin commands. When an 
+asterisk appears after a line number on the display line, it 
+indicates that the line is the current line (where the cursor is 
+located). 
+
+Meaning of a page of text 
+-------------------------
+A page of text is one full screen of information. With a 25-line 
+screen mode, Edlin displays 24 lines of text per page. The number 
+of lines per page depends on the screen mode you are using. 
+
+Starting and stopping insert mode 
+---------------------------------
+To insert lines into the file in memory, use the Edlin I (insert) 
+command. Once you have finished inserting lines, press ENTER and 
+then CTRL+C to stop insert mode. For more information about 
+inserting lines, see the Edlin I command. 
+
+Editing keys 
+------------
+MS-DOS provides several editing keys that you can use to edit the 
+file in memory. 
+
+EDLIN:[line]----------------------------------------------------------------
+
+Displays the line of text you specify. 
+
+When you type a line number as a command, Edlin displays two lines. 
+The first line contains the number you specified and its associated 
+text. The second line contains the number again, followed by the 
+cursor. The text on the first line of the display serves as a 
+template for the second line. On the second line of the display, you 
+can press ENTER to cancel the command without changing the text, 
+type replacement text, or edit the line of text. 
+
+SYNTAX
+------ 
+[line] 
+
+PARAMETERS
+----------
+line 
+   Specifies the number of the line you want Edlin to display. To 
+   see the number and text of the current line, press ENTER. 
+
+NOTE
+----
+
+Entering changes into memory 
+----------------------------
+After you edit a line, press ENTER to enter the changes into 
+memory. 
+
+Caution
+If you press ENTER while the cursor is in the middle of a line, 
+Edlin deletes the portion of the line that is between the cursor 
+and the end of the line. 
+
+For information about saving the edited file from memory to a disk, 
+see the Edlin E and Edlin W commands. 
+
+EXAMPLE
+-------
+Suppose that the following file is in memory and ready to edit. 
+When you use the Edlin L (list) command at the Edlin prompt, Edlin 
+displays the contents of the file. 
+
+   1: Dear Mr. Muster:
+   2:
+   3: Congratulations on your promotion
+   4: to the position of Senior Chemical
+   5: Engineer. I continue to be most
+   6: impressed with your work.
+
+To edit line 6, type 6. Edlin displays the following two lines: 
+
+   6:*impressed with your work.
+   6:*_
+
+The first line contains the specified line number and its associated 
+text. The second line contains the same line number and the cursor. 
+
+Now suppose you want to insert the word "fine" before the word 
+"work" in the previous example. You can specify that Edlin is to 
+redisplay a portion of the first line, beginning at the cursor 
+position on the second line. First, press F2 and type W. Edlin 
+displays up to, but not including, the first “w” in line 6, as 
+follows: 
+
+   6:*impressed _
+
+Then, press F2 and type W again. Edlin displays up to, but not 
+including the next "w" in line 6, as follows: 
+
+   6:*impressed with your _
+
+Now press the INSERT key and type FINE and then a space. Then press 
+the F3 key. Edlin displays the edited line, as follows: 
+
+   6:*impressed with your fine work._
+
+Press ENTER to accept the change. 
+
+At the Edlin prompt, use the Edlin L (list) command to see a display 
+of the edited file now in memory. Edlin displays the following: 
+
+   1: Dear Mr. Muster:
+   2:
+   3: Congratulations on your promotion
+   4: to the position of Senior Chemical
+   5: Engineer. I continue to be most
+   6:*impressed with your fine work.
+
+EDLIN: A(APPEND)------------------------------------------------------------
+
+Loads a portion of a file into memory when insufficient memory 
+prevents Edlin from loading the entire file. 
+
+When you start Edlin, it reads as many lines as possible from your 
+disk file into memory. If the size of your file exceeds available 
+memory, you must edit your file in stages. That is, you edit the 
+first part of the file, write that part of the file to your disk by 
+using the W (write) command, and then load more unedited lines from 
+your disk into memory. 
+
+SYNTAX
+------
+[n]A 
+
+PARAMETERS
+---------- 
+n 
+   Specifies the number of lines you want Edlin to read into 
+   memory from the disk. 
+
+NOTES
+-----
+
+Default setting 
+---------------
+If you do not specify a value for n, Edlin loads lines from the 
+disk file until available memory is 75-percent full. If available 
+memory is already 75-percent full, Edlin loads no lines. 
+
+Freeing extra memory 
+--------------------
+If available memory is already full, you may be able to free memory 
+by writing a portion of the file to a disk, by stopping other 
+programs, or by restarting MS-DOS after quitting MS-DOS Editor. 
+Restarting MS-DOS clears memory being used by memory-resident 
+programs. 
+
+End-of-file message 
+-------------------
+After the A command reads the last line of the file into memory, 
+Edlin displays the following message: 
+
+   End of input file 
+
+EXAMPLE
+-------
+Suppose the last 100 lines of your disk file do not fit into 
+memory. After you edit the first part of the file and write a 
+portion of it back to a disk, you can type the following command to 
+load the remaining 100 lines into memory: 
+
+   100a 
+
+EDLIN: C(COPY)------------------------------------------------------
+
+Copies a block of consecutive lines to one or more locations within 
+the file in memory. 
+
+The C command copies the block of consecutive lines you specify to 
+a line number you specify. This block can be copied as many times 
+as necessary. 
+
+SYNTAX
+------
+[line1],[line2],line3[,count]C 
+
+PARAMETERS
+----------
+line1 
+   Specifies the first line you want Edlin to copy. 
+
+line2 
+   Specifies the last line you want Edlin to copy. 
+
+line3 Specifies the line before which Edlin is to insert the 
+   specified block of lines. 
+
+count 
+   Specifies the number of times you want Edlin to copy the block 
+   of lines. 
+
+NOTES
+-----
+
+Default settings 
+----------------
+If you omit line1 or line2, Edlin copies only the current line. You 
+must include the commas on the command line even if you omit one or 
+both of these parameters. 
+
+If you omit the count parameter, Edlin copies the lines one time. 
+
+Line renumbering 
+----------------
+After Edlin copies lines, you can use the Edlin L (list) command at 
+the Edlin prompt to see the correctly renumbered lines. 
+
+Overlapping line numbers 
+------------------------
+The line you specify for theline3 parameter cannot be part of the 
+block of lines to be copied. If you overlap line numbers in this 
+way, Edlin cannot complete the copy operation and displays the 
+following message: 
+
+   Entry error 
+
+For example, the following command results in an error message: 
+
+   3,20,15c 
+
+EXAMPLES
+--------
+If you type the following command, Edlin copies lines 1 through 5 
+one time, beginning on line 6: 
+
+   1,5,6c 
+
+Lines 6 through 10 become identical to lines 1 through 5. 
+
+To copy the current line to line 5, use the following command: 
+
+   ,,5c 
+
+EDLIN: D(DELETE)------------------------------------------------------------
+
+Deletes the block of consecutive lines you specify. 
+
+SYNTAX
+------
+[line1][,line2]D 
+
+PARAMETERS
+----------
+line1 
+   Specifies the first line you want Edlin to delete. 
+line2 
+   Specifies the last line you want Edlin to delete. 
+
+NOTES
+-----
+
+Default parameter values 
+------------------------
+If you omit both parameters or only the line2 parameter, Edlin 
+deletes the current line. However, if you omit only the line1 
+parameter, Edlin deletes the block of text that includes the current 
+line through the line whose number is specified for line2. In the 
+latter case, you cannot specify a line number for line2 that 
+precedes the current line number. In general, the number you 
+specify for line2 cannot be smaller than the number you specify for 
+line1. If you omit only the line1 parameter, you need to insert a 
+comma as a placeholder preceding line2, as shown in the syntax 
+line. 
+
+Line renumbering 
+----------------
+After Edlin deletes lines, you can use the Edlin L (list) command 
+at the Edlin prompt to see the correctly renumbered lines that 
+remain. 
+
+EXAMPLES
+--------
+If you want Edlin to delete line 7, type: 
+
+   7d 
+
+If you want Edlin to delete the block of text on lines 22 through 
+32, type the following command: 
+
+   22,32d 
+
+Finally, suppose that the number of the current line is 7. To 
+specify that Edlin is to delete the block of text that includes the 
+current line through line 11, type the following command: 
+
+   ,11d 
+
+EDLIN: E(EDLIN)-------------------------------------------------------------
+
+Writes the current file from memory to a disk and stops the Edlin 
+session. 
+
+The E command renames the original input file on the disk with the 
+.BAK extension, writes the edited file from memory to the original 
+input file on the disk, and then stops the Edlin session. However, 
+if the file in memory is one that you created during this session 
+rather than one that Edlin loaded from a disk, Edlin does not 
+create a backup (.BAK) file on the disk. 
+
+SYNTAX
+------
+E 
+
+NOTES
+-----
+
+Default drive and directory 
+---------------------------
+Edlin writes the edited file from memory to the drive, directory, 
+and filename on a disk that you specified when you started the 
+current Edlin session. If you omitted a drive name at that time, 
+Edlin writes to the current drive. If you omitted a directory name 
+at that time, Edlin writes to the current directory. 
+
+Checking for disk space 
+-----------------------
+Before using the E command, you should be sure your disk contains 
+enough free space for the entire edited file that is in memory. If 
+it does not, Edlin loses part or all of the file. 
+
+Read-only .BAK file 
+-------------------
+Suppose you want Edlin to save an edited file from memory to a 
+disk, but the .BAK version of the file is a read-only file. In this 
+case, Edlin displays a message in the following format to inform 
+you that Edlin cannot replace the .BAK file: 
+
+   Access denied  - [drive:][path] filename.BAK 
+
+Both the original and backup versions of your file on the disk 
+remain unchanged. 
+
+EDLIN: I(INSERT)------------------------------------------------------------
+
+Inserts lines before the line number you specify in the edited file 
+in memory. 
+
+If you are creating a new file, you must type the I command before 
+you can insert a new line. Edlin displays the next line number each 
+time you press ENTER. Edlin remains in insert mode until you press 
+CTRL+C. 
+
+SYNTAX
+------
+[line]I 
+
+PARAMETERS
+----------
+line 
+   Specifies the line number before which you want Edlin to insert 
+   lines. The default value of line is the number of the current 
+   line. 
+
+NOTES
+-----
+
+Line renumbering 
+----------------
+When you quit insert mode, the line immediately following the 
+inserted lines becomes the current line. You can use the Edlin L 
+(list) command at the Edlin prompt to see the correctly renumbered 
+lines. 
+
+Inserting control characters 
+----------------------------
+To insert a control character in text, type ^V followed by the 
+ASCII symbol that represents the control character. For example, to 
+insert an escape character (CTRL+[), type the following: 
+
+   ^V[ 
+
+To insert a character that produces a tone (CTRL+G), type the 
+following: 
+
+   ^VG 
+
+Appending text 
+--------------
+If the value for line exceeds the number of lines in the file you 
+are editing or if you specify a number sign (#) for line, Edlin 
+appends the inserted line(s) to the end of the file. In either 
+case, the last line you insert becomes the current line. If only a 
+portion of the file is in memory, the line is appended at the end 
+of the portion in memory. 
+
+EXAMPLES
+--------
+Suppose you have used the Edlin L (list) command at the Edlin 
+prompt to display the following text on your screen: 
+
+    1: Dear Mr. Muster:
+    2:
+    3: Congratulations on your promotion
+    4: to the position of Senior Chemical
+    5: Engineer. I continue to be most
+    6: impressed with your work.
+    7:
+    8: Sincerely,
+    9:
+   10: S.L. Martin, President
+
+Suppose you want to add another paragraph to the letter. To insert 
+text before line 8, type 8I. Edlin displays the following: 
+
+   8:*_
+
+Now type the following line at the cursor on line 8: 
+
+   8:*I think you will enjoy working with
+
+Press ENTER at the complete of each new line and continue by typing 
+the following lines: 
+
+    9:*Mr. Lang on the new project. Please
+   10:*let me know if there is anything I
+   11:*can do to assist you.
+
+Edlin displays the following: 
+
+   12:*_
+
+Insert a blank line by pressing ENTER and complete the insertion by 
+pressing CTRL+C on the next line. You can type 1L to see the 
+following correctly renumbered lines: 
+
+    1: Dear Mr. Muster:
+    2:
+    3: Congratulations on your promotion
+    4: to the position of Senior Chemical
+    5: Engineer. I continue to be most
+    6: impressed with your work.
+    7:
+    8: I think you will enjoy working with
+    9: Mr. Lang on the new project. Please
+   10: let me know if there is anything I
+   11: can do to assist you.
+   12:
+   13:*Sincerely,
+   14:
+   15: S.L. Martin, President
+
+EDLIN: L(LIST)--------------------------------------------------------------
+
+Displays the block of consecutive lines you specify. 
+
+SYNTAX
+------
+[line1][,line2] l 
+
+PARAMETERS
+----------
+line1 
+   Specifies the first line you want Edlin to display. 
+
+line2 
+   Specifies the last line you want Edlin to display. 
+
+NOTES
+-----
+
+Default values
+--------------
+You can omit the line1 parameter, the line2 parameter, or both. The 
+following list describes the default value(s) for each of these 
+cases: 
+
+o If you omit only the line1 parameter, Edlin displays up to one 
+  page (full screen of text) at a time, beginning 11 lines before 
+  the current line and ending with the line whose number is 
+  specified in line2. When you omit only line1, you must insert a 
+  comma as a placeholder. 
+
+o If you omit only the line2 parameter, Edlin displays up to one 
+  page, beginning with the line whose number is specified in line1. 
+
+o If you use the Edlin L (List) command with no parameters, Edlin 
+  displays up to one page, beginning 11 lines before the current 
+  line. If you install the ANSI.SYS device driver, the number of 
+  lines Edlin displays per page depends on the type of monitor you 
+  have. This number might be greater than 24. 
+
+Blocks of more than one page
+----------------------------
+When the block of lines you specify contains more than one page, 
+Edlin displays the first page and then prompts you with the 
+following message: 
+
+   Continue (Y/N)? 
+
+EXAMPLE
+-------
+To see lines 5 through 10, type the following: 
+
+   5,10l 
+
+EDLIN: M(MOVE)---------------------------------------------------------------
+
+Moves the block of consecutive lines you specify to another 
+location in the file in memory. 
+
+SYNTAX
+------
+[line1],[line2],line3M 
+
+[line1],+n,line3M 
+
+PARAMETERS
+----------
+line1 
+   Specifies the first line you want Edlin to move. 
+
+line2 
+   Specifies the last line you want Edlin to move. 
+
+line3 
+   Specifies the line before which you want Edlin to move the block 
+   of lines. 
+
++n 
+   Specifies that you want Edlin to move the block of lines that 
+   begins with the line whose number is specified in line1 and 
+   includes the next n lines. If you omit the line1 parameter, the 
+   block of lines to be moved begins with the current line. 
+
+NOTES
+-----
+
+Line renumbering
+----------------
+After Edlin moves lines, you can use the Edlin L (list) command at 
+the Edlin prompt to see the correctly renumbered lines. 
+
+Overlapping line numbers 
+------------------------
+The line you specify for theline3 parameter cannot be part of the 
+block of lines to be moved. If you overlap line numbers in this 
+way, Edlin cannot complete the move operation and displays the 
+following message: 
+
+   Entry error 
+
+For example, the following command results in an error message: 
+
+   5,10,8m 
+
+EXAMPLES
+--------
+Suppose that the following file is in memory and ready to edit. You 
+can type 1L at the Edlin prompt to see the contents of the file. 
+    1: Dear Mr. Muster:
+    2:
+    3: Congratulations on your promotion
+    4: to the position of Senior Chemical
+    5: Engineer. I continue to be most
+    6: impressed with your hard work.
+    7:
+    8: I think you will enjoy working with
+    9: Mr. Lang on the new project. Please
+   10: let me know if there is anything I
+   11: can do to assist you.
+   12:
+   13: Sincerely,
+   14:
+   15: S.L. Martin, President
+   16: Rockdale Corporation
+   17: "A World Leader in Technology"
+
+What if you prefer to have the motto at the beginning of the memo? 
+You can move lines 16 and 17 before the existing line 1 by typing 
+the following command: 
+
+   16,17,1m 
+
+Type the Edlin L (list) command at the Edlin prompt to see the 
+following correctly renumbered lines: 
+
+    1: Rockdale Corporation
+    2: "A World Leader in Technology"
+    3: Dear Mr. Muster:
+    4:
+    5: Congratulations on your promotion
+    6: to the position of Senior Chemical
+    7: Engineer. I continue to be most
+    8: impressed with your hard work.
+    9:
+   10: I think you will enjoy working with
+   11: Mr. Lang on the new project. Please
+   12: let me know if there is anything I
+   13: can do to assist you.
+   14:
+   15: Sincerely,
+   16:
+   17: S.L. Martin, President
+
+The following command specifies that Edlin is to move the block of 
+lines including the current line through the next 25 lines to 
+immediately before line 100: 
+   ,+25,100m 
+
+EDLIN: P(PAGE)--------------------------------------------------------------
+
+Displays all or part of a file, one page (full screen of text) at a 
+time. 
+
+The last line displayed per screen becomes the current line. 
+
+SYNTAX
+------
+[line1][, line2]P 
+
+PARAMETERS
+----------
+line1 
+   Specifies the first line you want Edlin to display. 
+
+line2 
+   Specifies the last line you want Edlin to display. 
+
+NOTES
+-----
+
+Omitting only the line1 parameter 
+---------------------------------
+When you omit the line1 parameter, Edlin displays a page of text 
+that begins with the current line through line2. 
+
+Omitting only the line2 parameter 
+---------------------------------
+When you omit the line2 parameter, Edlin displays a page of text 
+that begins with the line whose number you specify for line1. 
+
+Omitting both parameters 
+------------------------
+When you omit both parameters, Edlin displays a page of text that 
+begins with the line after the current line. 
+
+EXAMPLE
+-------
+To see lines 100 through 200, one page at a time, type the 
+following command: 
+
+   100,200p 
+
+EDLIN: Q(QUIT)---------------------------------------------------------------
+
+Stops the current Edlin session without writing the edited file 
+from memory to a disk. 
+
+When you use the Q command, the Edlin session stops and the MS-DOS 
+prompt appears. 
+
+To specify that Edlin is to write the edited file from memory to a 
+disk before ending the current session, you must use the E (end) 
+command. 
+
+SYNTAX
+------
+Q 
+
+NOTES
+-----
+
+A difference between the Q and E commands 
+-----------------------------------------
+Suppose that the file you are editing is one that Edlin loaded into 
+memory from a disk at the beginning of this session rather than one 
+that you created in memory during the session. If you use the Q 
+command to quit the session, the contents of both the original input 
+disk file and the .BAK version of the disk file (if one exists) 
+remain unchanged. However, if you use the E command to quit the 
+session and the file you are editing has changed during the 
+session, the edits are saved and the original input disk file 
+becomes the .BAK version. 
+
+Quitting Edlin without writing the edited file from memory to a disk 
+--------------------------------------------------------------------
+Use the following procedure to quit the Edlin session without 
+writing the edited file from memory to a disk: 
+
+1. At the Edlin prompt, type Q. Edlin displays the following 
+   message: 
+
+Abort edit (Y/N)? _ 
+
+2. Press Y (for yes). 
+
+EDLIN: R(REPLACE)-----------------------------------------------------------
+
+Searches a block of consecutive lines for a string of one or more 
+characters you specify, and replaces each occurrence of that string 
+with another string you specify. 
+
+The last line in which the replacement occurs becomes the new 
+current line. 
+
+SYNTAX
+------
+[line1][,line2][?]R[string1][separator string2] 
+
+PARAMETERS
+----------
+line1 
+   Specifies the first line in which you want Edlin to replace the 
+   string specified in string1. 
+
+line2 
+   Specifies the last line in which you want Edlin to replace the 
+   string specified in string1. 
+
+? (question mark) 
+   Specifies that Edlin is to prompt you by displaying a 
+   confirmation message before replacing an occurrence of the 
+   string specified in string1. 
+
+string1 
+   Specifies the string that you want Edlin to replace. 
+
+separator 
+   Separates the string1 and string2 values. The only valid value 
+   for this parameter is the end-of-file character (CTRL+Z). 
+
+string2 
+   Specifies the new string that is to replace each occurrence of 
+   the string specified for string1. 
+
+NOTES
+-----
+
+Command-line spacing 
+--------------------
+You must not insert a space between the R and any subsequent 
+parameter on the command line. 
+
+Default settings 
+----------------
+If you omit the line1 parameter, Edlin begins the search on the line after 
+the current line. If you omit the line2 parameter, Edlin stops the search 
+at the end of the file or at the end of the portion of text in memory. 
+
+If you omit the string1 parameter, Edlin uses the more recently used of 
+the following two values: the value that you specified for string1 the 
+last time you used the R command or the value that you specified for string 
+the last time you used the S command during this session. If you omit 
+string1 and you have not used the R or S command yet during the editing 
+session, the command stops. 
+
+If you omit the string2 parameter, Edlin uses the value you specified the 
+last time you used the R command during this session. If you omit the 
+string2 parameter and you have not used the R command yet during this 
+session, Edlin deletes all occurrences of the string that is specified 
+for string1. 
+
+Using the separator parameter 
+-----------------------------
+You must separate the string1 and string2 values by using the CTRL+Z key 
+combination. Even if you omit string1, you need to press CTRL+Z to mark 
+the beginning of string2. When you press the CTRL+Z key combination, the 
+characters displayed are not “CTRL+Z”. Instead, you see the following: 
+
+   ^Z 
+
+Using the question mark (?) 
+---------------------------
+If you include the ? parameter in your command, Edlin displays the line 
+containing the first occurrence of the string specified for string1 and 
+prompts you by displaying the following confirmation message: 
+
+   O.K.? _ 
+
+If you press Y (for yes) or press ENTER, Edlin replaces this occurrence 
+of the value for string1 with the value for string2 and searches for the 
+next occurrence. If you press N (for no), Edlin does not replace this 
+occurrence of the value for string1 and searches for the next occurrence. 
+
+If you do not use the question mark (?) 
+---------------------------------------
+If you do not use the ? parameter to confirm replacements as they are made, 
+Edlin makes all the replacements at once and then displays each line that 
+contains a replacement. If a line contains two or more replacements, Edlin 
+displays the line once for each replacement. 
+
+EXAMPLES
+--------
+Suppose you want Edlin to carry out only each confirmed replacement of 
+the word “mine” with the word “ours” within the first 20 lines of the 
+edited file in memory. Type the first part of the command as follows, but 
+do not press ENTER: 
+
+   1,20?rmine 
+   
+To complete the command, press CTRL+Z (which appears on the screen as ^Z), 
+type the word  OURS, and press ENTER. The complete command appears on the 
+screen as follows: 
+
+   1,20?rmine^Zours 
+
+Suppose that the following file is in memory and ready to edit. You can 
+type 1L at the Edlin prompt to see the contents of the file. 
+
+    1: Dear Mr. Muster:
+    2:
+    3: Congratulations on your promotion
+    4: to the position of Senior Chemical
+    5: Engineer. I continue to be most
+    6: impressed with your hard work.
+    7:
+    8: I think you will enjoy working with
+    9: Mr. Lang on the new project. Please
+   10: let me know if there is anything I
+   11: can do to assist you.
+   12:
+   13: Sincerely,
+   14:
+   15: S.L. Martin, President
+   16: Rockdale Corporation
+   17: "A World Leader in Technology"
+
+Now suppose that in lines 5 through 10 you want Edlin to replace all 
+occurrences of the word "I" with the words "yours truly". Type the first 
+part of the command as follows, but do not press ENTER: 
+
+   5,10rI 
+   
+To complete the command, press CTRL+Z (which appears on the screen as ^Z), 
+type the words "yours truly", and press ENTER. The complete command appears 
+on the screen as follows: 
+
+   5,10rI^Zyours truly 
+   
+Because the ? parameter is omitted, Edlin replaces the three occurrences 
+of "I" without prompting you by displaying the confirmation message. When 
+Edlin finishes carrying out the command, it displays the following lines, 
+which are changed as a result of the three replacements: 
+
+    5: Engineer. yours truly continue to be most
+    8: yours truly think you will enjoy working with
+   10: let me know if there is anything yours truly
+
+In the previous example, two unintended replacements occurred--in lines 5 
+and 8. You can avoid such changes by adding the ? parameter to the command. 
+The completed command should appear on screen as follows: 
+
+   5,10?rI^Zyours truly 
+   
+Now, Edlin prompts you by displaying the confirmation message for each 
+occurrence of the string specified in string1 and carries out only confirmed 
+replacements, as the following example shows: 
+
+       5: Engineer. yours truly continue to be most
+   O.K.? n
+       8: yours truly think you will enjoy working with
+   O.K.? n
+     10: let me know if there is anything yours truly
+   O.K.? y
+
+When the ? parameter is used, Edlin does not automatically display the 
+lines that are changed as a result of the confirmed replacements. If you 
+type the Edlin L (list) command at the Edlin prompt, Edlin displays the 
+edited file that is in memory, as follows: 
+
+    1: Dear Mr. Muster:
+    2:
+    3: Congratulations on your promotion
+    4: to the position of Senior Chemical
+    5: Engineer. I continue to be most
+    6: impressed with your hard work.
+    7:
+    8: I think you will enjoy working with
+    9: Mr. Lang on the new project. Please
+   10: let me know if there is anything yours truly
+   11: can do to assist you.
+   12:
+   13: Sincerely,
+   14:
+   15: S.L. Martin, President
+   16: Rockdale Corporation
+   17: "A World Leader in Technology"
+
+EDLIN: S(SEARCH)-----------------------------------------------------------
+
+Searches for the string of one or more characters that you specify. 
+
+Edlin displays the first line that contains an occurrence of the string. 
+The search then stops and that line becomes the current line. 
+
+SYNTAX
+------
+[line1][,line2][?]S[string] 
+
+PARAMETERS
+----------
+line1 
+   Specifies the first line you want Edlin to search. 
+   
+line2 
+   Specifies the last line you want Edlin to search. 
+   
+? (question mark) 
+   Specifies that Edlin is to prompt you by displaying a confirmation 
+   message when it finds the first occurrence of the value you specify 
+   for string. 
+   
+string 
+   Specifies the string for which you want Edlin to search. You must not 
+   insert a space before this parameter on the command line, unless the 
+   space is part of the search text. 
+   
+NOTES
+-----
+
+Default settings 
+----------------
+If you omit the line1 parameter, Edlin starts the search on the line after 
+the current line. If you omit the line2 parameter, Edlin stops the search 
+at the end of the file. 
+
+If you omit the string parameter, Edlin uses the more recently used of the 
+following two values: the value that you specified for string the last time 
+you used the S command, or the value that you specified for string1 the 
+last time you used the R (replace) command during this session. If you omit 
+the string parameter and this is your first use of an S or R command during 
+this session, the S command stops immediately. 
+
+Using the ? (question mark) 
+---------------------------
+If you include the ? parameter in your command, Edlin displays the line 
+containing the first occurrence of the characters specified for string 
+and prompts you with the following confirmation message: 
+
+   O.K.? _ 
+   
+If you press Y (for yes) or press ENTER, the line displayed before the 
+message becomes the current line and the search stops. If you press N 
+(for no), the search continues until another occurrence is found or until 
+Edlin displays the following message indicating that all lines have been 
+searched: 
+
+   Not found 
+   
+EXAMPLES
+--------
+Suppose that the following file is in memory and ready to edit. You can 
+type 1L at the Edlin prompt to see the contents of the file. 
+
+    1: Dear Mr. Muster:
+    2:
+    3: Congratulations on your promotion
+    4: to the position of Senior Chemical
+    5: Engineer. I continue to be most
+    6: impressed with your hard work.
+    7:
+    8: I think you will enjoy working with
+    9: Mr. Lang on the new project. Please
+   10: let me know if there is anything I
+   11: can do to assist you.
+   12:
+   13: Sincerely,
+   14:
+   15: S.L. Martin, President
+
+To specify that Edlin is to search lines 2 through 12 for the first 
+occurrence of the word “to”, type the following command: 
+
+   2,12sto 
+
+Edlin displays the following line: 
+
+   4: to the position of Senior Chemical
+
+To specify that Edlin is to display the line containing the first occurrence 
+of "to" and then prompt you with a confirmation message, type the following 
+command: 
+
+   1,?sto 
+   
+Edlin displays the following lines: 
+
+	4: to the position of Senior Chemical
+   O.K.? _
+
+If you press any key other than Y or ENTER, the search continues. For this 
+example, press N (for no), as follows: 
+
+   O.K.? n 
+
+Edlin continues the search and displays the following lines:  
+
+	5: Engineer. I continue to be most
+   O.K.? _
+
+Press Y to stop the search. 
+
+EDLIN: T(TRANSFER)---------------------------------------------------------
+
+Merges the contents of another file from a disk with the contents of the 
+file that is in memory. 
+
+SYNTAX
+------ 
+[line]T[drive:][path] filename 
+
+PARAMETERS
+---------- 
+line 
+   Specifies the line number before which you want Edlin to insert the file 
+   it is transferring from a disk. The default value of this parameter is 
+   the number of the current line. 
+   
+[drive:][path] filename 
+   Specifies the location and name of the file you want Edlin to insert 
+   before the line whose number is specified in the line parameter. The 
+   default value for drive is the current drive; the default value for path 
+   is the current directory. 
+   
+NOTE
+----
+After Edlin merges a file from a disk, you can use the Edlin L (list) 
+command at the Edlin prompt to see the correctly renumbered lines. 
+
+EXAMPLE
+-------
+To merge a file named TAXES.MEM to line 12 of the file you are editing, 
+type the following command: 
+
+   12t taxes.mem 
+
+EDLIN: W(WRITE)--------------------------------------------------------------
+
+Writes the first portion of the edited file from memory to a disk. 
+
+When you start Edlin, it reads as many lines as possible from your disk 
+file into memory. If the size of your file exceeds available memory, you 
+must edit your file in stages. That is, you edit part of the file, write 
+that part to your disk by using the W command, and then load the next part 
+from disk by using the A command. 
+
+SYNTAX
+------ 
+[n]W 
+
+PARAMETERS
+---------- 
+n 
+   Specifies the number of lines that you want Edlin to write to the disk, 
+   beginning with the first line of the edited file in memory. 
+
+NOTES
+-----
+
+How the W command works 
+-----------------------
+When you open a file, Edlin reads lines from disk until memory is more 
+than 75-percent full. It reserves the other 25 percent for changes you 
+might make to the text. If your entire file fits in memory, Edlin displays 
+the following message: 
+
+   End of input file 
+   
+If you see this message, you do not need to use the W and A commands. 
+
+If Edlin does not display this message when you open a file, the size of 
+the file exceeds available memory. Therefore, you must edit your file in 
+stages by using the W and A commands to write and read parts of the file, 
+respectively. 
+
+The W command does not write to disk the changes you make unless it was 
+actually necessary to use the W command. Therefore, if you use the W command 
+even though the whole file fit into memory and then you use the Q command to 
+quit Edlin, none of the changes you made to the file are saved. 
+
+Line renumbering 
+----------------
+After Edlin writes the first portion of the edited file from memory to a 
+disk, you can use the Edlin L (list) command at the Edlin prompt to see 
+the correctly renumbered lines that remain, beginning with line number 1. 
+
+Default setting 
+---------------
+If you omit the n parameter, Edlin writes lines from the edited file 
+in memory to a disk until memory is 25-percent full. 
+
+EXAMPLE
+-------
+Suppose the final 100 lines of your disk file do not fit into memory. After 
+you edit the first part of the file, you can free enough space to load the 
+remainder of your disk file into memory and continue editing by typing the 
+following command: 
+
+   125w 
+   
+EXE2BIN----------------------------------------------------------------------
+
+Converts .EXE (executable) files to binary format. 
+
+EXE2BIN is included with MS-DOS as a courtesy to software developers. It 
+is not useful for general users. 
+
+SYNTAX
+------ 
+EXE2BIN [drive1:][path1]input-file [[drive2:][path2]output-file] 
+
+PARAMETERS
+---------- 
+[drive1:][path1]input-file 
+   Specifies the location and name of the input file. 
+   
+[drive2:][path2]output-file 
+   Specifies the location and name of the output file. 
+   
+NOTES
+-----
+
+Restrictions on using EXE2BIN 
+-----------------------------
+The following restrictions apply when you use the EXE2BIN command: 
+o The input file must be in valid .EXE format produced by the linker 
+  and must not be packed. 
+
+o The resident, or actual, code and data portions of the file combined 
+  must be less than 64K. 
+
+o There must be no STACK segment. 
+
+Default values for parameters 
+-----------------------------
+EXE2BIN takes specific actions, depending upon the values you use for the 
+input-file and output-file parameters. 
+
+o The default filename extension for the filename you specify for input-file 
+  is .EXE. EXE2BIN converts the input .EXE file to an output file in .BIN 
+  format (a memory image of the program) and uses the location and filename 
+  you specify for [drive2:][path2]output-file to store that output file. 
+
+o If you do not specify drive2 or path2, EXE2BIN writes the output file 
+  to the current drive and directory. 
+
+o If you do not specify an output filename, EXE2BIN uses the input 
+  filename. 
+
+o The default extension for the filename specified for the output-file 
+  parameter is .BIN. 
+
+Types of conversion available with EXE2BIN 
+------------------------------------------
+Two types of conversion are possible, depending upon whether the initial 
+CS:IP (Code Segment:Instruction Pointer) is specified in the .EXE file. 
+The following list presents the two types: 
+
+o If the CS:IP is not specified in the .EXE file, EXE2BIN performs a 
+  pure binary conversion. If segment fixups are necessary (that is, if 
+  the program contains instructions requiring segment relocation), EXE2BIN 
+  prompts you for the fixup value. This value is the absolute segment at 
+  which the program is to be loaded. The resulting program is usable only 
+  when loaded at the absolute memory address specified by your program. 
+  The command interpreter cannot load the program. 
+  
+
+o If the CS:IP is specified as 0000:100H, the file runs as a .COM file 
+  with the instruction pointer set at 100H by the assembler statement ORG. 
+  Include the .COM extension in the output-file parameter. No segment fixups 
+  are allowed, because .COM files must be segment-relocatable; that is, they 
+  must assume the entry conditions explained in the Microsoft Macro Assembler 
+  manuals. The command interpreter can then load and run the program in the 
+  same way as it loads and runs the .COM programs supplied on your MS-DOS 
+  disk. 
+  
+FAKEMOUS---------------------------------------------------------------------
+
+An IBM PS/2 mouse utility used with AccessDOS. 
+
+See ADOS.TXT for information about using FAKEMOUS.
+
+GRAFTABL---------------------------------------------------------------------
+
+Enables MS-DOS to display the extended characters of a specified code page 
+in graphics mode. 
+
+Most monitors can display extended characters (ASCII characters 128 
+through 255) without the GRAFTABL command. Use this command only if your 
+monitor does not properly display these characters in graphics mode. 
+
+SYNTAX
+------ 
+GRAFTABL [xxx] 
+
+GRAFTABL /STATUS 
+
+PARAMETERS
+---------- 
+xxx 
+   Specifies the code page for which you want MS-DOS to define the 
+   appearance of extended characters in graphics mode. The following 
+   list shows each valid code-page identification number and its country 
+   or language: 
+   
+437    
+   United States 
+
+850    
+   Multilingual (Latin I) 
+
+852    
+   Slavic (Latin II) 
+
+860    
+   Portuguese 
+
+863    
+   Canadian-French 
+
+865    
+   Nordic 
+   
+SWITCH
+------
+/STATUS 
+   Identifies the code page selected for use by GRAFTABL. 
+
+NOTES
+-----
+
+GRAFTABL does not change the active code page 
+---------------------------------------------
+GRAFTABL affects only the appearance of extended characters of the code 
+page you specify. To change the code page you are using, use the MODE or 
+CHCP command. 
+
+GRAFTABL exit codes 
+-------------------
+The following list shows each exit code and a brief description of its 
+meaning: 
+
+0    
+   Character set was loaded successfully; no previous code page was
+   loaded.
+
+1    
+   Character set was already loaded and replaced by new table.
+
+2    
+   A file error occurred.
+
+3    
+   An incorrect parameter was specified; no action was taken.
+
+4    
+   An incorrect version of MS-DOS is in use; version 5.0 is required.
+
+You can use the ERRORLEVEL parameter on the IF command line in a batch 
+program to process exit codes returned by GRAFTABL. For an example of a 
+batch program that processes exit codes, see the BACKUP command. 
+
+Effect on memory 
+----------------
+The GRAFTABL command decreases the amount of available conventional memory 
+by about 1K. 
+
+EXAMPLE
+-------
+To load the graphics character set for code page 437 (United States) 
+into memory, type the following command: 
+
+   graftabl 
+   
+To load the graphics character set for code page 860 (Portuguese) into 
+memory, type the following command: 
+
+   graftabl 860 
+
+ISO.CPI--------------------------------------------------------------------
+
+Contains ISO-compliant versions of certain character sets (codepages).
+
+ISO-compliant fonts are special monospace (nonproportional) display fonts 
+that, on some displays, are more readable than standard display fonts. 
+(ISO fonts work only in 25-line mode; they do not support 43- or 50-line 
+mode.) The ISO fonts included with MS-DOS 6.22 comply with Part 3 of 
+the ISO 9241 Specification.
+
+The ISO.CPI file contains ISO-compliant versions of the following character 
+sets (codepages):
+
+	437  United States            
+	737  Greek II                 
+	850  Multilingual (Latin I)   
+	852  Slavic/Eastern European (Latin II)        
+	855  Cyrillic I               
+	857  Turkish
+	860  Portuguese
+	861  Icelandic
+	863  Canadian-French
+	865  Nordic
+	866  Russian (Cyrillic II)
+	869  Greek I
+
+To install ISO fonts, you add or edit commands in your AUTOEXEC.BAT and 
+CONFIG.SYS files. If your system is already set up to load a character
+set (code page) other than the standard United States character set, 
+carry out Procedure 1. Otherwise, carry out Procedure 2.
+
+Procedure 1 -- If your system is already set up to load a character set 
+other than the standard United States character set:
+
+1. In your AUTOEXEC.BAT file, change the MODE CON CODEPAGE PREPARE
+   command so that it specifies ISO.CPI instead of your usual 
+   codepage (.CPI) file. 
+   
+   For example, suppose your current MODE command loads the Portugese 
+   character set (860) and looks like the following:
+       
+       MODE CON CODEPAGE PREPARE=((860) C:\DOS\EGA.CPI)
+
+   To use the ISO-compliant version of the Portugese character set, you 
+   would change this command to specify ISO.CPI, as follows:
+
+       MODE CON CODEPAGE PREPARE=((860) C:\DOS\ISO.CPI)
+
+Procedure 2 -- If you are using the standard US character set:
+
+1. Add a DEVICE command for DISPLAY.SYS to your CONFIG.SYS file. For
+   example, if you want to use the United States hardware character 
+   set (437), and if DISPLAY.SYS is in the C:\DOS directory, you would
+   add the following command to your CONFIG.SYS file:
+ 
+       DEVICE=C:\DOS\DISPLAY.SYS CON=(EGA,437,2)
+ 
+   Note that DISPLAY.SYS uses about 12K of memory.
+
+2. Add MODE commands to your AUTOEXEC.BAT file to load and select the
+   proper character sets (code pages). For example, to use the ISO
+   version of the United States character set (437), you would add 
+   the following commands to your AUTOEXEC.BAT files:
+ 
+       MODE CON CODEPAGE PREPARE=((437) C:\DOS\ISO.CPI)
+       MODE CON CODEPAGE SELECT=437
+
+
+JOIN-------------------------------------------------------------------------
+
+Joins a disk drive to a directory on another disk drive. 
+
+When you use the JOIN command, MS-DOS treats the directories and files 
+on a disk drive as the contents of the other drive and path you specify. 
+
+SYNTAX
+------
+JOIN [drive1: [drive2:]path] 
+
+JOIN drive: /D 
+
+PARAMETERS
+----------
+drive1: 
+   Specifies the floppy disk drive or logical drive that you want to join 
+   to a different drive and directory. 
+   
+drive2: 
+   Specifies the floppy disk drive or logical drive to which you want to 
+   join drive1. 
+   
+path 
+   Specifies the directory to which you want to join drive1. This directory 
+   must be empty before you join drive1 to it. It must also be a directory 
+   other than the root directory. 
+   
+drive: 
+   Specifies a floppy disk drive or logical drive that was previously 
+   specified in a JOIN command that you are now canceling. 
+   
+SWITCH
+------
+/D
+    Cancels any previous JOIN commands for the drive you specify.
+
+Drive1 becomes invalid 
+----------------------
+After you use the JOIN command, the drive1 you specify becomes invalid. 
+If you then try to use it, MS-DOS displays the following message: 
+
+   Invalid drive specification 
+   
+Limitations on path 
+-------------------
+If the directory specified by path already exists before you use the 
+JOIN command, you cannot use that directory for any other purpose while 
+JOIN is in effect. If the directory is not empty, MS-DOS does not complete 
+the join operation and displays the following message: 
+
+   Directory not empty 
+
+If the directory does not exist, MS-DOS tries to create it. 
+
+Limitations on using JOIN with other commands 
+---------------------------------------------
+The following commands do not work with drives formed by the JOIN command: 
+ASSIGN      BACKUP     CHKDSK     DISKCOMP
+DISKCOPY    FDISK      FORMAT     LABEL
+MIRROR      MIRROR     RESTORE    SYS
+
+Using JOIN with no parameters 
+-----------------------------
+You can use the JOIN command with no parameters to see a list of the 
+currently joined drives. 
+
+EXAMPLES
+--------
+You can join any directory or subdirectory in a tree structure. For 
+example, the following commands are valid: 
+
+   join d: c:sales 
+   
+   join d: c:salesoctober 
+   
+To reverse either of the previous JOIN commands, type the drive1 value followed by the /D switch, as follows: 
+join d: /d 
+
+KBDBUF.SYS-------------------------------------------------------------------
+
+Specifies the number of keystrokes that can be held in your keyboard buffer.
+
+SYNTAX
+------
+DEVICE=KBDBUF.SYS nnnn
+
+PARAMETER
+---------
+nnnn
+   Specifies the number of keystrokes that can be held in the keyboard 
+   buffer. The acceptable range is 16 to 1024
+
+NOTES
+-----
+The KBDBUF.SYS driver should be loaded with the DEVICE command early
+in your CONFIG.SYS file. In addition, you cannot load the KBDBUF.SYS
+driver into the upper memory area. If you run MemMaker, choose Custom, 
+and exclude the driver from the optimization process.
+
+EXAMPLE
+-------
+If you want to specify a keyboard buffer that allows you to type ahead
+25 keystrokes beyond what has been displayed on your screen, add
+the following command to your CONFIG.SYS file:
+
+DEVICE=KBDBUF.SYS 25
+
+LCD.CPI----------------------------------------------------------------------
+
+Code-page information file for IBM PC Convertible liquid crystal display.
+
+MIRROR-----------------------------------------------------------------------
+
+Starts the MIRROR program, which records information about one or more 
+disks; the UNFORMAT and UNDELETE commands can use this information to 
+restore a reformatted disk or to recover deleted files. 
+
+SYNTAX
+------
+MIRROR [drive:[ ...]] [/1] [/Tdrive[-entries][ ...]] 
+
+MIRROR [/u] 
+
+MIRROR [/partn] 
+
+To save information about the disk in the current drive, use the following 
+syntax:  
+
+MIRROR 
+
+PARAMETER
+---------
+drive:
+   Specifies the drive containing the disk for which you want MIRROR to
+   save information. This information is used by the UNFORMAT command to
+   restore a disk.
+
+SWITCHES
+--------
+/1
+   Retains only the latest information about the disk. If you do not
+   specify this switch, MIRROR makes a backup copy of the existing
+   disk-information file before recording the current information.
+
+/Tdrive[-entries]
+   Loads a terminate-and-stay-resident deletion-tracking program that
+   records information used by the UNDELETE command to recover deleted
+   files. The required drive parameter specifies the drive containing
+   the disk for which you want MIRROR to save information about deleted
+   files. The optional entries parameter, which must be a value in the
+   range 1 through 999, specifies the maximum number of entries in the
+   deletion-tracking file (PCTRACKR.DEL). The default value for entries
+   is dependent upon the type of disk being tracked. The following list
+   shows each disk size, its default number of entries, and its
+   corresponding file size:
+
+Disk size          Entries       File size 
+360K                  25            5K 
+720K                  50            9K 
+1.2 megabyte (MB)     75           14K
+1.44 MB               75           14K 
+20 MB                101           18K 
+32 MB                202           36K
+32 MB                303           55K
+
+CAUTION  Do not use deletion tracking for any drive that has been 
+redirected by using the JOIN or SUBST command. If you intend to use the 
+ASSIGN command, you must do so before using MIRROR to install deletion 
+tracking. 
+
+/U
+   Unloads the deletion-tracking program from memory, disabling deletion
+   tracking. You cannot unload the tracking program if you loaded any
+   other memory-resident programs after it.
+
+/PARTN
+   Saves system information about how a hard disk is partitioned. The
+   switch saves the information in a file on a floppy disk. The UNFORMAT
+   command can use this file later to rebuild the partitions of a disk.
+
+Saving information about a disk 
+-------------------------------
+The MIRROR program saves a copy of the file allocation table and the root 
+directory of the disk in the specified drive. The UNFORMAT command can 
+use this information to rebuild a disk that has been unintentionally 
+formatted, or it can use the information to recover files and subdirectories 
+in the disk's root directory. 
+
+Because UNFORMAT restores the disk’s system area to the condition it was 
+in when you last used MIRROR, you should save this information frequently 
+for every hard disk drive in your system. To ensure that the information 
+is saved each time you turn on your computer, you may want to add a MIRROR 
+command to your AUTOEXEC.BAT file. 
+
+Removing the deletion-tracking program from memory 
+--------------------------------------------------
+You may need to remove the deletion-tracking program from memory. To do so, 
+remove all memory-resident programs that you loaded after the deletion-
+tracking program, and then use the MIRROR command with the /U switch. 
+Since this turns off deletion tracking, any files deleted after you remove 
+the tracking program can be recovered only by using information in the 
+directory. 
+
+Saving information about hard-disk partitions 
+---------------------------------------------
+Every formatted hard disk drive has at least one partition. To identify a 
+hard disk drive, MS-DOS uses information stored in a special disk partition 
+table. If this table is corrupted, MS-DOS cannot locate the hard disk. 
+
+You can save partition-table information for a hard disk by using the 
+MIRROR command with the /PARTN switch. This switch creates a file named 
+PARTNSAV.FIL, which the UNFORMAT command can use to rebuild the partition 
+table. Because MS-DOS cannot gain access to your hard disk if the partition 
+table is damaged, you should not put this file on the hard disk itself. 
+Instead, you should put the file on a floppy disk (which you should keep 
+in a safe place) or on another hard disk drive, such as a network server. 
+
+EXAMPLES
+--------
+To save a copy of the file allocation table and the root directory of 
+drive C and to install deletion tracking for drives A and C, type the 
+following command: 
+
+   mirror c: /ta /tc 
+   
+Suppose you want to save a copy of the file allocation table and the root 
+directory of the disk in the current drive, and you want to install the 
+deletion-tracking program for drive C. To do this and to set the maximum 
+number of deletions to be tracked to 500, type the following command. 
+(Note that since no drive parameter is specified, MIRROR saves the 
+information about the disk in the current drive.) 
+
+   mirror /tc-500 
+
+To save a copy of the partition table for your hard disk drive, type the 
+following command: 
+
+   mirror /partn 
+   
+The MIRROR program displays the following information: 
+
+   Disk Partition Table saver. 
+   The partition information from your hard drive(s) has been read. 
+   Next, the file PARTNSAV.FIL will be written to a floppy disk. Please 
+   insert a formatted diskette and enter the name of the diskette drive. 
+   What drive? A 
+
+The default disk drive is drive A. If you want to use a different drive, 
+type the drive letter (making sure it does not identify a partition on 
+the hard disk drive), insert a formatted floppy disk in the drive (if 
+necessary), and press ENTER. 
+
+MSHERC----------------------------------------------------------------------
+
+Installs support for Qbasic programs that use the Hercules graphics
+card.
+
+SYNTAX
+------
+MSHERC [/HALF]
+
+SWITCH
+------
+/HALF
+   Use this switch when a color adapter is also installed.
+
+PRINTER.SYS------------------------------------------------------------------
+
+Supports code-page switching for the parallel ports PRN, LPT1, LPT2, and 
+LPT3. 
+
+SYNTAX
+------ 
+DEVICE=[drive:][path]PRINTER.SYS LPTx=(type[,[hwcp][,n]]) 
+
+PARAMETERS
+----------
+[drive:][path]
+   Specifies the location of the PRINTER.SYS file.
+
+LPTx
+    Specifies the number of the parallel port for which you want to support
+    code-page switching.
+
+type
+    Specifies the printer in use. The following list shows valid values for
+    type and the printers represented by each value:
+
+    4201    IBM Proprinters II and III Model 4201
+	    IBM Proprinters II and III XL Model 4202
+    4208    IBM Proprinter X24E Model 4207
+	    IBM Proprinter XL24E Model 4208
+    5202    IBM Quietwriter III Model 5202
+
+hwcp
+    Specifies the code page your hardware supports. The following list
+    shows the code pages that MS-DOS supports and the country or language
+    for each:
+
+    437    United States
+    850    Multilingual (Latin I)
+    852    Slavic (Latin II)
+    860    Portuguese
+    863    Canadian-French
+    865    Nordic
+
+n
+    Specifies the number of code pages your hardware can support in
+    addition to the code page specified in the hwcp parameter.
+
+EXAMPLE
+-------
+The following command loads the PRINTER.SYS device driver for use with the 
+IBM Proprinter X24E Model 4207, loads code page 850, and prepares 
+PRINTER.SYS to support two additional code pages: 
+
+   device=c:\dos\printer.sys lpt1:=(4208,850,2) 
+   
+PRINTFIX--------------------------------------------------------------------
+
+Prevents MS-DOS from checking the status of your printer. Use this
+command only if you have had problems printing since you installed
+MS-DOS 6.22.
+
+SYNTAX
+------
+PRINTFIX
+
+SETUP------------------------------------------------------------------------
+
+Installs the commands and files on the Supplemental disks to your
+hard drive.
+
+SYNTAX
+------
+SETUP [drive:][path]
+
+PARAMETERS
+----------
+[drive:][path]
+   The drive and directory to which you want to install the Supplemental
+   disk commands and files
+
+NOTES
+-----
+You can run the Setup program from a floppy drive, your hard disk, or
+from a network drive--just make sure the Setup program is in the same
+drive and directory that contains your Supplemental disk files.
+
+If you install any of the Utilities from MS-DOS 5.0, such as the Backup 
+program, you must restart your computer before using them. This is because 
+the Setup program modifies your SETVER table, and you must restart your
+computer for the modifications to take effect.
+
+SPATCH.BAT------------------------------------------------------------------
+
+If your computer uses a Windows 3.0 permanent swap file, run 
+the SPATCH.BAT program to make the swap file compatible with MS-DOS 6.22. 
+
+For more information, see the README.TXT file included with MS-DOS 6.22.
+
+NOTE: This file is included on the Supplemental disks because some
+versions of MS-DOS did not include the file.

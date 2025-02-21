@@ -1,0 +1,13 @@
+
+  
+1.  COMMAND.COM  (COPY)
+
+    CORRECTED (XFS 1.77 - July 10, 1994)
+
+2.  MKS vi
+
+    XFS appears to truncate files with MKS vi. Because I don't have
+    this editor, I'm not able to correct this bug (yet). However,
+    XFS 1.72 fixes a file creation bug ...
+    
+(To be continued)  

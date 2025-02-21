@@ -1,0 +1,4 @@
+
+	The WINPKT version which comes with PKTMUX is NOT compatible
+	with XFS. Please use the XFS supplied version, which is the
+	ORIGINAL one.

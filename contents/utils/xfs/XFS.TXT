@@ -1,0 +1,922 @@
+
+
+
+
+
+
+
+                                                         XFS Version 1.8
+                               Network File System (NFS) Client for PC's
+
+                Copyright (C) 1994, Robert Juhasz.  All rights reserved.
+
+                                                      September 21, 1994
+
+
+
+                                                                       2
+
+
+         Table of Contents
+
+         1. Introduction                                               3
+         2. Registration                                               3
+         3. Warranty                                                   4
+         4. Installing XFS                                             4
+           4.1. Files                                                  4
+           4.2. The Kernel                                             4
+           4.3. Network Configuration                                  5
+           4.4. Configuration Syntax                                   5
+           4.5. HOSTS                                                  6
+         5. Authentication                                             6
+         6. Mounting Drives                                            6
+           6.1. Mount a Drive                                          7
+           6.2. Mount a Printer                                        7
+           6.3. Mount Options                                          7
+           6.4. Unmounting Drives/ Printers                            8
+         7. Other Commands                                             8
+           7.1. Rdate                                                  8
+           7.2. Umask                                                  8
+           7.3. Pktdrvr                                                9
+           7.4. Unmux                                                  9
+           7.5. Unload                                                 9
+         8. More about PCNFSD and Printing                             9
+           8.1. PCNFSD                                                 9
+           8.2. Printing                                              10
+            8.2.1. Using XFS Printers with Microsoft Windows          10
+            8.2.2. Using XFS Printers with other Applications         10
+            8.2.3. The Timeout Value                                  10
+         9. File Manager Extension                                    10
+           9.1. How to install XFSFMX                                 10
+           9.2. Commands                                              11
+         10.Command Scrips                                            11
+         11.Using XFS over other Networks                             12
+           11.1. Microsoft LAN Manager and Windows for Workgroups 3.1 12
+           11.2. Microsoft Windows for Workgroups 3.11                13
+           11.3. Novell Netware                                       13
+         12.WINPKT                                                    13
+         13.The Build-in Multiplexor                                  14
+         14.PKTMUX                                                    14
+         15.Tools                                                     14
+           15.1. Arp                                                  14
+           15.2. Netstat                                              15
+           15.3. Ls & Mv                                              15
+           15.4. XPing                                                15
+         16.Appendix                                                  15
+           16.1. Compatibility                                        15
+           16.2. Some FTP Sites                                       16
+
+
+
+         NFS is a Trademark of Sun Microsystems, Inc
+         MS-DOS is a Registered Trademark of Microsoft, Inc
+         Microsoft Windows is a Trademark of  Microsoft, Inc
+         UNIX is a Trademark of  AT&T
+
+
+
+                                                                       3
+
+
+
+         1.  Introduction
+
+         XFS is a Network  File System (NFS)  Client implementation for
+         PC's running MS-DOS.    It uses the  network-wide file sharing
+         of other systems  and provides in  this way  the enormous disk
+         resources of  modern  workstations. Because  the  file sharing
+         mechanism is tranparent,  you can  manipulate remote  files by
+         traditional PC  software like  File Managers,  Word Processors
+         etc.
+
+         XFS  uses  the  Packet  Driver   (PKTDRVR)  of  your  Ethernet
+         interface (please consult  the appendix  to optain  a suitable
+         Packet Driver for your card). You  also can use XFS with other
+         networking software like
+
+              - Microsoft Windows for Workgroups
+              - Microsoft LAN Manager
+              - Novell Netware IPX & ODI
+
+         XFS also provides its own  built-in PKTDRVR multiplexor, which
+         allows the  concurrent use  of other  software running  over a
+         PKTDRVR, e.g. you can  use NCSA-Telnet & FTP  parallel to XFS.
+         PKTDRVR software for Microsoft Windows is supported too.
+
+
+         2.  Registration
+
+         The  XFS  Network   File  System  Client   is  distributed  as
+         shareware. You can test this software as long you want, but if
+         you decide to work with it, you must pay the registration fee.
+         The Registration   will include  all updates  for a   one-year
+         period, but it's your  responsability to get  them. After this
+         time you have to renew  your licence, but only  if you want to
+         get new updates.
+
+         The current registration prices are:
+
+             Educational users:   US $ 15 / CPU
+             Business users:      US $ 25 / CPU
+             Source code:         Please call!
+
+         Site  license:
+
+              Quantity       Discount (%)
+
+                3  - 10          10%
+               11  - 20          20%
+               21  - 200         30%
+               201 -  +          50%
+
+         If you are a reseller, and you would like to redistribute XFS,
+         please contact the author (see ORDER.FRM).
+
+
+
+                                                                       4
+
+
+
+         3.  Warranty
+
+         This software  is  distributed in  the  hope that  it  will be
+         useful but WITHOUT ANY WARRANTY. If you choose to use XFS, you
+         assume all risk.
+
+
+         4.  Installing XFS
+
+
+         4.1. Files
+
+         The XFS distribution contains following files:
+
+              XFSKRNL.EXE    The resident kernel
+              XFSTOOL.EXE    User command line interface
+              NETSTAT.EXE    Network Statistics and Status Informations
+              LS.EXE         List server files (useful for server 
+                             - client file name mapping)
+              MV.EXE         Move files (useful for server - 
+                             client file name mapping)
+              CHMOD.EXE      Change file attributes
+              ARP.EXE        Manipulates ARP tables
+              XPING.EXE      Pings a NFS server
+              XFSFMX.DLL     Windows File Manager Extension
+              WINPKT.COM     Microsoft Windows Support
+              INIT           Configuration example
+              HOSTS          Host database
+              XFS.TXT        This file
+              ORDER.FRM      Order form
+              BUGS           Hall of Shame
+
+         You should keep these files together  in one directory. A PATH
+         modification is not required.
+
+
+         4.2. The Kernel
+
+         XFSKRNL contains the   UDP/IP  protocol stack and  the network
+         redirector. The only command line directive  of XFSKRNL is the
+         PKTDRVR interrupt number.
+
+         Supposed you have a NE2000 Ethenet Card clone:
+
+              ne2000    0x60
+              xfskrnl   0x60
+
+         will start your PKTDRVR (ne2000) at interrupt 0x60 and the XFS
+         kernel (xfskrnl).
+
+         XFSKRNL occupies three consecutive interrupts begining with
+         your PKTDRVR interrupt number (n):
+
+              n         The PKTDRVR
+
+              n + 1     The XFS NetAPI (undocumented yet)
+
+
+
+                                                                       5
+
+              n + 2     The redirected PKTDRVR from interrupt n. This 
+                        interrupt can be used by other software which 
+                        needs a PKTDRVR
+
+         Note: Please choose  a PTDRVR  interrupt number, which  is not
+         used by other applications. E.g: 0x67  is hooked by EMM386: if
+         you choose 0x65 - 0x67 as you base interrupt, XFS will     not
+         work with Windows!
+
+
+         4.3. Network Configuration
+
+         After loading XFSKRNL you  have to config  the UDP/IP protocol
+         stack. The  following informations  must be  provided  by your
+         Network Administrator:
+
+              Host Name
+              Host IP Address
+              Subnet Mask
+              Default Gateway
+              Subnet Broadcast Address
+
+         Alternatively you  can  use BOOTP  (boot  protocol)  to optain
+         these informations. In  this case there  must be  a machine in
+         your network configured as a BOOTP-server  (see ' man bootpd',
+         if  you're  running  UNIX).  XFS   uses  the  following  BOOTP
+         directives:
+
+              hn   Host name
+              gw   Gateway
+              sm   Subnet mask
+              ts   Time server
+              to   Time zone offset from GMT/UCT in seconds
+
+
+         4.4. Configuration Syntax
+
+              xfstool init <hostname> sm=<netmask> gw=<gateway>
+                   bc=<broadcast> [ csum={on|off} ]
+         or
+              xfstool init BOOTP  [ csum={on|off} ]
+
+         The option `csum=off' prevents the computing of UDP checksums.
+         This speeds  up XFS,  but it  should  not be  used,  if you're
+         mounting drives over a gateway.
+
+         Alternatively you can put your  netmask, gateway and broadcast
+         addresses in the HOSTS database. E.g. (Addresses are fictive):
+
+              #  host database
+
+              255.255.255.0       netmask
+              131.240.89.1        gateway
+              131.240.89.255      broadcast
+
+              #  host entries follows
+
+
+         In this case the command line becomes:
+
+
+
+                                                                       6
+
+
+              xfstool init <hostname>  [ csum={on|off} ]
+
+         Note that `hostname'   is interpreted  as a HOSTS database
+         entry, not as an IP address.
+
+         After you  have  configured  the network,  you  should  try to
+         `ping'  the PC from a local machine.
+         If you have a gateway `ping' your PC from a machine out of the
+         LAN.
+
+
+         4.5. HOSTS
+
+         The HOSTS file contains the `IP-address-to-hostname mapping
+         list'. Please don't use your global HOSTS file (containing all
+         hosts of your site)!  XFS needs only the NFS servers. This
+         will speed up the host search.
+
+         Format of the HOSTS file:
+
+              #  comment lines
+              #
+              #  IP          Name      Aliases
+
+              131.240.89.7   speedy    pc-soft
+
+
+         5.  Authentication
+
+         Because a  PC  running MS-DOS  (usually)  doesn't  provide any
+         security mechanism,  there  must  be  other  possibilities  to
+         authenticate a  MS-DOS  user  before  using  network-wide  NFS
+         resources. Sun Microsystems,  Inc. has  developed an  UNIX RPC
+         program that  allows a  simple user  authentication  for PC's:
+         `pcnfsd'.
+         The `pcnfsd'- daemon is not part  of  the XFS distribution but
+         can be obtained from several places. Most Workstations include
+         a version of `pcnfsd'.
+
+         To explain XFS the host that runs the `pcnfsd' just type:
+
+              xfstool pcnfsd <host>
+
+         With
+
+              xfstool login
+
+         XFS invites you to authenticate yourself. To authenticate
+         already mounted drives, use
+
+              xfstool dlogin {drive|printer}
+
+
+
+         6.  Mounting Drives
+
+         Before you begin to mount the  drives, you have to config your
+         NFS-server(s) to export the directories you want to mount with
+
+
+
+                                                                       7
+
+         XFS.  Please  consult  the   Administration  Manuals  of  your
+         workstation to find out how to export file systems.
+
+         Also adapt the LASTDRIVE directive from your PC's CONFIG.SYS
+         and reboot the PC:
+
+              LASTDRIVE=Z
+
+
+         6.1. Mount a Drive
+
+         The command line syntax for mounting drives is
+
+              xfstool mount <drive> <server>:<directory>  [[option]
+         [option] ... ]
+
+         To mount the directory `/usr/share/dos'  from the NFS-server
+         `speedy' as MS-DOS drive `G:' type:
+
+              xfstool mount g: speedy:/usr/share/dos
+
+
+
+         6.2. Mount a Printer
+
+         The command line syntax for mounting printers is
+
+              xfstool mount LPTn: <server>:<printer>  [[option]
+         [option] ... ]
+
+         To mount the printer 'prettyprint'   from the server `speedy'
+         as DOS printer LPT2: type:
+
+              xfstool mount LPT2: speedy:prettyprint
+
+         Please note, that the host must run 'pcnfsd', if you want to
+         mount a printer. This host must not be the login host.
+
+
+         6.3. Mount Options
+
+              rsize=<value>  Read size. The size of the buffer used 
+                             when reading files.
+                             128 <= value <= 1280. Default value: 1280.
+              wsize=<value>  Write size. The size of the buffer used 
+                             when writing files.
+                             128 <= value <= 1280. Default value: 1280.
+              retrans=<value>     Retransmission count.
+                             4 <= value <= 10. Default: 4.
+              mountp=<val>   MOUNT UDP port number.
+
+              nfsp=<val>     NFS UDP port number.
+
+              map=none       Don't map server file names into MS-DOS 
+                             file names.
+
+              map=upper      For UPPERCASED filesystems.
+
+              map=dots       For CD-ROMs. Strip "." from filenames.
+
+
+
+                                                                       8
+
+
+              timeo=<value>  For printers only. The timeout in seconds 
+                             before a print job is  declared as 
+                             finished.
+
+
+         6.4. Unmounting Drives/ Printers
+
+         The command line syntax for unmounting resources is
+
+              xfstool umount {<drive>  | LPTn: | all }
+
+         E.g.:
+
+              xfstool umount g:
+              xfstool umount lpt1:
+         or
+              xfstool all
+
+         to unmount all drives/devices.
+
+
+
+         7.  Other Commands
+
+
+
+         7.1. Rdate
+
+              xfstool rdate [<server>]
+
+         synchronises the date of your PC with  the date of a host your
+         choise. If no host is given, XFS will use the host IP obtained
+         by BOOTP (ts & to options). If `ts' is not set rdate evaluates
+         the  environment variable TZ (or  XTZ) that must be set before
+         XFSKRNL executes.
+
+         The format of the TZ (XTZ) variable is:
+
+              XTZ=xxx[+|-]<value>
+         with
+              xxx       Time zone name (semanticaly not evaluated by
+         XFS).
+              [+|.]<value>   Time offset from GMT/UCT in hours.
+
+         Note that XFS  doesn't support  any daylight savings,  but you
+         can obtain  this  by  incrementing  or  decrementing  the time
+         offset of the TZ variable.
+
+
+         7.2. Umask
+
+              xfstool umask [octal-value]
+
+         sets or shows the umask used by XFS when creating files. XFS
+         interprets the octal value as follows:
+
+              Digit     2    1    0
+                   user   group   other
+
+
+
+                                                                       9
+
+
+              Digit values:  0    allow all
+                             1    deny directory search
+                             2    deny write
+                             4    deny read
+              E.g:
+              Command line   UNIX `ls' output    Combined from
+
+              xfstool umask 022   drwxr-xr-x     0+0+0  0+2+0  0+2+0
+              xfstool umask 077   drwx------     0+0+0  1+2+4  1+3+4
+              xfstool umask 000   drwxrwxrwx     0+0+0  0+0+0  0+0+0
+
+
+         7.3. Pktdrvr
+
+         If you're using software  that doesn't work  over the built-in
+         multiplexor, you  can stop  the  network activity  of  XFS and
+         temporary start your  software using of  the original PKTDRVR.
+         After that you  can restore to  the original state  of XFS. Of
+         course you can't use network drives  while the network support
+         is down:
+
+              xfstool   pktdrvr [stop | restart]
+
+         7.4. Unmux
+
+         If the multiplexed software doesn't free the PKTDRVR after it
+         finish, XFS will crash the system by calling an undefined
+         address. You can avoid this behaviour by clearing the
+         multiplexor:
+
+              xfstool unmux
+
+         Please note that this is an error of the multiplexed software
+         and not of XFS! This error would also break an original
+         PKTDRVR.
+
+
+         7.5. Unload
+
+              xfstool   unload
+
+         shuts down the XFS kernel by unmounting all drives/devices and
+         unloading XFS  from the  DOS memory.  If  TSR's block  some of
+         XFS's interrupts (8, 17, 2F, base,  base+1, base+2 with base =
+         PKTDRVR interrupt number) the unloading will fail.
+
+
+         8.  More about PCNFSD and Printing
+
+         8.1. PCNFSD
+
+         Actually there  are 2  versions of  RPC PCNFSD  available. XFS
+         uses only features of the 1st version (which are also included
+         in the 2nd version). Because the  primary version needs (at my
+         opinion) less  resources and  configuration work,  I recommend
+         the use of RPC PCNFSD Version 1.
+
+         The 1st version of RPC PCNFSD needs:
+
+
+
+                                                                      10
+
+
+         .  a spool directory for pending print jobs,
+         .  a printer utility (lpr on 4.3BSD or lp on SYSV),
+         .  valid /etc/printcap entries for printers used by XFS or
+            something equivalent on SYSV.
+
+         The spool directory is a command  line argument of rpc.pcnfsd.
+         Note, that this  directory MUST also  be exported  to your XFS
+         clients! See your UNIX man page!
+
+         The printer utility can  be choosen in the  Makefile or can be
+         directly inserted in pcnfsd.c.
+
+         The command line could look like
+
+            rpc.pcnfsd /usr/spool/xfs
+
+         You have to export /usr/spool/xfs in this example.
+
+
+         8.2. Printing
+
+            8.2.1. Using XFS Printers with Microsoft Windows
+
+         You have to bind you  printer driver (System Control/Printers)
+         at LPT1.DOS  (LPT1.OS2)  or  LPT2.DOS  (LPT2.OS2).  I've  also
+         diabled the  Print  Manager  support,  but  I  think  it's not
+         required (please test it).
+         LPTx.DOS allows printing directly to  the interface (you don't
+         require an existing interface for XFS).
+
+            8.2.2. Using XFS Printers with other Applications
+
+         Applications,  which  print  directly  to  the  interface  are
+         compatible with XFS.
+
+            8.2.3. The Timeout Value
+
+         XFS needs  a timeout  value in  seconds  to declare  a  job as
+         finished. Default  are  30  sec.,  but  this  depends  of your
+         software.  Microsoft  Windows   needs  sometimes   more.  (I'd
+         appreciate your feedback about timeout values).
+
+         To finish a job, you can also use `Xfstool flush LPTx:'. The
+         pending job will be declared as finished and it will be
+         printed. The File Manger Extension provides a flush option
+         too.
+
+         9.  File Manager Extension
+
+         9.1. How to install XFSFMX
+
+              - Copy XFSFMX.DLL into your XFS directory (the directory
+                with the HOSTS database), e.g: C:\XFS
+
+              - Add the following line to WINFILE.INI, located in your
+                Windows directory:
+
+                [AddOns]
+
+
+
+                                                                      11
+
+                Xfs=C:\XFS\XFSFMX.DLL
+
+              - Restart the File Manager
+
+
+         9.2. Commands
+
+         MOUNT
+
+             Mounts a drive or, if the  check button "Mount Printer"  is
+             enabled,  a  printer.  The   dialog  displays  only   valid
+             drives/devices. You must have installed PCNFSD on your UN*X
+             machine, if you want to mount a printer.
+
+         UNMOUNT
+
+             Unmounts one or more  drive(s)/device(s).
+
+         LOGIN, LOGOUT
+
+         FLUSH
+
+             To avoid  waiting,  you  can  speed-up  the  print  job  by
+             applying a FLUSH. Your job will be printed w/out a timeout.
+
+         Note: All actions decribed in this  document apply ONLY to the
+         system Virtual  Machine  (the  "Machine",  where  your Windows
+         applications run). All  other DOS-BOXES are  not affected.  You
+         must run XFSTOOL to receive the same behaviour.
+
+         10.Command Scrips
+
+         You can  combine  XFSTOOL  commands to  a  command  script. Of
+         course you can also use  a batch file, but  a script speeds up
+         the initialisation a lot. The command  line for using a script
+         file is:
+
+              xfstool @<filename>
+
+         <filename> can contain  the variable `$hostname'  that will be
+         expanded to the real host name (if already know).
+
+         The following file configures XFS from scratch:
+
+              # XFS Version 1.70 command script
+              # (this is a comment)
+
+              init BOOTP csum=off
+              pcnfsd speedy
+              login
+              mount    d: speedy:/usr/share/dos
+              mount lpt1: speedy:prettyprint timeo=30
+              show
+              rdate
+
+         Note: If you're using BOOTP, you have to maintain only ONE
+         command script for all PC's of your LAN. You also can use a
+         global maintained script with the following batch  file:
+
+
+
+                                                                      12
+
+              : load the Packet Driver
+              ne2000 0x60
+              : first init the kernel
+              xfskrnl 0x60
+              xfstool init BOOTP csum=off
+              : mount a common drive
+              xfstool mount n: speedy:/usr/share/dos
+              : use a network-wide configuration
+              xfstool @n:\xfs\$hostname
+
+         In this case XFSTOOL substitutes `$hostname'  by the real name
+         of the host previously  obtained from BOOTP. If  the host name
+         was `pc_1', then XFSTOOL loads the file `n:\xfs\pc_1'.
+
+
+         11.Using XFS over other Networks
+
+
+         11.1.     Microsoft LAN Manager and Windows for Workgroups 3.1
+
+         If you're running one of the networking software below, you'll
+         need  the  Packet  Driver   simulator  (shim)  DIS_PKT9.  This
+         software is  not contained  in this  distribution, but  can be
+         optained from several  places (ftp/BBS).  It is  free software
+         and fully redistributable.
+
+         To get XFS working, you must insert the following lines in you
+         PROTOCOL.INI file.  You  find  PROTOCOL.INI  in  the directory
+         \LANMAN of your  LAN Manager software  or in  your Windows for
+         Workgroups (WfW) directory:
+
+              [PKTDRV]
+              DriverName=PKTDRV$
+              BINDINGS=<your card name>
+              IntVec=0x60
+
+         The name of your Ethernet card can also be found in this file.
+         Simply inspect some other entries that contain the directive
+         BINDINGS.
+
+         Finally you must insert the DIS_PKT driver in your CONFIG.SYS
+         file after the LANMAN or WfW drivers:
+
+              DEVICE=c:\lanman\protoman.dos /i:c:\lanman
+              DEVICE=c:\lanman\<yourcard>.dos
+              rem inserted DIS_PKT driver
+              DEVICE=c:\xfs\dis_pkt9.dos
+
+         Please also consult the original (very good) documentation of
+         DIS_PKT.
+
+         Note: XFS won't work with the  network redirector comming with
+         WfW 3.1, if you're using the  plain Windows redirector support
+         (provided by  an  VxD).  You  have  to  start  the  WfW MS-DOS
+         redirector before Windows starts:
+
+              net start {full | basic}
+
+
+
+                                                                      13
+
+         This replaces (I guess)  the Virtual Device  (VxD) services so
+         that XFS will work. This will cost you about 100Kb of standard
+         MS-DOS memory. If this is not convenient to you,  upgrade your
+         WfW version.
+
+
+
+         11.2.     Microsoft Windows for Workgroups 3.11
+
+         PROTOCOL.INI:  see Microsoft LAN Manager or WfW 3.1
+
+         In case you run Windows for Workgroups 3.11, don't change your
+         CONFIG.SYS! The Protocol  Manager gets  the file names  of its
+         drivers from the Windows SYSTEM.INI file.
+
+         You must insert following lines in your SYSTEM.INI file
+         (section [network drivers]):
+
+              [network drivers]
+              ...
+              transport=......, dis_pkt9.dos
+              LoadRMDrivers=Yes
+
+         Please  consult  DIS_TCP.TXT  if  you  are  running  Microsoft
+         TPC/IP-32 beta. The DIS_PKT9.TCP driver, distributed with XFS,
+         allows concurrent IP  stacks over  NDIS and Packet  Driver, in
+         this case MS TCP/IP and XFS.
+
+         NOTE: DIS_PKT9.DOS will sometimes refuse to load, if SHARE.EXE
+         was already active. Because WfW 3.11 comes with ist own 32 bit
+         SHARE version (VSHARE.386), it is not a bad idea to remove the
+         SHARE.EXE command line in your AUTOEXEC.BAT.
+
+
+         11.3.     Novell Netware
+
+         If you're running  Netware over  IPX (ODI),  you must  use the
+         IPXPKT (ODIPKT) shim. Can't things be always so simple?
+
+
+         12.WINPKT
+
+         Note: The WINPKT distributed with XFS is the original Crynwr
+         driver. There are other  (modified) drivers in the (Internet)
+         world, but using the original one can't be a bad idea!
+
+         You always  have  to  load the  WINPKT  driver  before XFSKRNL
+         starts. WINPKT  provides mechanisms,  which  are indispensable
+         when running Microsoft  Windows! Your  batch file  that starts
+         XFS should include the following lines:
+
+              : load PKTDRVR
+              ne2000 0x60
+              : load WINPKT
+              winpkt 0x60
+              : load XFS
+              xfskrnl 0x60
+              ...
+
+
+
+                                                                      14
+
+         Also if you're running other shims like DIS_PKT or IPX/ODIPKT,
+         you have to load WINPKT too!
+
+         13.The Build-in Multiplexor
+
+         Here are some examples on using the XFS PKTDRVR multiplexor:
+
+         1. NCSA Telnet
+
+              - Load XFS at PKTDRVR interrupt no. n
+              - Run NCSA Telnet at interrupt n + 2
+
+         2. Trumpet Winsock
+
+              - Load WINPKT (for XFS)
+              - Load XFS at PKTDRVR interrupt no. n
+              - Load WINPKT(for Winsock) at interrupt no. n + 2
+              - Start Windows
+              - Config Winsock for using  interrupt n + 2
+              - Run your software using Winsock (e.g. NCSA - Telnet for
+                Windows )
+
+         3. QVTNet for PKTDRVR
+
+              - Load WINPKT (for XFS)
+              - Load XFS at PKTDRVR interrupt no. n
+              - Load  PKTINT (from the QVTNet distribution)
+              - Start Windows
+              - Run QVTNet at interrupt n + 2
+
+         14.PKTMUX
+
+         If you're using PKTMUX,  because you must  multiplex more then
+         one Packet Driver  application, the  best solution is  to load
+         PKTMUX at XFS's multiplexor interrupt:
+
+              ne2000  0x60  // or other shim
+              winpkt  0x60  // for XFS
+              xfskrnl 0x60
+              pktmux  2 62  // 2 channels, at interrupt 62
+              pktdrv  63    // for your first PD application
+              pktdrv  64    //          second
+              win           // start Windows
+
+         How to unload the `stack'?
+
+              pktdrv /u
+              pktdrv /u
+              pktmux /u
+              xfstool unload
+
+         You also could  run XFS  over PKTMUX,  but the  performance is
+         intolerable. In this  case you  MUST load WINPKT  (coming with
+         XFS)  after  PKTDRV.   The  PKTMUX  manual   says,  WINPKT  is
+         redundant, but with XFS it's ESSENTIAL.
+
+         15.Tools
+
+         15.1.     Arp
+
+
+
+                                                                      15
+
+
+         ARP manipulates the IP ARP table (Address Resolution Protocol:
+         IP-address-to-Ethernet-address  mapping).  You   can  show  or
+         insert ARP entries. This tool can  be useful, when one of your
+         hosts doesn't participate at ARP (I never met one).
+
+
+         15.2.     Netstat
+
+         NETSTAT displays some useful informations about the actual
+         state of your host running XFS.
+
+
+         15.3.     Ls & Mv
+
+         These tools  are  designed  for  providing  a  possibility  to
+         display and manipulate file  names, which can't  be handled by
+         MS-DOS.  Because  XFS   maps  invalid  DOS   file  names  into
+         `stranger' one, it is useful for  the user to see the original
+         (e.g. UNIX) file names (with upper  case letters, reserved DOS
+         characters or simply to long).
+
+         Ls provides also the option `-m' to build a mapping list only:
+
+              ls -m > descript.ion
+
+         will produce, for example, a description file for 4DOS (JP
+         Software, Inc.)
+
+
+
+         15.4.     XPing
+
+         (Better: NFSPING)
+
+         XPing provides the possibility to `ping' a NFS server to see
+         if it is `alive'.
+
+
+
+         16.Appendix
+
+
+
+         16.1.     Compatibility
+
+         XFS was tested with:
+
+              MS-DOS 3.1, 5.0, 6.0, 6.2
+              MS Windows 3.1, 3.1 for Workgroups, 3.11 and 3.11 for
+              Workgroups
+
+         XFS runs (not compleatly tested) with:
+
+              DR-DOS 6.0, Novell DOS 7
+
+         XFS was NOT tested with:
+
+              MS-DOS 4.x
+
+
+
+                                                                      16
+
+
+
+
+         16.2.     Some FTP Sites
+
+
+         XFS:
+         ftp: lwfws1.uni-paderborn.de:/pub/xfs
+
+         (PC)NFSD:
+         ftp: ftp.uni-paderborn.de:/unix/network/daemon/pcnfsd.tar.Z
+
+         Packet Driver:
+         ftp: SimTel's  msdos/pktdrvr/pktd11*.zip
+              (ipxpkt & winpkt included)
+
+         DIS_PKT:
+         ftp: SimTel's  msdos/pktdrvr/dis_pkt9.zip
+
+         ODIPKT:
+         ftp: hsdndev.harvard.edu:pub/odipkt/*

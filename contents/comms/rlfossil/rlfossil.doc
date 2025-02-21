@@ -1,0 +1,94 @@
+Hello!
+I'm glad to represent new small utility for BBS-sites worked
+via internet. This programm - 4-channel emulator of modem &
+fossil driver. It allow to have 4 virtual modems on your BBS
+as addition to real modems, or you can use only virtual lines.
+This programm NOT A TSR, what more easy to unload. Driver support
+as incoming as outgoing calls, and emulate some HAYES command.
+Driver use internet service 513 (remote login) and compatible
+handshake. Your bbs with this driver will allow from UNIX (over 
+"rlogin name") or from any communication tool with fossil support,
+worked with this emulator (ex. FD terminal, Terminate, Telemate etc.),
+or from rlogin in any TCP packet (for ex. PC/TCP, CUTCP Telbin, etc.).
+
+Required:
+	IBM-PC XT/AT 8086 and above
+	MS-DOS 3.3 and above
+	Packet driver class 1 (Ethernet).
+
+Supported:
+	TopView.
+	DesqView.
+	Windows 3.1, and 3.11 (for Workgroups).
+
+Usage:
+  RLFOSSIL.EXE start_portn ports progname [idname]
+
+where: start_portn - number of first serial port what will emulated
+                     (0 -COM1:, 1-COM2: etc).
+       ports       - number of ports what will emulated ( 1 - 4 ).
+       progname    - programm name what will launched after start of
+		     driver, when this programm will terminated, driver
+		     will unload. This parameter can include arguments for
+		     launched programm. In such case it must be placed in "".
+       idname      - your default login name for outgoing calls 
+                     (if parameter missed idname= "root").
+
+exmples of usage:
+Usage Telemate with 1 virtual modem on COM1:
+  RLFOSSIL.EXE 0 1 TM.EXE
+
+Usage Telemate script file with 1 virtual modem on COM3: , and default login
+name "guest"
+  RLFOSSIL.EXE 2 1 "TM.EXE SCRIPT.TMS" guest
+
+Usage ORACOMM multiline BBS with 4 virtual modems on COM1: - COM4:
+  RLFOSSIL.EXE 0 4 ORACOMM.EXE
+
+Usage multiline BBS under WINDOWS with 4 virtual modems on COM5: - COM8:
+  RLFOSSIL.EXE 4 4 WIN.COM
+<Files BBS.BAT must be placed in STARTUP window>
+
+Usage multiline BBS under DV with 4 virtual modems on COM5: - COM8:
+  RLFOSSIL.EXE 4 4 DV.COM
+<Files BBS.BAT must be launched from STARTUP script>
+
+Driver X00 or BNU for real modems must be started early and ports of
+virtual modems must be choosed different with real modems.
+
+commands of virtual modem:
+ATDP 192.168.5.5
+  outgoing connection to 192.168.5.5
+ATDP machine.my.net
+  outgoing connection to machine.my.net (nameserver must be defined in
+  wattcp.cfg).
+ATDP guest@192.168.4.9
+  outgoing connection to 192.168.4.9 as user "guest"
+ATA 
+  answer on incoming calls (only after "RING")
+  all other commands beginning with AT - answer OK but do nothing.
+
+virtual modem messages:
+NO DIALTONE - cannot resolve hostname (may be wrong nameserver?)
+NO CARRIER  - host or service not available, or no route to host,
+              (after ATDP), or connection closed by programm or 
+              another host (after connection).
+CONNECT 9600/TCP/IP - connection established (after ATDP or ATA).
+RING        - incoming connection established, but you must enter
+              ATA to confirm it.
+OK          - Standard modem answer on most commands.
+
+maximal transfer speed:
+18636 - CPS (~150 KBPS).
+Internal buffers, fossil level:
+1024Bytes -TX, 1024Bytes -RX
+Internal buffers, TCP level:
+2048Bytes -TX, 2048Bytes -RX
+Connection timeout 30 seconds.
+config file:
+wattcp.cfg - see inside
+
+All remarks send to root@hq.icb.chel.su, Andrew Sapozhikov (Sapa).
+P.S.	Sorry for my bad english, remarks about my english allowed too.
+P.P.S.  Sorry, I can't write Russian, my VI (bsd 1.1) is old and not
+supplied upper half of charset.

@@ -1,0 +1,2776 @@
+User's Guide for AccessDOS
+
+
+
+A package of public domain MS-DOS extensions for keyboard, mouse and
+sound access
+
+
+
+Developed by:
+
+The Trace Research and Development Center
+
+Madison, WI
+
+Version 1.1
+
+March, 1993
+
+
+
+Software
+
+Mark E. Novak
+
+Joseph M. Schauer
+
+Jay D. Hinkens
+
+Gregg C. Vanderheiden
+
+Manual
+
+Peter A. Borden
+
+Revised by Microsoft Corporation
+
+
+
+Support for work on AccessDOS was provided in part by IBM Corporation
+and by the National Institute on Disability and Rehabilitation
+Research (NIDRR), U.S. Dept. of Education, under grant #H133E80021.
+
+Information in this document is subject to change without notice, and
+does not represent a commitment on the part of the Trace Center or
+the University of Wisconsin.  The software may be used or copied and
+distributed to others without charge.  If the program is copied, all
+parts of the program must be distributed along with it, including the
+manual.  This program may not be modified in any way without the
+express written permission of the Trace Center, University of
+Wisconsin-Madison.
+
+
+
+Copyright (c) 1991, 1992, 1993 Board of Regents,
+
+University of Wisconsin System.  
+
+All rights reserved.
+
+Printed in the United States of America
+
+
+IBM and PS/2 are registered trademarks of International Business
+Machines Corporation.  MS-DOS and Microsoft are registered trademarks
+of Microsoft Corporation.  WordPerfect is a registered trademark of
+WordPerfect Corporation.
+
+ User's Guide for AccessDOS
+
+Part 1:  Getting Started
+
+1-1:  What AccessDOS is all about
+
+Since computers are used by many different people, they have been designed
+overall for the "average" user.  But everyone's abilities are different,
+and some people have enough trouble operating computers that they need some
+special accommodations.  
+
+AccessDOS provides some of these accommodations.  AccessDOS does not
+address all of the problems that someone with a disability might encounter
+in using a computer.  Rather, it tackles some of the most common
+difficulties that people with physical disabilities encounter in using the
+computer's input devices--that is the keyboard and the mouse.  It also can
+assist some people with hearing impairments.
+
+AccessDOS is similar to the curbcuts used on street corners.  The
+computer itself, like the sidewalk, stays basically unchanged, and
+can still be used by anyone.  But just as curbcuts allow people in
+wheelchairs to get up on to the sidewalk and use it, AccessDOS lets
+the computer user with a disability operate the keyboard and mouse in
+a slightly different way, so that he or she can gain access to the
+computer.  Once that person has access to the computer, he or she can
+operate the same software that everyone else uses, and can use the
+computer to accomplished all the same things at home, at school or on
+the job.
+
+AccessDOS extends the MS-DOS operating system, which runs in the
+background while you are operating other software such as a word
+processor.  That means that you can make use of AccessDOS's special
+adaptive functions at any time while you're using the computer.
+
+This User's Guide will explain all you need to know to operate the
+functions of AccessDOS.  We've also tried to explain why you might
+want to use certain functions.  However, we encourage you to look
+beyond our basic suggestions.  Look at the instructions to find out
+what the program does, then think about what it could do for you. 
+Many of the functions are adjustable, and you may want to play around
+with them until you get them just the way you want them.
+
+The next section ("A quick look at AccessDOS functions") gives brief
+descriptions of each of the AccessDOS's main functions.  Reading this
+section will help you figure out which sections of the manual you might
+need to turn to.  Next to the name of each function is the number of the
+section in Part 2 which tells you how to use it.
+
+Be sure also to read Sections 1-3 and 1-4 of this manual ("How to set up
+AccessDOS on to your disk" and "How to start up and install AccessDOS")
+before you try to operate AccessDOS.
+
+ 1-2:  A quick look at AccessDOS functions
+
+There are seven basic functions in AccessDOS.  Here, in brief, is a
+description of each one.  (After the name of each function is the
+number of the section in Part 2 which tells you how to use it.)
+
+WARNING:  Be sure you have read and followed the instructions in
+Sections 1-3 ("How to copy AccessDOS on to your disk") and 1-4 ("How
+to start up and install AccessDOS") before you turn to Part 2 and try
+to use any of the seven AccessDOS functions.
+
+
+
+StickyKeys      (See Section 2-2)
+
+Operating a computer often requires pressing two keys at once--for
+example, pressing the shift key and the 8 key to make an asterisk (*).
+Some people find it difficult or even impossible to do this because
+they type with a single finger, or with a stick attached to their
+head or hand. 
+
+
+StickyKeys solves this problem by letting you first type one key, then
+the other.  For instance, to get an asterisk, you could press the
+shift key, release it, and then press the 8 key.  You can use
+StickyKeys with the shift, control and alternate keys on your
+keyboard.
+
+
+
+MouseKeys       (See Section 2-3)
+
+The mouse can be a difficult device for some people to handle.  For
+instance, people may have difficulty controlling fine movements of
+their hand, or they may have difficulty grasping the mouse and
+pressing the buttons, or they may be using a typing stick rather than
+their hands to operate the computer.
+
+MouseKeys allows people who can't handle the mouse, but who can press
+keys on the keyboard, to perform all the functions of the mouse. 
+MouseKeys lets you use the keys on the numeric keypad (the group of
+number and math keys usually on the far right side of the keyboard)
+to control all of the mouse functions, including moving around the
+screen and clicking the mouse buttons.
+
+
+
+ToggleKeys      (See Section 2-4)
+
+Many keyboards have small lights on them to indicate the status of
+keys that can be "on" or "off," such as caps lock.  There are usually
+three lights, one for caps lock, one for num lock and one for scroll
+lock.  Some people can't see these status lights, including people
+who are visually impaired and people who are performing keyboard
+functions from some device other than the standard keyboard (more
+information on the second situation is given under SerialKeys).  
+
+ToggleKeys tells you when one of the three keys is turned on or off
+by giving a beep.  Different beeps are used for on and off. 
+ToggleKeys will work the same way with keyboards that don't have the
+little indicator lights.
+
+
+
+Keyboard Response Group:  
+
+RepeatKeys, SlowKeys and BounceKeys     (See Section 2-5)
+
+Keyboards have several features that are based on the assumption that
+the user can press a key accurately, and release it at a precise
+time.  These features can pose obstacles to people who have physical
+impairments that prevent them from pressing keys accurately, or
+releasing them in time.  The Keyboard Response Group has three
+adjustments which let you adjust the keyboard: RepeatKeys, SlowKeys
+and BounceKeys.
+
+RepeatKeys:  Most keyboards have a feature called auto-repeat:  when
+you hold down a key for longer than a certain period of time, the
+keyboard begins repeating that key over and over again.  This feature
+of keyboards is meant as a convenience for most users, but can be an
+inconvenience to users with physical impairments.  They may get
+repeated keys when they don't want them.  RepeatKeys lets you adjust
+how fast the auto-repeat works or turn it off entirely.
+
+SlowKeys:  Some people who have physical impairments may accidently
+bump keys while they are moving their hand or typing stick toward the
+key they want.  Usually, the keys that are bumped accidentally will
+just be hit for a very short period of time.  SlowKeys lets you tell
+the computer not to accept a key as "pressed" unless it's held down
+for a certain length of time.  The user can then bump any number of
+keys on their way to the one they want without accidentally getting
+those characters.  They can then hold the desired key long enough for
+the computer to accept it.
+
+BounceKeys:  Some people with physical impairments will accidentally
+"bounce" on a key when they press it--that is, they'll press it once,
+then accidentally press it again right away.  BounceKeys lets you
+tell the computer "don't accept two presses on the same key in a row,
+unless they are far enough apart in time."  Using BounceKeys, if a
+person presses the T key, then bounces on it (hits it again right
+away), the computer will just accept one letter T, not two.  The user
+can deliberately get two T's by waiting a little while before
+pressing the T key again.
+
+
+
+SerialKeys      (See Section 2-6)
+
+Some people cannot use the keyboard and mouse at all due to a
+physical impairment, and must use some specially designed input
+device (a communication aid, an eyegaze-operated keyboard, etc.) to
+perform the functions of the keyboard and the mouse.  In some cases
+these special input devices can be connected to a computer's serial
+port (the connector commonly used for attaching a modem or printer). 
+Simply connecting the special input device to the computer's serial
+port, however, is not enough to allow you to control keyboard and
+mouse functions.  The computer is designed to receive keyboard and
+mouse signals through its keyboard and mouse connections, not through
+its serial port.
+
+SerialKeys allows you to control the keyboard and mouse functions of
+the computer from a special input device hooked up to the computer's
+serial port.  This is done by sending the proper series of commands
+and characters from the special input device to the computer's serial
+port.
+
+
+
+ShowSounds      (See Section 2-7)
+
+The computer often signals errors or warnings to the user with beep
+sounds.  However, users who have hearing impairments or who work in a
+noisy environment may be unable to hear these sounds.  
+
+ShowSounds, gives you a visual indicator of when the computer has
+beeped at you.  Whenever there is a sound, special symbols will
+appear in the upper left-hand corner of the screen, telling you the
+kind of sound that was made.  For a more obvious alert, you can make
+the whole screen flash briefly off and on instead.  
+
+The ShowSounds feature in AccessDOS would be more properly referred
+to as SoundSentry, because it tries to detect applications making
+sounds, rather than cooperating with those applications.  However,
+the term ShowSounds will continue to be used here to follow the 
+convention used in earlier version of AccessDOS.
+
+
+
+TimeOut (See Section 2-8)
+
+You may want to use AccessDOS on a computer which is also shared by
+people who don't need to use AccessDOS.  The other users may not
+understand how to operate AccessDOS, or how to turn off its various
+functions.
+
+TimeOut lets you set AccessDOS to shut off after the keyboard and
+mouse have been unused for a certain period of time.  If a person who
+needs AccessDOS turns AccessDOS on and then leaves the computer,
+someone coming up and using the computer later will not encounter
+AccessDOS, since it will have turned itself off.  If you want to have
+AccessDOS on all the time, you can turn off the TimeOut function.
+
+ 1-3:  How to set up AccessDOS on to your disk
+
+To install AccessDOS from your Supplemental disk, carry out the
+following steps:
+
+Step 1:  Make sure you're at the MS-DOS prompt, on the same disk
+drive and directory that contains your Supplemental disk files.
+You shouldn't be in any application program (word processor,
+spreadsheet, etc.) but just in MS-DOS.  The MS-DOS prompt is normally
+letter of the disk drive you're logged on to (A, B, C, etc.),
+followed in some cases by a colon (:), and usually by a forward
+arrow (>), and then a flashing cursor.  Here's an example of a MS-DOS
+prompt:
+
+    C:>_
+
+If the drive you are logged onto is not the drive containing the
+Supplemental files, you must log onto that drive by typing the
+drive letter followed by a colon.
+
+For example, if your prompt is C:>_ and you have inserted the
+diskette containing your Supplemental files into your "A:" floppy
+drive,  you would type the letter "A" followed by a colon, then
+press the Enter key.  You would then see your MS-DOS prompt showing
+the correct drive letter.
+
+Step 2:  Type the Setup command.  This consists of:
+
+1)      the word setup
+
+2)      a space
+
+3)      the letter of the disk drive you're copying files to (that
+is, the disk drive where you wish to place AccessDOS files)
+
+4)      a colon
+
+5)      a back slash ("\")
+
+6)      the name of the directory into which you want to copy the
+AccessDOS files.
+
+For example, if your Supplemental disk is in drive A, and you want
+to install the files on drive C in your DOS directory, type the
+following:
+
+   setup c:\dos
+
+Step 3:  When the Setup program starts, choose A if you want install
+the all Supplemental disk files.  This includes many files in
+addition to AccessDOS.  Choose S if you want to install only some of
+the files--for example, just the AccessDOS files.
+
+If you choose to install some of the files, Setup will prompt
+you to install groups of files, including AccessDOS.
+
+When AccessDOS prompts you to answer a question, you can answer by
+pressing a single key.  In most cases your choices will to type
+Y to intall a group of files, N to skip a group of files, or X to
+abort the setup procedure.
+
+When you install AccessDOS, Setup will be copying six files:
+
+ADOS.COM        A program file required to use AccessDOS
+
+ADOS.OVL        Also required
+
+ADOS.CFG        Also required (stores AccessDOS settings)
+
+ADOS.TXT        A text file of the AccessDOS manual
+
+AREADME.TXT     A file of additional instructions, including
+information  on compatibility of particular hardware and software
+with AccessDOS.
+
+FAKEMOUS.COM    An IBM PS/2 mouse utility
+
+When you have completed the setup procedure, you will have copies
+of these six files in the directory you specified on the setup
+command line.  You can now read the on-line documentation, and
+then procede to start up AccessDOS.
+
+How to read the AReadMe.txt document:
+
+1)      load it in a word processor and read and/or print it
+
+2)      print it from MS-DOS by typing Print AREADME.TXT
+
+3)      read it on the screen by typing Type AREADME.TXT |more
+
+If you need more disk space
+
+If you are running out of space on your disk, you can remove ADOS.TXT
+and AREADME.TXT from your disk.  However, you must copy ADOS.COM,
+ADOS.OVL and ADOS.CFG in order to use AccessDOS.
+
+Memory requirements
+
+AccessDOS does require a certain amount of RAM (random access memory)
+in order to operate.  This should be no problem for most people with
+at least 256K in their computer.  If you have less than 256K, or if
+you use several TSR (terminate-stay-resident, sometimes know as
+"RAM-resident") programs, you may find that you don't have enough
+memory for AccessDOS.  So you know what you need, here are
+AccessDOS's memory requirements:
+
+While loading:  160K
+
+Once installed: 10K if you don't use SerialKeys
+
+        25K if you use SerialKeys
+
+System and hardware requirements
+
+AccessDOS requires that you use version 3.3 or higher of MS-DOS.
+
+In order for SerialKeys to work, you must have an available serial
+port.  
+
+In order for MouseKeys to work, you must have an IBM PS/2 mouse or
+Microsoft serial or PS/2 style mouse.  The mouse must be connected, 
+with the proper mouse driver software loaded.  (There is one 
+exception; see Section 2-3 on MouseKeys for details.)
+
+ 1-4:  How to start up and install AccessDOS
+
+Once you've copied the AccessDOS files on to your own disk you must
+start it up and install it.  You must install it before you can use
+its functions.
+
+Starting up AccessDOS
+
+Step 1:  Make sure you're at the MS-DOS prompt.  You shouldn't be in
+any application program (word processor, spreadsheet, etc.) but just
+in MS-DOS.  You'll see the letter of the disk drive you're logged on
+to (A, B, C, etc.), followed in some cases by a colon (:) and usually
+by a forward arrow (>) and then a flashing cursor.  Here's an example
+of a MS-DOS prompt:
+
+        C:>_
+
+You must be on the same disk drive and in the same directory that you
+copied your AccessDOS files into; see Section 1-3.  (You can start
+AccessDOS from another directory by typing the full path name, if you
+know how to do that.)
+
+Step 2:  Type "ados" (without quotation marks).
+
+Step 3:  Type the appropriate command line switch after the word
+"ados". (See "Starting with command line switches," below).  
+
+Step 4:  Press the enter key.
+
+Once you've started AccessDOS, you'll see the AccessDOS menu bar.
+
+Starting with command line switches
+
+In many cases you will be able to run AccessDOS in its default mode,
+simply be typing ADOS and pressing the Enter key.  There are times,
+however, when you may need to modify the way AccessDOS runs.  This can
+be done by using command line switches.  
+
+A command line switch consist of a space, a forward slash (/) and a
+letter.  Here is a list of the available command line switches:
+
+Type    If you want to. . .
+
+ADOS /? Show this list of command line switches
+
+ADOS /C Use a color display on your computer.
+
+ADOS /M Use a monochrome (black and white) display
+
+ADOS /L Use an LCD display on your computer.
+
+ADOS /A Install AccessDOS automatically with option to use menus
+
+ADOS /X Install AccessDOS automatically without option to use menus
+
+
+
+A command line switch must be typed after you type ADOS and before
+you press the Enter key.  You may use more than one command line
+switch at a time.  For example:
+
+        ADOS /L /A
+
+Command line switches /C, /M, /L
+
+AccessDOS attempts to determine what type of video display system you
+have attached to your computer.  In most cases AccessDOS determines
+this correctly, but occasionally it does not.  Specifically,
+AccessDOS has problems with monochrome displays attached to color
+hardware.  This is the case on many laptop computers, and when you
+have a monochrome monitor attached to an IBM PS/2 computer.  In these
+situations, the computers make AccessDOS think it is running on a
+color system, even though the monitor is unable to display different
+colors.
+
+If you experience difficulty reading the display on your computer, you
+may want to try the appropriate command line switch for your computer
+display. Use:
+
+        /C      if you have a color monitor;
+
+        /M      if you have monochrome monitor;
+
+        /L      if you have a laptop with and LCD display.
+
+Command line switch /A
+
+If you want AccessDOS to automatically install, using whatever
+settings you have made and saved before, you must use the /A command
+line switch. You can just type it, following ADOS, but it is mainly
+intended to be put into your AUTOEXEC.BAT file, a file your computer
+uses to know how to start up.  If you put ADOS /A in your
+AUTOEXEC.BAT file, it will give you a chance to install it each time
+you start up your computer.
+
+When you start up AccessDOS with the /A command line switch, you will
+see a message on the screen.  You have four options:
+
+1)      Press the Escape (Esc) key within 20 seconds to abort the
+install process.  If then you wanted to see the AccessDOS menus, you
+would have to type ADOS and press the Enter key.
+
+2)      Press the Enter key within 20 seconds, to stop AccessDOS from
+installing, and to go into the AccessDOS menus.  If you do this,
+AccessDOS will ignore any settings you've made before and use its
+default settings for all the AccessDOS functions.  AccessDOS has not
+"forgotten" your old settings, it just isn't using them.  If you
+press Enter by accident, just quit the AccessDOS menus and type ADOS
+/A again.
+
+3)      Press any key except Escape or Enter within 20 seconds, to
+make AccessDOS install automatically.  AccessDOS will use whatever
+settings you made last time you saved settings.  You will not see the
+AccessDOS  menus.
+
+4)      Wait for 20 seconds without pressing any key.  This has the
+same effect as #3 above.
+
+WARNING:  Please notice that the only way to get AccessDOS to use
+your previously saved settings is to use the /A or /X command line
+switch.  If you just type ADOS, you will always get AccessDOS's
+default settings.
+
+Command line switch /X
+
+If you are using a computer with an 80386 microprocessor and you are
+using a high MS-DOS memory manager program, you may want to read
+about the /X command line switch.  If not, just skip this
+explanation.
+
+MS-DOS is able to access any memory location whose address is less
+than 1 megabyte.  High DOS memory managers use special instructions
+built into the 80386 CPU to map memory from 1 megabyte to available
+space below 1 megabyte.  These memory managers can then load
+terminate-stay-resident (TSR) programs and device drivers in low
+memory so MS-DOS can use them.  Most TSR programs are much smaller
+when they are resident than when they are loading.  AccessDOS, for
+instance, uses about 160 KB to load, but only 10-25 KB while resident.
+In order for a TSR to be loaded by memory managers, there must be
+enough free memory to load and run the program.  We have provided the
+/X command line switch to reduce the amount of memory required to
+load AccessDOS.  The /X command line switch in no way affects
+functionality or resident size of AccessDOS; it simply installs
+AccessDOS with your previously saved settings (just like /A), but
+without the option of choosing to use the menus.  This reduces the
+amount of memory required to load AccessDOS from 160 KB to about 31
+KB.
+
+To load AccessDOS in high DOS memory, follow the instructions for
+your specific high DOS memory manager and include the /X command line
+switch after you type ADOS.
+
+Before you use any AccessDOS functions:  Install it!
+
+If you want to use AccessDOS, you will have to install it each time
+you boot up (turn on) your computer.  Installing it allows its
+various functions (StickyKeys, MouseKeys, etc.) to run "in the
+background" while you are using other programs such as word
+processors.  If you don't install AccessDOS, its functions won't be
+available to you.  If you are working with AccessDOS for the first
+time, you should probably install it before you do anything else. 
+There are two ways to install AccessDOS:
+
+Option 1:  Start up the AccessDOS program (see "Starting up
+AccessDOS," above) and then install AccessDOS using the Install/Run
+command.  This will install AccessDOS with AccessDOS's default
+settings, rather than any settings you may have made and saved
+before.  Here's how to do it:
+
+Step 1:  Start the AccessDOS program, if you haven't already.
+
+Step 2:  Pull down the file menu.  Do this by pressing the left arrow
+key until you see a list of choices appear under the word "File." One
+choice should be highlighted.  
+
+Step 3:  Move the highlight, using the up or down arrow key, until it
+rests on the command install/run.  
+
+Step 4:  Press the enter key on the keyboard.  You should then see
+the AccessDOS menus.
+
+Option 2:  When you type "ados" to start the program, type a slash-A
+(/A) or slash-X (/X) after the "ados."  See "Starting up AccessDOS,"
+above, for details on this way of installing AccessDOS.  This gives
+you a chance to install AccessDOS with whatever settings you last
+saved.  See "Starting with command line switches," above, for a full
+explanation of /A and /X.
+
+Part 2 of this manual explains each of the functions of AccessDOS. 
+All of the functions can be activated and adjusted by typing "ados"
+and using the commands on the screen.  Some can also be activated
+from the keyboard while you are using another program, such as a word
+processor.
+
+Making AccessDOS load automatically at start-up
+
+You may want to have AccessDOS automatically load itself each time
+your restart or re-boot your computer.  In shared computer
+situations, this shouldn't pose a problem, since AccessDOS can be
+running in the background and be inactive until a user who needs the
+features comes along and presses the proper keys.  
+
+To make AccessDOS install or load automatically each time the computer
+is restarted, you should insert the command ADOS /A into your
+autoexec.bat file.  If you are using a mouse, ADOS /A should be
+located after the command to load the mouse driver.  
+
+If you don't know how to change your autoexec.bat file, check your
+MS-DOS manual or have a knowledgeable person assist you.  
+
+Troubleshooting
+
+If you have difficulty using AccessDOS be sure to consult the
+AREADME.TXT file.  This text file contains information about
+known compatibility issues and helpful hints for making the best
+use of AccessDOS.
+
+ User's Guide for AccessDOS
+
+Part 2:  Using AccessDOS
+
+Part 2 of this manual explains how each of the different functions of
+AccessDOS work.  You can read through all of the instructions, or just
+turn to the section you want.  You will also want to read the short
+section below on "The Basics" so you will understand how to make
+things happen in AccessDOS, and how to get help information on the
+screen.
+
+2-1:  The Basics
+
+If you are using AccessDOS for the first time, and especially if
+you've never used a program with "pull-down" menus before, you should
+read the two sections below:  "How to make things happen in
+AccessDOS" and "How to get help in AccessDOS."
+
+How to make things happen in AccessDOS
+
+When you first start AccessDOS (as described in Section 1-3), you will
+see the AccessDOS menu bar.
+
+The three words at the upper left on the screen--file, adjust and
+help--are called the menu bar.  Each of the words in the menu bar has
+a pull-down menu, like the one you see below the word Adjust.  In
+AccessDOS, you make things happen by selecting choices from these
+pull-down menus.  
+
+When you first enter AccessDOS, you should see that the Adjust menu
+is "pulled down," that is, you can see the list of choices.  
+
+The File and Help menus can also be pulled down.  Just press the right
+or left arrow (cursor) keys on the keyboard.  For example, try
+pressing the right arrow key.  Notice that the Adjust menu closes up,
+and the Help menu pulls down.  
+
+There are two ways to select from menus:  with the arrow (cursor) keys
+and with "hot" keys.  
+
+To select with the arrow keys:  first move the highlight bar to the
+choice you want, using the up and down arrow (cursor) keys, then
+press the Enter key.  
+
+You can also select an item by pressing the hot key for that item. 
+The hot key for each menu item is the character that is displayed in
+a different color from or brighter than the rest.  If you told
+AccessDOS that you have an LCD screen on your computer, (by typing
+/L; see Section 1-4), the hot key will be the letter that is
+capitalized.
+
+As an example, try pulling down the Adjust menu and moving the
+highlight to StickyKeys.  Then press the Enter key.  You will see the
+StickyKeys adjustment dialog box.
+
+Notice that the dialog box gives you another set of choices.  These
+are all the adjustments you can make to the StickyKeys function.
+
+Notice that there are two arrows pointing at the first line (which
+says "StickyKeys On").  These arrows are like the highlight on the
+Adjust menu: they show you what feature you are currently on.  And
+like the highlight, they can be moved up and down with the up and
+down arrow (cursor) keys.
+
+When the arrows are pointing at the first line ("StickyKeys On") that
+means that you can now select "Yes" or "No" to turn StickyKeys on or
+off. When you move the arrows to the second line ("Sound when turned
+on or off"), you can choose "Yes" or "No" for that command.
+
+You select "Yes" or "No" by moving the highlight back and forth with
+the right and left arrow (cursor) keys.
+
+In order to leave the dialog box, press the Enter key or the Escape
+(Esc) key.  
+
+If you press the Enter key, AccessDOS will "remember" any changes you
+made in the various settings in the dialog box.  If you press the
+Escape key, AccessDOS will discard any new settings you made and go
+back to whatever the settings were before.  (If you've never altered
+the settings, AccessDOS uses its own default settings.)
+
+WARNING:  If you change settings in a dialog box, pressing the Enter
+key will only cause your new settings to be remembered until next
+time you turn off or re-boot your computer.  If you want AccessDOS to
+remember your new settings even after your computer has been turned
+off and on again, you must also save your settings.  See Section 2-10
+to find out how to do this.  Also keep in mind that your saved 
+settings will not be used unless you start AccessDOS with the /A or
+/X switches.
+
+In summary, here are all the keys you need to use to make things
+happen in the AccessDOS program:
+
+Up and down arrow keys
+
+- Move up and down on a menu
+
+- Move up and down in a dialog box
+
+Right and left arrow keys
+
+- Pull down the next menu over
+
+- Move right and left in a dialog box
+
+Enter key
+
+- Select a command from the File, Adjust or Help menus
+
+- Close a dialog box and tell AccessDOS to "remember" any changes you
+just made in the settings.
+
+Escape key
+
+- Close a dialog box without changing anything
+
+- Close a "help" box
+
+Hot keys
+
+- Select a menu item automatically
+
+
+
+How to get help in AccessDOS
+
+There are three ways to get on-screen help (instructions) in
+AccessDOS:
+
+1.      Go to the help menu.
+
+When you first enter AccessDOS, you will see the file, adjust and
+help menus.  If you pull down the help menu, you will see a list of
+the functions of AccessDOS.  Just select the one you want, and help
+information for that function will appear on the screen.  
+
+2.      Press the F1 key.
+
+You can press the F1 key at any time while you are in AccessDOS in
+order to see help information about the functions you are currently
+working with.
+ If, for instance, you are in the process of adjusting StickyKeys and
+want some help, pressing the F1 key will give you information about
+adjusting StickyKeys.
+                     
+3.      Watch the hint line
+
+At the very bottom of the screen is a hint line.  This line always
+tells you what action you are ready to take.  Try it:  pull down the
+adjust menu and then move the highlight up and down (using the up and
+down arrow keys).
+ Watch the bottom of the screen.  Notice that the hint line changes as
+you move from one command to another.
+
+The hint line appears for all choices on all menus.
+
+ 2-2:  StickyKeys
+
+What StickyKeys is for
+
+Operating a computer often requires pressing two keys at once--for
+example, pressing the shift key and the 8 key to make an asterisk (*).
+Some people find it difficult or even impossible to do this because
+they type with a single finger, or with a stick attached to their
+head or hand. 
+
+StickyKeys solves this problem by letting you type first one key, then
+the other.  For instance, to get an asterisk (*), you could press the
+shift key, release it, and then press the 8 key.  You can use
+StickyKeys with the shift, control and alternate keys on your
+keyboard.  (These keys are called the modifier keys since they modify
+the action of another key.)
+
+How to turn StickyKeys on and off
+
+If you have never used StickyKeys on your computer, or if someone
+else has turned it off, you will need to turn it on before you can
+use it.  You don't need to be in the AccessDOS menus to turn
+StickyKeys on.  You can turn it on from wherever you are:  at the
+MS-DOS prompt, in a word processing program, in a graphics program,
+etc. (as long as you have AccessDOS installed; see Section 1-4).
+
+To turn StickyKeys on, press the shift key five times in a row.  Be
+sure you don't press any other keys or move the mouse while you are
+pressing the shift key five times.  You can press either the right or
+the left shift key.
+
+When you turn StickyKeys on, you will hear an up-siren from the
+computer. The up-siren is a long beep that goes up in pitch.
+
+You can turn StickyKeys off the same way you turn it on:  just press
+the shift key five times in a row.  When you turn StickyKeys off, you
+will hear a down-siren from the computer.  The down-siren is a long
+beep that goes down in pitch.
+
+StickyKeys can also be set to turn off automatically if any two keys
+are pressed at the same time.  This feature is useful for shared
+computers (such as school labs), so that people who don't use
+StickyKeys won't need to know it's there.  See the instructions in
+"Adjusting StickyKeys," below.
+
+How StickyKeys works
+
+StickyKeys lets you do two different things to a modifier key such as
+shift:  you can latch it or you can lock it.  StickyKeys will make
+different sounds depending on whether you are latching a modifier key
+or locking it.  
+
+Latching
+
+Latching a modifier key (Shift, Control or Alternate) means that it
+will affect only the next key you press.  You latch a modifier key by
+pressing it just once.  It will be latched while you press the next
+key, as if you were holding it down; then it will be released, as if
+you had let go of it.
+ When you latch a modifier key, you will hear a short low beep
+followed by a short high beep.
+
+For example, if you wanted to capitalize the first letter of a word,
+you could latch the Shift key, type the first letter of the word,
+which would be capitalized, then type the rest of the word, which
+would be lower case.
+
+NOTE:  The beeps can be turned on and off.  See "Adjusting
+StickyKeys," below.
+
+ALSO NOTE:  The Caps Lock key works the same way with or without
+StickyKeys:  if Caps Lock is turned on, shifting a key will make it
+lower case rather than capitalized.
+
+Locking
+
+Locking a modifier key means that it will affect any key you press
+after it, until you unlock it.  
+
+You lock a modifier key by pressing it twice in a row.  You unlock it
+by pressing it one more time.  When you press the modifier key the
+first time, you will hear a short low beep followed by a short high
+beep.  When you press it the second time (and the key locks) you will
+hear a single short high beep.  You then type what ever keys you want
+modified, then unlock the modifier key by pressing it one more time. 
+When the key unlocks you will hear a single low beep.
+
+For example, if you wanted to type "ANN is," with the name ANN in all
+capital letters, you would press the shift key twice to lock it, type
+a-n-n, then press shift again to unlock it, and then type the word
+"is."
+
+NOTE:  If locking doesn't seem to work, someone may have turned the
+locking ability off.  See "Adjusting StickyKeys," below.
+
+ALSO NOTE:  The beeps can be turned on and off.  See "Adjusting
+StickyKeys," below.
+
+Latching more than one modifier key at once
+
+Sometimes you may need to hold down two or even all three modifier
+keys (shift, control and alternate), plus another key.  If you do,
+you don't need to lock the first modifier key to have it "hold down"
+while you press another modifier key.  
+
+For example, if you want to press Control-Alternate-Delete (the key
+sequence for re-booting your computer), you can just press the three
+keys in a row.  The Control key will remain latched while you press
+the Alternate key and the Delete key.  Once you've pressed the Delete
+key, (which is not a modifier key), all the modifier keys which were
+latched will be released, and the computer will re-boot.  (WARNING: 
+Don't actually press Control-Alternate-Delete unless you want to
+re-boot (restart) your computer.)
+
+
+
+Adjusting StickyKeys
+
+There are some other changes you can make to StickyKeys besides just
+turning it on and off.  These changes are made from the AccessDOS
+menus, so you'll need to start up AccessDOS first.  (If you haven't
+started up AccessDOS before, see Section 1-4 for instructions).
+
+Once you've gotten to the AccessDOS menus, select "StickyKeys..." from
+the adjust menu.  You'll see a dialog box.
+
+Here are the choices in this dialog box, and what they mean.
+
+StickyKeys On
+
+This is the same as turning the StickyKeys function on or off by
+pressing the shift key five times.
+
+Sound when turned on or off
+
+This lets you decide if you want to hear the up and down sirens when
+StickyKeys is turned on and off.
+
+Sound when pressing a Modifier key
+
+This lets you decide if you want to hear sounds when modifier keys
+are latched, locked and released.
+
+Sound when pressing any key
+
+If you want to, you can hear a "click" sound from the computer for any
+key that you press while StickyKeys is turned on.  You can say yes or
+no to this feature.
+
+Turn off when pressing two keys at once.
+
+StickyKeys can be set to turn off automatically whenever two keys are
+pressed at once on the keyboard.  This feature is useful for shared
+computers (such as school labs), so that people who don't use
+StickyKeys won't need to know it's there.  You can decide whether or
+not you want this kind of automatic turn-off.
+
+Lock MOD key when pressed twice
+
+Ordinarily, StickyKeys lets you lock a key by pressing it twice in a
+row. If you say no to this choice, however, the ability to lock
+modifier keys will be turned off.
+
+Once you've selected the adjustments you want. . .
+
+Just press the Enter key (if you want to use the settings you made) or
+the Escape key (if you decide you don't want to change settings after
+all).
+
+If you want AccessDOS to "remember" the settings you made after you
+have turned your computer off and back on again, you will also have
+to save your settings.  You can do this any time by selecting Save
+from the File menu. For more information on saving your settings, see
+Section 2-10, "Saving your settings."
+
+ 2-3:  MouseKeys
+
+What MouseKeys is for
+
+The mouse can be a difficult device for some people to handle.  For
+instance, people may have difficulty controlling fine movements of
+their hand.  They may have difficulty grasping the mouse and pressing
+the buttons.  Or they may be using a typing stick rather than their
+hands to operate the computer.
+
+MouseKeys allows people who can't handle the mouse, but who can press
+keys on the keyboard, to perform all the functions of the mouse. 
+MouseKeys lets you use the keys on the numeric keypad (the group of
+number and math keys usually on the far right side of the keyboard)
+to control all of the mouse functions, including moving around the
+screen and clicking the mouse buttons.
+
+How to turn MouseKeys on
+
+If you have never used MouseKeys on your computer, or if someone else
+has turned it off, you will need to turn it on before you can use
+it.  You don't need to be in the AccessDOS menus to turn MouseKeys
+on.  You can turn it on from wherever you are:  at the MS-DOS prompt,
+in a word processing program, in a graphics program, etc. (as long as
+you have AccessDOS installed; see Section 1-4).
+
+WARNING:  You can only use MouseKeys if your computer is already set
+up to use a mouse.  Also, MouseKeys will only provide mouse functions
+for a program that is designed to be used with a mouse.  Check the
+AREADME.TXT file that comes on the AccessDOS disk to find out about
+compatibility with particular software.
+
+To turn on MouseKeys, press the left Alternate key, the left Shift
+key, and the Num Lock key, all at the same time.  If you wish, you
+can do this using the StickyKeys function (see Section 2-2).  The
+left Alternate and left Shift keys are the ones located on the left
+hand side of the keyboard.
+ You may have only one Alternate key, but some keyboards have two.
+
+You will know when MouseKeys has been turned on, because you hear an
+up-siren from the computer.  The up-siren is a long beep that goes up
+in pitch.
+
+How to turn MouseKeys off
+
+To turn MouseKeys off, just press the same key combination you used
+to turn MouseKeys on:  the left Alternate key, the left Shift key,
+and the Num Lock key, all at the same time.  Remember, you can do
+this using the StickyKeys function if you need to (see Section 2-2). 
+When MouseKeys turns off, you will hear a down-siren--a long beep
+that goes down in pitch.  Once MouseKeys is off, the numeric keypad
+returns to its regular functions.
+
+How MouseKeys works
+
+The instructions below refer to the standard keypad from the IBM
+enhanced (101-key) keyboard, plus the mouse function each key
+accomplishes.  (If you have a different type of keypad, see
+"Differences in numeric keypads," below.)
+
+Below is a key to how to perform mouse functions with MouseKeys, based
+on the numeric keypad on the standard IBM enhanced keyboard.  (If you
+have a different type of keypad, see "Differences in numeric
+keypads," at the end of this section.)
+
+WARNING: The instructions below refer just to keys on the numeric
+keypad.  Other number or symbol keys on the keyboard won't work.
+
+Moving the mouse pointer on the screen:
+
+The number keys 1-4 and 6-9 on the keypad form a sort of "compass"
+for moving the pointer up, down, left right and diagonally.  Press
+the key that is similar to the direction you want to move:  for
+instance, the 9 key will move the mouse pointer up and to the right. 
+If you hold the key down, the mouse pointer will move continuously. 
+Notice that it moves slowly at first and then speeds up.  The maximum
+speed that the pointer will go is adjustable through the AccessDOS
+program:  see "Adjusting MouseKeys," at the end of this section.
+
+Selecting the right or left mouse button, or both
+
+Since there are two buttons on the PS/2 mouse or Microsoft mouse, you
+must first tell MouseKeys which button you want to use before
+clicking the button.  The button you have selected (right or left) is
+called the active button.
+
+Pressing the slash (/) key:  Makes the left mouse button the active
+button (only on 101-key keyboards).  
+
+Pressing the asterisk (*) key:  Makes both the Left Button and the
+Right Button the "active" button (on 101-key keyboards), or the left
+button the "active" button (on 84-key keyboards).
+
+Pressing the minus (-) key:  Makes the right mouse button the active
+button.  
+
+SHORTCUT:  If you are just using the left mouse button and don't care
+about the right one, then you don't need to select a button.  Just
+press the proper keys for clicking, double clicking, locking and
+releasing, as described below.  MouseKeys will assume you want to
+make these actions with the left mouse button.
+
+Clicking the mouse buttons
+
+Once you've selected the right or left mouse button, you can click
+that mouse button by pressing the 5 key.  If you don't select a mouse
+button first, MouseKeys will assume you want to click the left
+button.
+
+Double clicking
+
+First, select the right or left mouse button.  If you don't select
+either, MouseKeys will assume you want to double click the left
+button.
+
+You can double click the mouse button just by pressing the 5 key twice
+in a row quickly.  
+
+Another way to double click the mouse button is to by press the plus
+(+) key on the keypad just once.
+
+Locking and releasing (clicking and dragging)
+
+First, select the right or left mouse button.  If you don't select
+either, MouseKeys will assume you want to lock the left button.
+
+Pressing the 0 key locks down the mouse button and pressing the period
+(.) key releases it.  In other words, you can press and release the 0
+key and the mouse button will still stay pressed until you release
+the mouse button by pressing the period (.) key.  
+
+If you need to drag with the mouse (that is, move the mouse while
+holding the button down), just lock the mouse button with the 0 key,
+move the mouse with the appropriate number keys, and then release it
+with the period key.
+
+WARNING:  When you lock down mouse buttons, make sure you eventually
+release them!  Many software programs won't let you perform functions
+such as typing while the mouse button is being held down.
+
+Using the mouse and the keypad together
+
+You might try using the regular mouse together with the MouseKeys
+function if it is easier for you.
+
+For example, a person who uses a mouthstick for typing may want to
+move the regular mouse and click the regular mouse buttons, but may
+want to use the 0 and period (.) keys when a click-and-drag move is
+needed.  One instance where using the regular mouse can be valuable
+is freehand drawing, which sometimes requires moving in more than
+just the eight directions offered by MouseKeys.  
+
+WARNING:  Not all software programs will allow you to use MouseKeys
+and the regular mouse at the same time.  Also, if your mouse connects
+to the computer through the serial port, don't try to use MouseKeys
+and the regular mouse at the same time.  Check the AREADME.TXT file
+that comes on the AccessDOS disk to find out about compatibility with
+particular software.
+
+Differences in numeric keypads
+
+The instructions above assume you are using the numeric keypad on the
+standard IBM extended keyboard layout.  Some other keyboard layouts
+don't include all of the same keys.  The number and period keys will
+be there, but you may not have the slash (/) key.  If you have a
+keyboard that doesn't have a slash (/) key on the keypad, then the
+asterisk (*) key on the keypad will be the left mouse button and the
+minus (-) key on your keypad will be the right mouse button.  There
+will be no key for both buttons.
+
+Using MouseKeys without a separate numeric keypad
+
+While MouseKeys is on, you can use the num lock key to switch the
+MouseKeys control pad back to a numeric or cursor control
+pad--whichever it was when you turned on MouseKeys.  For example, if
+your number pad was functioning as a numeric pad when you turned on
+MouseKeys, then pressing the num lock key will switch the pad back
+and forth between being a MouseKeys control pad and being a numeric
+pad.  
+
+This feature is especially useful if you are using a laptop or
+notebook computer which doesn't have a separate numeric keypad.  On
+these keyboards the "numeric keypad" is usually overlaid on top of
+part of the standard keyboard.
+
+Using MouseKeys without a mouse connected
+
+MouseKeys will not work unless there is an IBM PS/2 or Microsoft
+mouse driver (software) installed.  (Ordinarily, if your computer has
+been set up to use a mouse, the driver will be loaded
+automatically.)  The mouse driver software will not install, however,
+unless there is a mouse connected to the computer.  As a result, you
+will need to have a mouse connected in order for MouseKeys to work.
+
+There is one exception to this rule.  With an IBM PS/2 computer, you
+can run a program called FAKEMOUS.COM.  This program fools the mouse
+driver software into thinking there is a mouse connected, so you can
+install the mouse driver software and allow MouseKeys to work.  
+
+You must have the mouse driver software, even if you are using
+FAKEMOUS.COM:  you just don't need to have the mouse itself connected.
+
+Just insert FAKEMOUS.COM into your AUTOEXEC.BAT file, before the
+MOUSE.COM program and before your ADOS command if you have ADOS in
+your AUTOEXEC.BAT file.  If you don't know how to add things to your
+AUTOEXEC.BAT file, check your MS-DOS manual or ask a knowledgeable
+person.
+
+FAKEMOUS.COM has two drawbacks.  First, it will not work with
+programs which "talk to" the mouse directly without going through
+MS-DOS's mouse driver software.  Second, software that uses the mouse
+may take slightly longer to start or exit when you are using
+FAKEMOUS.COM.
+
+Adjusting MouseKeys
+
+There are several other adjustments you can make to MouseKeys.  These
+are made from the AccessDOS menus, so you'll need to start up
+AccessDOS first.  (If you haven't started up AccessDOS before, see
+Section 1-4 for instructions).
+
+Once you're in the AccessDOS menus, select "MouseKeys..." from the
+adjust menu.  You'll see a dialog box.
+
+MouseKeys On
+
+This command lets you turn MouseKeys on and off.  This is the same as
+turning the MouseKeys function on or off by pressing left Shift, left
+Alt, Num Lock on the keyboard.
+
+Sound when turned on/off
+
+This allows to choose if you want to hear the up-siren and down-siren
+when you turn MouseKeys on or off.  Choosing yes means you will hear
+the sounds.
+
+Max Speed (pix/sec)
+
+When you hold down a key to move the mouse with MouseKeys, the mouse
+pointer starts moving slow, then speeds up.  You can decide how fast
+you want it to be going once it speeds up all the way.  If you're
+good at getting your finger off a key quickly, you might want the
+pointer to move quickly.  If not, you might want it to move more
+slowly.  The words "pix/sec" mean pixels (screen dots) per second. 
+HINT:  if you have trouble making fine mouse controls in a text-based
+application (like a word processor), try using a slow setting here.
+
+Time to Max Speed (secs)
+
+This command lets you set how quickly you want the mouse to speed up
+when you hold down a key in MouseKeys; that is, how long it will take
+the mouse to speed up to its maximum speed.  You can choose from one
+to four seconds as the Time to Max Speed.
+
+Once you've selected the adjustments you want. . .
+
+Just press the Enter key (if you want to use the settings you made) or
+the Escape key (if you decide you don't want to change settings after
+all).
+
+If you want AccessDOS to "remember" the settings you made after you
+have turned your computer off and back on again, you will also have
+to save your settings.  You can do this any time by selecting save
+from the file menu. For more information on saving your settings, see
+Section 2-10, "Saving your settings."
+
+ 2-4:  ToggleKeys
+
+What ToggleKeys is for
+
+Many keyboards have small lights on them to indicate the status of
+keys that can be "on" or "off," such as caps lock.  There are usually
+three lights, one for caps lock, one for num lock and one for scroll
+lock.  Some people can't see these status lights, including people
+who are visually impaired and people who are performing keyboard
+functions from some device other than the standard keyboard (more
+information on the second situation is given under SerialKeys).  
+
+ToggleKeys will also function with some keyboards which do not have
+indicator lights at all.  The audible low and high beeps can be very
+useful for all operators when using this style of keyboard.
+
+How ToggleKeys works
+
+ToggleKeys tells you when one of the three keys is turned on or off
+by giving a beep.  When you press one of these keys and it locks (the
+light goes on) you will hear a high beep.  When you press a key and
+it unlocks (the light goes off) you will hear a low beep.
+
+Turning ToggleKeys on and off
+
+ToggleKeys is turned on by pressing the num lock key and holding it
+down for a period of about 5 seconds.  When ToggleKeys turns on, you
+will hear an up-siren (a long beep that goes up in pitch).  You turn
+ToggleKeys off the same way.  Just hold the Num Lock key for 5
+seconds and you will hear a down-siren (a long beep that goes down in
+pitch).  You don't need to be in the AccessDOS menus to turn
+ToggleKeys on and off.  You can turn it on and off from wherever you
+are:  at the MS-DOS prompt, in a word processing program, in a
+graphics program, etc. (as long as you have AccessDOS installed; see
+Section 1-4).
+
+Adjusting ToggleKeys
+
+There are two adjustments you can make to ToggleKeys from within the
+AccessDOS program.  You'll need to start up the program first.  (If
+you haven't started up AccessDOS before, see Section 1-4 for
+instructions).
+
+Once you've started the AccessDOS program, select "ToggleKeys" from
+the adjust menu.  You'll see a dialog box.
+
+ToggleKeys On
+
+Choose Yes to turn on ToggleKeys; No to turn it off.  This is the same
+as turning it on or off by holding down the Num Lock key.
+
+Sound when turned on or off
+
+This choice lets you decide if you want to hear the beeps that signal
+when ToggleKeys is being turned on or off.  
+
+Once you've selected the adjustments you want. . .
+
+Just press the Enter key (if you want to use the settings you made) or
+the Escape key (if you decide you don't want to change settings after
+all).
+
+If you want AccessDOS to "remember" the settings you made after you
+have left the AccessDOS program, you will also have to save your
+settings.  You can do this any time by selecting save from the file
+menu.  AccessDOS also gives you a chance to save when you select the
+quit command to leave AccessDOS.  If you don't understand what it
+means to save your settings, see Section 2-10, "Saving your
+settings."
+
+ 2-5:  Keyboard Response Group:  RepeatKeys, SlowKeys, and BounceKeys
+
+What the Keyboard Response Group is for
+
+Keyboards have several features that are based on the assumption that
+the user can press a key accurately, and release it at a precise
+time.  These features can pose obstacles to people who have physical
+impairments that prevent them from pressing keys accurately, or
+releasing them in time.  The Keyboard Response Group has three
+adjustments which let you control how the keyboard responds: 
+RepeatKeys, SlowKeys and BounceKeys.
+
+RepeatKeys:  Most keyboards have a feature called auto-repeat:  when
+you hold down a key for longer than a certain period of time, the
+keyboard begins repeating that key over and over again.  This feature
+of keyboards is meant as a convenience for most users, but can be an
+inconvenience to users with physical impairments.  They may get
+repeated keys when they don't want them.  RepeatKeys lets you adjust
+how fast the auto-repeat works or turn it off entirely.
+
+SlowKeys:  Some people who have physical impairments may accidently
+bump keys while they are moving their hand or typing stick toward the
+key they want.  Usually, the keys that are bumped accidentally will
+just be hit for a very short period of time.  SlowKeys lets you tell
+the computer not to accept a key as "pressed" unless it's held down
+for a certain length of time.  The user can then bump any number of
+keys on their way to the one they want without accidentally getting
+those characters.  They can then hold the desired key long enough for
+the computer to accept it.
+
+BounceKeys:  Some people with physical impairments will accidentally
+"bounce" on a key when they press it--that is, they'll press it once,
+then accidentally press it again right away.  BounceKeys lets you
+tell the computer "don't accept two presses on the same key in a row,
+unless they are far enough apart in time."  Using BounceKeys, if a
+person presses the T key, then bounces on it (hits it again right
+away), the computer will just accept one letter T, not two.  The user
+can deliberately get two T's by waiting a little while before
+pressing the T key again.
+
+How the Keyboard Response Group works
+
+The three functions in the Keyboard Response Group (RepeatKeys,
+SlowKeys and BounceKeys) are enabled and disabled together as a
+group.  This is done to simplify turning the group on and off from
+the keyboard, so you don't have to go into the AccessDOS program to
+do it.
+
+WARNING:  Be sure to read "Adjusting the Keyboard Response Group,"
+below, before following the instructions in "Enabling the Keyboard
+Response Group."  If you enable the Keyboard Response Group before
+you have it adjusted right, it can be very confusing.
+
+However, you may not want to use all three of the functions in the
+Keyboard Response Group.  In this case you will need to go into the
+AccessDOS program and indicate which of the three functions you want
+to have turned on or off, and how you want them adjusted.
+
+Adjusting the Keyboard Response Group
+
+In order to adjust the keyboard response group, or to turn any of the
+three functions (RepeatKeys, SlowKeys or BounceKeys) on or off, you
+will first need to get to the AccessDOS menus.  (If you haven't
+started up AccessDOS before, see Section 1-4 for instructions).
+
+Once you're in the AccessDOS menus, select "Keyboard Response..." from
+the adjust menu.  You will see a dialog box.
+
+Enable Group
+
+This lets you turn the whole Keyboard Response Group on or off.  When
+you enable the group, you enable it with whatever settings are shown
+in the dialog box.  If for instance, "Debounce time" is set to Off,
+that means BounceKeys is, in effect, turned off.  In this case,
+saying Yes to "Enable Group" would not turn BounceKeys on.  You would
+have to select a debounce time first and then say Yes to "Enable
+Group."
+
+If you just want SlowKeys turned off, select Off under "Acceptance
+Delay."
+ If you want just BounceKeys turned off, select Off under "Debounce
+time." RepeatKeys itself can't be turned off except by disabling the
+whole Keyboard Response Group.  The Off setting under "Repeat Rate"
+does not turn RepeatKeys off:  it turns the keyboard's regular
+auto-repeat feature off.
+
+Enabling the Group from the keyboard at any time
+
+Once you have made the settings you want for the Keyboard Response
+Group, you can also enable and disable the group at any time without
+going into the AccessDOS program.  Here's how:
+
+Hold the right hand shift key down for 8 seconds.  After about 4
+seconds you will hear 3 short warning beeps.  (These are provided
+just in case someone is accidentally resting their hand on the right
+hand shift key and doesn't really want to invoke these
+functions--it's sort of a "get off the key" warning).  Since you do
+want these functions enabled, just ignore these warning beeps and
+keep holding the key down.  After about 4 seconds more (total of 8
+seconds) you will hear an up-siren.  You can release the key now and
+the functions will be enabled using the settings you chose for
+RepeatKeys, SlowKeys and BounceKeys.  
+
+When you enable the group this way, it will come on with whatever
+settings have been made for the Keyboard Response Group.  If, for
+example, "Debounce time" is set to Off, you won't get the BounceKeys
+feature when you enable the group.
+
+You can disable the Keyboard Response Group using this same procedure
+(8 seconds on the right Shift key).  When you disable the group, you
+will hear a down-siren. 
+
+Sound on Enable
+
+This setting lets you decide whether or not you want to hear sounds
+when you enable or disable the Keyboard Response Group.
+
+RepeatKeys Settings
+
+There are two adjustments for the RepeatKeys function. The first
+setting (Called "Repeat Rate") allows you to adjust the speed at
+which the keys will repeat when you hold a key down.  The smaller
+numbers (like 0.25) will make keys repeat faster.  If you do not want
+keys to repeat at all (no matter how long you hold them down), then
+just set the Repeat Rate to Off.
+
+The second setting (Called "Delay until repeat") allows you to set
+the length of time you must hold a key down before it will begin to
+repeat.  If you have trouble getting off of a key in time, set this
+to a longer (higher) setting.  Note that "Delay until repeat" has no
+effect if "Repeat Rate" is set to Off.
+
+WARNING: There are some software programs which have their own
+keyboard repeat key adjustment in them.  In order for RepeatKeys to
+work with these programs you must first turn off the key repeat
+adjustment in the software program itself.  (For example:  in
+WordPerfect, set keyboard speed to "normal"; in Microsoft Word, set
+keyboard speed option to "0.")  Certain software programs which set
+the key repeat themselves will keep RepeatKeys from working at all. 
+Check the AREADME.TXT file that comes on the AccessDOS disk to find
+out about compatibility with particular software.
+
+SlowKey Settings
+
+There are two adjustments for the SlowKeys function.  The first
+setting (called "Acceptance Delay") allows you to adjust the amount
+of time that you must hold a key down before it will be accepted by
+the computer.  If you do not want SlowKeys, just set the Acceptance
+Delay to Off.
+
+The second setting is called "Key Click Feedback."  If this is set to
+Yes then you will hear a click when you press a key and another click
+when it is accepted.  The click serves to remind you that the
+response of the keyboard has been slowed down, and that the keyboard
+is not broken.  
+
+BounceKey Settings
+
+There is only one setting for BounceKeys, called "Debounce time." 
+The larger the number, the longer you will have to wait after you
+release a key before you can type that same key a second time (up to
+two seconds).  If you do not want the BounceKeys function, just set
+the debounce time to Off.
+
+If you want to type the same key twice you just need to pause a bit
+between the two key presses.  BounceKeys does not prevent you from
+typing other keys quickly.  You just can't type the same key twice
+quickly.
+
+WARNING:  You cannot use SlowKeys and BounceKeys at the same time.  If
+you try to, AccessDOS will give you an alert message.  This conflict
+should be insignificant, however, since slowing down the key response
+also eliminates bounce problems.
+
+Once you've selected the adjustments you want. . .
+
+Just press the Enter key (if you want to use the settings you made) or
+the Escape key (if you decide you don't want to change settings after
+all).
+
+If you want AccessDOS to "remember" the settings you made after you
+have left the AccessDOS program, you will also have to save your
+settings.  You can do this any time by selecting Save Settings from
+the File menu.  If you don't understand what it means to save your
+settings, see Section 2-10, "Saving your settings."
+
+WARNING:  You cannot save SlowKeys or BounceKeys as part of your
+settings.
+ In other words, you can turn SlowKeys and BounceKeys on, but next
+time you turn your computer off, it will "forget" that you had them
+turned on, and you will have to turn them on again next time you
+start up your computer. (See "Enabling the Group from the keyboard at
+any time," above.)  This is to keep SlowKeys and BounceKeys from
+causing problems for people who don't need to use them.
+
+Emergency enabling of the Keyboard Response Group
+
+Some individuals are completely unable to operate the computer unless
+they can turn off the repeat function of the keyboard or turn on
+SlowKeys, or both.  These individuals could find themselves in an
+impossible situation, where they are unable to use the computer well
+enough to turn on the AccessDOS functions that they need in order to
+use the computer.  This is particularly a problem when using a shared
+computer, where someone else might change the Keyboard Response Group
+settings or turn the group off completely.
+
+To deal with this situation, AccessDOS gives you a way to "emergency
+enable" RepeatKeys, SlowKeys and BounceKeys.  The settings may be very
+slow and hard to use, but you at least will be able to use the
+keyboard in order to go into the AccessDOS program and adjust the
+settings the way you want them.
+
+To "emergency enable" the Keyboard Response Group, simply hold the
+right hand Shift key down for several seconds.  Here's what will
+happen:
+
+After 4 seconds 3 short beeps   The normal warning
+
+4 more seconds  Up-siren        Keyboard Response Group enables
+(current settings)
+
+4 more seconds  2 up-sirens     Keyboard repeat turns off completely
+(No SlowKeys, Debounce time 1 sec)
+
+4 more seconds  3 up-sirens     SlowKeys turns on at max. (2 sec)
+setting (RepeatKeys off, BounceKeys off)
+
+
+
+You can try it now if you like, but remember how to turn it back off! 
+You can turn it back off by holding the right shift key down till you
+hear the down-siren (approx 8 seconds).  
+
+ 2-6:  SerialKeys
+
+Some people cannot use the keyboard and mouse at all due to a
+physical impairment, and must use some specially designed input
+device to perform the functions of the keyboard and the mouse.  In
+some cases these special input devices can be connected to a
+computer's serial port.  (The serial port, also known as a "COM"
+port, is a connector commonly used for attaching a modem or a
+printer).  
+
+Using SerialKeys requires you to program specific key definitions
+into your special input device.  You will need the manual for your
+device in order to carry out this programming.  You will also need to
+refer to Part 3 of the AccessDOS manual for specific instructions.
+
+ 2-7:  ShowSounds
+
+What ShowSounds is for
+
+The computer often signals errors or warnings to the user with beep
+sounds.  However, users who have hearing impairments or who work in a
+noisy environment may be unable to hear these sounds.  
+
+ShowSounds gives you a visual indicator of when the computer has
+beeped at you.  Whenever there is a sound, special symbols will
+appear in the upper left-hand corner of the screen, telling you the
+kind of sound that was made.  For a more obvious alert, you can make
+the whole screen flash briefly off and on instead.  
+
+ShowSounds uses five special symbols to show when a sound has been
+made:
+
+-  A musical note symbol followed by an up arrow indicates
+an up-siren produced by AccessDOS
+
+-  A musical note symbol followed by a down arrow indicates
+a down-siren produced by AccessDOS
+
+-  A musical note symbol followed by a solid dot indicates
+a high beep produced by AccessDOS
+
+-  A musical note symbol followed by a hollow dot indicates
+a low beep produced by AccessDOS
+
+-  A musical note symbol by itself indicates a sound that was
+produced by another program, rather than by AccessDOS.
+
+The first four symbols apply only to sounds made by AccessDOS.  The
+last one indicates sounds from other programs (ones which are longer
+than 1/2 second).  
+
+You can see examples of these symbols in the AccessDOS help screens.
+
+WARNING:  Not all programs permit the musical note to appear.  Check
+the AREADME.TXT file that comes on the AccessDOS disk to find out
+about compatibility with particular software.
+
+Turning ShowSounds on and off
+
+To adjust ShowSounds, start up AccessDOS (see Section 1-4 if you
+don't know how).  Select "ShowSounds..." from the adjust menu.  You
+can select either the visual note or the screen flash, but not both. 
+Don't forget to save your settings if you need to (see Section 2-10).
+
+ 
+2-8:  TimeOut
+
+What Timeout is for
+
+You may want to use AccessDOS on a computer which is also shared by
+people who don't need to use AccessDOS.  The other users may not
+understand how to operate AccessDOS, or how to turn off its various
+functions.
+
+TimeOut lets you set AccessDOS to shut off after the keyboard and
+mouse have been unused for a certain period of time.  If a person who
+needs AccessDOS turns AccessDOS on and then leaves the computer,
+someone coming up and using the computer later will not encounter
+AccessDOS, since it will have turned itself off.  If you don't want
+to have AccessDOS turn off by itself, you can turn off the TimeOut
+function.  You shouldn't need the TimeOut function if you are the
+only person who uses your computer.
+
+Turning TimeOut on and off
+
+Start up AccessDOS (see Section 1-4 if you don't know how).  Select
+"TimeOut..." from the Adjust menu.  
+
+Adjusting TimeOut
+
+There are three settings in TimeOut.  The first is simply whether you
+want it on or off.  The second is how long you want TimeOut to wait
+before it turns AccessDOS off.  The third is whether you want the
+computer to beep when it turns AccessDOS off.
+
+Select the settings you want, then press the Enter key.  You may also
+want to save your settings (See Section 1-10).
+
+NOTE:  The TimeOut function does not remove AccessDOS from your
+computer's memory (that is, it doesn't "un-install" AccessDOS). 
+TimeOut just turns off any of the functions that were left active. If
+a disabled user returns to the computer after TimeOut has turned all
+the AccessDOS features off, he or she would have to use the AccessDOS
+menus or the right key combinations to turn back on the desired
+functions.
+
+ 2-9:  Miscellaneous adjustments
+
+Space Saver Keyboard
+
+If you are using a space saver keyboard, such as the one that comes
+with the PS/2 MODEL 25 or 30, you should set this option to Yes so
+that AccessDOS will work properly with the keyboard.
+
+This function does not affect the operation of SerialKeys, which will
+work just as if you had some other keyboard.
+
+ 2-10:  Saving your settings
+
+When you make settings in AccessDOS and then select OK, AccessDOS
+will "remember" those settings until you change them, or until the
+next time you turn the computer off.  
+
+If you want AccessDOS to "remember" the settings you made after you
+have turned your computer off and back on again, you will also have
+to save your settings.  
+
+You can do this any time by selecting "Save Settings..." from the
+File menu.  When you first pull down the File menu, you will see that
+the choice "Save Settings..." is already selected for you, so just
+press the Enter key to save your settings.  AccessDOS will ask you to
+confirm that you really want to do this.
+
+WARNING:  You cannot save the settings for SlowKeys "on" or
+BounceKeys "on."  In other words, you can turn SlowKeys and
+BounceKeys on, but next time you turn your computer off, it will
+"forget" that you had them turned on, and you will have to turn them
+on again next time you start up your computer.  This is to keep
+SlowKeys and BounceKeys from causing problems for people who don't
+need to use them.  You can save RepeatKeys settings.
+
+If you are the only one who uses your computer, you will probably want
+to adjust the settings the way you want them, save them, and leave
+them that way.  If you share a computer with people who don't need
+AccessDOS, or who want different settings, you may want to just make
+your settings but not save them.  Then your settings won't be there
+once the computer has been turned off and back on again.
+
+ 2-11:  Leaving AccessDOS
+
+Once you have made the settings you want, and saved them if you want,
+you can leave the AccessDOS program using one of two commands:
+
+Install/Run
+
+You should use the install/run command:
+
+1)      The first time you use AccessDOS since the computer was turned
+on.  (You can also install AccessDOS automatically; see Section
+1-4).  Once you've selected Install/Run, the AccessDOS menus will
+disappear, and you'll see a message:
+
+AccessDOS is now loaded and resident on your computer.
+
+2)      Whenever you want the settings you've just made to take
+effect.
+
+NOTE: If you want AccessDOS to "remember" the settings after
+you have turned the computer off and back on again, you must also use
+the Save Settings command.
+
+AccessDOS will ask you to confirm that you actually want to install
+it.
+
+WARNING:  If when you first turn on your computer you want AccessDOS
+to use the settings you made last time you had your computer on, you
+will have to start AccessDOS with /A or /X command line switch.  (See
+Section 1-4 for details.)
+
+Cancel/Quit
+
+This is the command you should use if you've changed settings while
+you were in AccessDOS, but have decided that you don't want to use
+those new settings.  If you select cancel/quit, AccessDOS will go
+back to whatever settings you had before you started the program this
+time.  
+
+If you've already installed AccessDOS, this command won't "un-install"
+it.
+ It just makes AccessDOS forget whatever setting changes you just
+made.  (NOTE:  The only way to un-install AccessDOS is to restart
+your computer.)
+
+ User's Guide for AccessDOS
+
+Part 3:  AccessDOS Reference--Setting up SerialKeys
+
+Some people cannot use the keyboard and mouse at all due to a
+physical impairment, and must use some specially designed input
+device to perform the functions of the keyboard and the mouse.  In
+some cases these special input devices can be connected to a
+computer's serial port (the connector commonly used for attaching a
+modem or printer).  Simply connecting the special input device to the
+computer's serial port, however, is not enough to allow you to
+control keyboard and mouse functions.  The computer is designed to
+receive keyboard and mouse signals through its keyboard and mouse
+connections, not through its serial port.
+
+SerialKeys allows you to control keyboard and mouse functions through
+the serial port.  This is done by sending the right series of letters
+and commands from the special input device to the computer's serial
+port.  The regular keyboard and mouse can still be used while
+SerialKeys is being used.
+
+The most commonly used special input device for SerialKeys is a
+communication aid:  an electronic device often used by people who
+can't communicate by speech alone because of a physical disability
+that affects their speech.
+
+Using SerialKeys requires you to program specific key definitions
+into your special input device.  You will need the manual for your
+device in order to carry out this programming.  
+
+The instructions below tell you how to set up SerialKeys with a
+device such as a communication aid (we just refer to the device as
+"the aid" in these instructions).  These instructions tell you how to
+hook up your aid to the computer, how to set up SerialKeys on the
+computer, and what letters or commands to send so you can type any
+key on the keyboard and make any mouse movement you want from the
+aid.  Follow the instructions step-by-step, and you should be
+successful in hooking up your aid and using SerialKeys.
+
+NOTE:  These instructions do NOT tell you how to program your own aid.
+You will need to consult the manual for your aid, or contact the
+manufacturer if you have questions.
+
+The steps in these instructions are numbered from one to ten.  If you
+are the user of the aid, someone may need to assist you the first
+time you set up SerialKeys.
+
+
+
+Step 1:  Determine if your communication aid will work with
+SerialKeys
+
+You need to make sure your aid will work with SerialKeys.  You should
+be able to answer "yes" to all of these six questions:
+
+1)      Can you program selections on your aid to have unique words
+and sentences stored under them?  Most electronic communication aids
+these days will let you program any series of characters (letter,
+numbers, symbols) you want for a particular selection.
+
+2)      Can your aid store at least 84 programmable selections?  You
+will need at least one selection space for each key on the computer's
+keyboard, plus more if you want to use the mouse.  There are 84 keys
+on the standard IBM AT keyboard, and now many keyboards have 101
+keys.  You don't need to be able to store all of the keys and mouse
+actions on the same level (or overlay) on your aid.  You may, for
+instance, want to use one level for the keyboard and one for the
+mouse.
+
+3)      Does your aid have a serial port?  This is the connection
+sometimes used to hook up a printer.  It is sometimes called an
+RS-232 serial port.
+
+4)      Can you program selections on the aid so that when they are
+selected, they will automatically be sent to the serial port?  Many
+aids have this capability, since it can be useful for printing
+messages.  If you have a printer connected to your serial port,
+typing h e l l o on your aid and sending it out the serial port will
+make "hello" print out on the printer. If you have your aid's serial
+port connected to the computer's serial port, and you have SerialKeys
+working, typing h e l l o on your aid and sending it out the aid's
+serial port will cause the word "hello" to appear on the
+computer--just as if it had been typed on the computer's keyboard.
+
+5)      Does your computer have a serial port?  This is sometimes
+called a "COM" port in computer jargon.  If you don't have one, you
+can probably add one to your computer.  If you have a serial port but
+you are using it for something else, such as connecting a printer or
+a modem, you will have to:
+
+- disconnect the printer or modem, OR
+
+- equip your computer with another serial port, OR
+
+- use another, unused serial port (if your computer already has more
+than one).
+
+6)      Can your communication aid send information through its serial
+port at the rate of 300 baud?  (The term 300 baud refers to the speed
+at which characters are transmitted.)  Most aids can send information
+at 300 baud--it's a very common speed--but check and make sure.  Your
+aid may be able to send information faster than 300 baud as well, and
+that's OK. SerialKeys can "talk to" an aid that's sending information
+at 300, 600, 1200, 2400, 4800, or 9600 baud.  However, 300 baud is
+the recommended speed setting.  If your aid requires a higher baud
+rate, you will need to be aware of some additional operating
+features.  See the section on "Advanced features," at the end of Part
+3 of this manual.
+
+
+
+Step 2:  Connect your aid to your computer
+
+Just plug one end of the serial cable into the serial port on your aid
+and the other end into the serial port on your computer.  
+
+If you don't already have a serial cable, you will need to obtain it
+from the manufacturer of your aid.  (Note: Your aid may require an
+adapter to match the connector on your computer.)  
+
+WARNING:  Some cables have the correct connectors, but will not work
+with SerialKeys.  This is because there are several types of cables
+that look identical, but connect run the wires between their
+connectors in different ways.  If your cable does not work correctly
+with SerialKeys, you should contact the manufacturer of your aid to
+find out what type of cable will be required.
+
+Step 3:  Configure your aid for serial transmission 
+
+Your aid and SerialKeys must be talking to each other at the same
+speed (baud rate) for them to communicate at all.  We recommend
+choosing a speed of 300 baud.  If you intend on using another baud
+rate, please read the "Advanced features" section at the end of this
+manual.
+
+You must also make sure your aid is configured correctly.  It must be
+communicating at 300 baud, with the following format:
+
+- 1 start bit
+
+- 8 data bits
+
+- 1 stop bit
+
+- no parity.
+
+You don't have to know what this means, you just have to make sure
+your aid is configured that way.  Check the manual of your aid to
+find out how to do it.  
+
+In addition, most aids have a special selection or a switch for
+causing the characters stored in your aid to be transmitted out the
+serial port. Make sure you "turn on" this function.
+
+Other aids may require you program special codes to set up the serial
+port.  Again, please read your manual to find out how to do this.
+
+
+
+Step 4:  Install AccessDOS, activate SerialKeys
+
+Before you can use SerialKeys, you need to make sure AccessDOS is
+installed on your computer.  See Sections 1-3 and 1-4 of this manual
+to learn how to do this, if you haven't already.  
+
+Go into the AccessDOS menus and select "SerialKeys..." from the
+adjust menu.  Then:
+
+1)      For "Install SerialKeys," select yes.
+
+2)      For "Serial Port," select the number of the serial port on
+your computer which you intend to connect your aid to.  If you don't
+know which is which, consult your manual or someone who would know.
+
+3)      For "Baud Rate," select the baud rate you have already
+configured your aid to.  We recommend 300 baud.  For most people this
+rate will be just fine for any use of SerialKeys.  If later you
+decide you want a faster rate, you can change the setting:  first in
+SerialKeys and then on your aid.  Both must be set to the same baud
+rate.
+
+4)      Use the "Save Settings..." command in AccessDOS.
+
+5)      Next time you start up AccessDOS, use the /A or /X command
+line switch (see Section 1-4 for details).
+
+
+
+Steps 5-8:  Learn to program keys and mouse actions on your aid
+
+Steps 5-8 in these instructions will tell you how to program each
+different type of key or mouse movement, and give you examples which
+you can try programming.  This way, you can check and make sure that
+your aid and computer are set up properly, and that you understand
+how to program the aid, before you program the complete set of keys
+and mouse movements.
+
+There are four basic types of SerialKeys actions you can program into
+any selection (position) on your aid:
+
+1)      basic keys,
+
+2)      special keys,
+
+3)      modifier keys,
+
+4)      mouse movements.
+
+Before you start typing keys, send three null characters form your aid
+to the computer.  This resets SerialKeys.  (The null character is
+different from a zero; usually it can be made on your aid by typing
+control-@.  See the "Advanced keyboard and mouse features section"
+for more details.)
+
+Step 5:  Typing basic keys
+
+Each key on your computer keyboard is given a keyname, and it is this
+keyname that you must program into your aid if you want to be able to
+type that key.  Many of the keynames consist of a single character. 
+These we are calling "basic keys."  
+
+` 1 2 3 4 5 6 7 8 9 0 - =
+
+   q w e r t y u i o p [ ]
+
+    a s d f g h j k l ; '
+
+     z x c v b n m , . / \
+
+To type one of these keys, you just send that single character out
+the serial port of the aid.  For example, to type the word "hello",
+you simply select the "h" keyname, the "e" keyname, the "l" keyname,
+another "l" keyname, and finally an "o" keyname.  Most aids have all
+of these single character keynames programmed into them so there is
+no additional programming for you to do for these keys.
+
+Try it!
+
+Once you've followed steps 1-3 above, try typing the word "hello" on
+your aid.  Make sure the computer is in some program where you might
+ordinarily type a word and be able to see it, such as a word
+processor, or just MS-DOS.  Make sure your aid is set up so the
+characters will go right out the serial port.  Type the five letters
+of the word "hello."  You should see each one appear on the computer
+screen shortly after you type it.
+
+See Steps 9 and 10 to learn how to set up the complete keyboard, and
+for a chart of all the keynames.
+
+
+
+Step 6:  Typing special keys
+
+If you look at the computer keyboard, you will find that there are
+many keys that do not have single character keynames; for example,
+the arrow keys and the Num Lock and Enter keys.  We call these keys
+special keys since you have to do something different if you want to
+type them using your communication aid.  
+
+To type special keys, you must program a sequence of characters into
+a single selection on your communication aid.  The sequence for
+special keys is different for each key, but always follows two rules:
+
+1)      The sequence must begin with the Escape character;
+
+2)      The sequence must end with a period.
+
+The Escape character usually can be generated on your aid by selecting
+the Control function along with the left bracket ([).  On some aids,
+this will appear as ^[.  Check the instruction manual of your aid if
+you're unsure of how to make the Escape character on it.  
+
+Throughout this manual, we refer to the Escape character by putting
+"esc" between two angle brackets, like this:  <esc>.  Remember:  when
+you see <esc> in a sequence of characters, it just means ONE
+character (the Escape character), not five characters, as it might
+appear.
+
+To program the name of a special key into your aid, program first the
+Escape character, then the correct name for the special key, then a
+period.
+ These should all be programmed as one word on your aid, then sent out
+the serial port to the computer.
+
+For example, to type the Enter key, the character sequence would be:
+
+        <esc>enter.
+
+The escape character comes first, followed by the keyname for the key
+that you want to press, followed by a period (.).  SerialKeys has
+official names for each of the special keys; charts of these are
+provided under Step 10, below.
+
+Try it!
+
+Try typing the Enter key, by sending the correct sequence out the
+serial port of your aid to the computer.  Make sure you are in a
+program on your computer which does something when the Enter key is
+pressed, so you can tell if you were successful.  Make sure your aid
+is set up so that each key you type will be sent out the serial
+port.  Now type the sequence shown:
+
+        <esc>enter.
+
+Remember, <esc> means the Escape character on your aid.  And don't
+forget the period at the end.  Once you type the period, your
+computer should act just as if you had typed the Enter key.
+
+Since the sequences for special keys are somewhat long, you will want
+to program an entire sequence for a special key into a single
+selection on your aid.  Then you can label this selection (Enter, for
+instance) and have it ready for when you need to type the key.  In
+fact, you will probably want to program the sequences for all the
+special keys on your keyboard into selections on your aid.  The time
+spent doing this will be made up many times once you begin using your
+aid to access the computer.  
+
+See Steps 9 and 10 to learn how to set up the complete keyboard, and
+for a chart of all the keynames.
+
+
+
+Step 7:  Typing Modifier Keys (Shift, Control, Alt)
+
+There are three special keys which have to be typed differently from
+the other special keys:  Shift, Control (Ctrl), and Alternate (Alt). 
+These three keys are called the modifier keys, since they don't do
+anything themselves but modify the action of another key.  Shift, for
+instance, will make a small "a" into a capital "A."
+
+On an ordinary keyboard, the modifier key is held down while the other
+key is pressed.  SerialKeys imitates this action by using a command
+called hold.  Here's the sequence you have to type on your aid in
+order to type a modifier key:
+
+1)      The Escape character
+
+2)      Comma (,)
+
+3)      The word hold
+
+4)      Another comma (,)
+
+5)      The name for the modifier key (see the list under Step 10,
+below);
+
+6)      Period (.)
+
+7)      The key you want to modify.
+
+Try it!
+
+Try typing a capital A, by sending the correct sequence out the
+serial port of your aid to the computer.  Make sure you are in a
+program on your computer which will show the letter when it's typed,
+so you can tell if you were successful.  Make sure your aid is set up
+so that each key you type will be sent out the serial port.  Now type
+the sequence shown:
+
+        <esc>,hold,shift.a
+
+Remember, <esc> means the Escape character on your aid.  And don't
+forget the commas and the period.  If you've typed the sequence
+successfully, a capital A should appear on your computer, just as if
+you had held down the Shift key on the regular keyboard and then
+pressed the A key.
+
+Most keyboards have two Shift keys, a right shift key and a left
+shift key.  You can use different keynames (lshift and rshift) for
+the two keys to distinguish them if you wish.  Some keyboards also
+have right and left Control keys and right and left Alternate keys. 
+SerialKeys also distinguishes between these.
+
+See Steps 9 and 10 to learn how to set up the complete keyboard, and
+for a chart of all the keynames.
+
+
+
+Step 8:  Moving and clicking the mouse
+
+If your computer is equipped to use a mouse (IBM PS/2 mouse or
+Microsoft mouse), you can operate all the mouse functions from your
+aid as well, using SerialKeys.  If you're not interested in
+performing mouse functions, skip this part.
+
+NOTE: You must have the proper mouse driver installed, otherwise the
+mouse commands will have no effect.  In most cases you will need to
+have a mouse attached to your computer before a mouse driver will
+install.
+
+Before you do any mouse functions through SerialKeys, you should send
+the "moureset" (mouse reset) command.  This should be done whenever
+you start up an application program (such as a word processing
+program) that uses the mouse.  Just send this command from your aid.
+
+        <ecs>moureset.
+
+The mouse pointer should move to the upper left hand corner of the
+screen.
+
+Moving the mouse
+
+You can do the equivalent of moving the mouse by sending a "move"
+command from your aid to the computer.  
+
+Here are the parts of a move command, in the proper order:
+
+1)      the Escape character (see Step 4 if you don't know what this
+is)
+
+2)      a comma
+
+3)      the word "move"
+
+4)      another comma
+
+5)      a plus or minus sign followed by a number (for horizontal
+movement)
+
+6)      another comma
+
+7)      another plus or minus sign followed by a number (for vertical
+movement)
+
+8       a period.
+
+The move command takes two numbers after it: first the motion in the
+horizontal direction and then the motion in the vertical direction. 
+There must be either a plus (+) or a minus (-) sign before each
+number, unless the number is a zero.  Positive numbers move the mouse
+pointer to the right or down.  Negative numbers move the mouse
+pointer left or up.  
+
+Examples:
+
+Send out Mouse Command  Result
+
+<esc>,move,+10,-20.     moves 10 units to right and 20 units up
+
+<esc>,move,-10,+20.     moves 10 units to left and 20 units down
+
+<esc>,move,0,-10.       moves 0 units to right and 10 units up
+
+
+
+Clicking the Mouse
+
+In order to click the button on a mouse, you use the "click" command. 
+The commands should be typed as you see below.  Remember, <esc> means
+the Escape character.  And don't forget the commas and the period at
+the end!
+
+Examples: 
+
+Send out Mouse Command  Result
+
+<esc>,click,left.       clicks the left button
+
+<esc>,click,right.      clicks the right button
+
+
+
+Double-clicking the mouse
+
+You can double-click the mouse using the same commands shown above,
+but with the command "dblclick" in place of the command "click":
+
+        <esc>,dblclick,left.
+
+OR
+
+        <esc>,dblclick,right.
+
+Clicking and dragging with the mouse
+
+SerialKeys lets you do the equivalent of holding the mouse button
+down while moving the mouse.  This is done using the "moulock" (mouse
+lock) and "mourel" (mouse release) commands, together with the "move"
+command.  If, for example, you want to select text in a word
+processing program that uses the mouse, you would:
+
+1)      Move the mouse to the beginning of the text you want to
+select, using the "move" command as described above.
+
+2)      To press the mouse button down and keep it down, give the
+"mouse lock" command:
+
+        <esc>,moulock,left.
+
+OR
+
+        <esc>,moulock,right.
+
+3)      Move the mouse to the end of the text you want to select,
+using the "move" command as described above.
+
+4)      To release either button (or both), give the "mouse release"
+command:
+
+        <esc>,mourel.
+
+Don't forget the commas and periods!
+
+See Steps 9 and 10 to learn how to set up the complete keyboard and
+mouse actions, and for a chart of all the keynames and suggested
+mouse movements.
+
+
+
+Step 9:  Plan the layout for your aid
+
+Steps 5-8 above showed you what sequences of characters to send in
+order to type basic keys, special keys and modifier keys, and to do
+mouse actions.  Now you will want to program a selection on your aid
+for each key or mouse action you want to use.
+
+But before you program all of the keys and mouse actions into your
+aid, you will probably want to decide how to lay out the selections
+on your aid.
+ Look at the number of different keys and mouse actions you will want
+to have (see the charts under Step 10).  Do you want mouse movements
+in addition to the ones suggested in Step 10?  
+
+If your aid stores vocabulary in levels, decide if you want keyboard
+and mouse actions on separate "levels" in your aid.  If you aid uses
+combinations of symbols to store vocabulary, what combinations will
+you want to use for keyboard and mouse functions?
+
+Step 10:  Programming your aid for keyboard and mouse functions
+
+As mentioned above, this manual won't tell you how do the actual
+programming of your aid, since that procedure is different for every
+aid.  However, we have provided tables of keyboard and mouse character
+sequences which you can refer to while you are programming your aid.
+
+There are some differences between the keyboards of different
+computers, but the charts on the following pages do include every key
+that can be typed in SerialKeys.
+
+Troubleshooting
+
+If you are using SerialKeys and your aid stops sending keys
+successfully, try:
+
+1)      Checking to make sure you included any necessary periods in
+your keynames.
+
+2)      Sending three null characters.  (The null character is
+different from a zero; usually it can be made on your aid by typing
+control-@.)
+
+3)      Resetting both the aid and SerialKeys to 300 baud.  (If there
+is a communication difficulty, SerialKeys may automatically reset
+itself to 300 baud, making it unable to communicate with your aid if
+your aid is sending at a different rate.)
+
+4)      Make sure that the correct characters are being sent by the
+aid and received by your computer.  You can do this by starting an
+applications which will show you the characters being received on
+your computer's serial port.  Such applications are called "terminal
+emulators" or "communication programs", because they are normally
+used to let your computer talk with another computer use a modem.
+Such a modem would normally attach to the serial port on your
+computer, and appear just like your aid.  You may need to get
+assistance from someone who has such an application and is familiar
+with how to use it.
+
+
+ Guide to programming keyboard keys
+
+You can program your aid to act as any one of the three keyboards
+shown on the following pages.  We recommend programming your aid to
+use the IBM Enhanced Keyboard (101 keys).  Even if your computer dows
+not have this keyboard, SerialKeys will function as the 101-key
+keyboard.  This may be to your advantage, as some software packages
+will recognize the additional keys, enabling you to access additional
+features.
+
+NOTE:  If you choose to program the 83- or 84-key keyboard, there are
+a few exceptions you should be aware of.
+
+1)      To type the Break function, you would ordinarily hold the
+Control key and press the Scroll Lock key.  For SerialKeys, hold the
+Control key and press the Pause key.  
+
+                <esc>,hold,ctrl.<esc>pause.
+
+2)      To type the Pause function you would ordinarily hold the
+Control key and press the Num Lock key.  For SerialKeys, just press
+the Pause key.
+
+                <esc>pause.
+
+You can find descriptions of most of the common commands and their
+usage in the earlier, tutorial section, steps 5 through 8.
+A complete listing of all commands is included at the end of this
+document.  The following sections provide advice on the commonly
+used commands and the most efficient way to use your aid, followed
+by some advanced commands and technical notes.
+
+Suggested programming for mouse actions
+
+ Mouse movements
+
+It's a good idea to at least program some square or selection on your
+communication aid to move the mouse in the four directions by 1, by
+10, and by 100 units.  This will allow you to make small, fine
+movements and large, fast movements.  
+
+
+
+Send out Mouse Command  Result
+
+<esc>,move,+1,0.        moves 1 right
+
+<esc>,move,-1,0.        moves 1 left
+
+<esc>,move,0,+1.        moves 1 down
+
+<esc>,move,0,-1.        moves 1 up
+
+<esc>,move,+10,0.       moves 10 right
+
+<esc>,move,-10,0.       moves 10 left
+
+<esc>,move,0,+10.       moves 10 down
+
+<esc>,move,0,-10.       moves 10 up
+
+<esc>,move,+100,0.      moves 100 right
+
+<esc>,move,-100,0.      moves 100 left
+
+<esc>,move,0,+100.      moves 100 down
+
+<esc>,move,0,-100.      moves 100 up
+
+
+
+ Clicking the Mouse
+
+Send out Mouse Command  Result
+
+<esc>,click,left.       clicks the left button
+
+<esc>,click,right.      clicks the right button (only if the
+computer's mouse supports a right button)
+
+<esc>,click,left,right. clicks the left and right button at the same
+time.
+
+
+
+ Double-clicking the mouse
+
+Send out Mouse Command  Result
+
+<esc>,dblclick,left.    double-clicks left button
+
+<esc>,dblclick,right.   double-clicks right button (only if the
+computer's mouse supports a right button)
+
+<esc>,dblclick,left,right.      double-clicks the left and right
+button at the same time.
+
+
+
+ Clicking and dragging with the mouse
+
+Send out Mouse Command  Result
+
+<esc>,moulock,left.             locks down left mouse button
+
+<esc>,moulock,right.            locks down right mouse button
+
+<esc>,moulock,left,right.       locks down both mouse buttons
+
+<esc>,mourel.                   releases both mouse buttons
+ 
+
+Advanced keyboard and mouse features
+
+Resetting SerialKeys
+
+If you are using SerialKeys in a multi-user environment, the first
+command you send to SerialKeys should be the reset command.  This
+will insure that SerialKeys will be at 300 baud and ready to accept
+your keyboard and mouse actions.  The reset command consists of
+sending 3 Null (ASCII 0) characters with your aid configured to 300
+baud.  A Null character can usually be generated on your aid by
+selecting the control @ .
+
+Lock and Release
+
+This command can be used to hold a key down and lift it back up again
+as separate actions.  Its primary usefulness is in using SerialKeys
+in combination with MouseKeys.  
+
+1)      Turn on MouseKeys (see Section 2-3).
+
+2)      Decide which direction you want to move the mouse.  Find out
+what keypad key moves the mouse in that direction in MouseKeys.
+
+3)      Send a lock command with that keyname.  For instance to move
+right:
+
+        <esc>,lock,kpright.
+
+4)      When the mouse pointer has moved as far as you want in that
+direction, send the release command:
+
+        <esc>,rel.
+
+You can program the lock part and the release part of this sequence
+each under a different selection on your aid, so you don't have to
+type them out in full each time you use them.  Make sure to include
+the commas and periods.
+
+Combine
+
+If you want to program a modifier key and some other key under a
+single selection on your aid, use the combine command to put several
+keystrokes under one selection on your aid.  This can be useful for
+common multiple-key command combinations required by software.  There
+must be commas between the keys and a period at the end.  No more
+than five keys can be combined.
+
+        Example:  <esc>,combine,shift,ctrl,enter.
+
+Goto
+
+Moves the mouse to a specified location.  You should send the
+"moureset" command first.  Both the horizontal and vertical direction
+numbers require only a + sign.  (See moving the mouse, Step 8 above.)
+
+        Example:  <esc>,goto,+20,+25.
+
+Baudrate Command
+
+The baudrate command allows you to change the baud rate of SerialKeys
+from your aid.  The possible baud rates are 300, 600, 1200, 2400,
+4800, and 9600.  This command is never absolutely necessary, since
+you can also set the baud rate of SerialKeys by going into the
+AccessDOS program.
+
+        Example:  <esc>,baudrate,300.
+
+Using higher baud rates
+
+If you decide to run SerialKeys at a baud rate faster than 300 baud,
+you must be aware of the special automatic reset feature of
+SerialKeys. Whenever SerialKeys receives three consecutive characters
+with a transmission error, it will automatically reset to 300 baud. 
+This is to enable users in a multi-user environment to put SerialKeys
+in a known state (300 baud).  SerialKeys will signal any transmission
+problem with a short beep.  If SerialKeys resets to 300 baud, it will
+make a long beep.
+
+Technical notes
+
+1)      SerialKeys uses hardware handshaking (DTR/RTS) and software
+(XON/OFF) handshaking to control the flow of characters from the
+aid.  Characters may be lost if the aid ignores the handshaking
+signals.
+
+2)      SerialKeys uses hardware interrupt line IRQ4 if COM1 or COM3
+is selected, and IRQ3 if COM2 or COM4 is selected.  No other device
+can use or share the interrupt line that SerialKeys is using.  That
+means that if for example, you have SerialKeys on COM1, you can not
+use a modem on COM3 if the modem software is interrupt driven.
+
+3)      See the AREADME.TXT file for additional information regarding
+SerialKeys.
+
+Complete list of SerialKeys commands
+
+The following tables list all the functions that can be performed
+using SerialKeys.  They are divided into the following categories:
+
+1)      Basic Keys
+
+2)      Non-printing keystrokes
+
+3)      Modifier keys
+ 
+4)      Additional key combination commands
+
+5)      Mouse commands
+
+6)      Miscellaneous commands
+
+In these tables, the term "p/r" means that a key is being
+pressed and immediately released.  The term "pressed down" means
+that the key is pressed and remains pressed until the next non-
+modifier key is pressed and released.  The term "<esc>" represents
+the escape character, normally generated by pressing the Esc key on
+the keyboard.  The term "<NUL>" represents the NUL character,
+usually generated by pressing Control and @ on the keyboard.
+The terms "<key>", "<key1>" and so forth are placeholders used to
+refer to any key that you choose to press.
+
+You will also note that there are often more than one command
+that represent the same key.  For example, the "kpdivide" and
+"kp/" commands function identically.
+
+1)      All basic keys
+
+  ` 1 2 3 4 5 6 7 8 9 0 - =
+
+     q w e r t y u i o p [ ]
+
+      a s d f g h j k l ; '
+
+       z x c v b n m , . / \
+
+2)      Non-printing keystrokes
+
+  Key name    Send from aid           Action(s)
+
+  alt         <esc>alt.               alt key p/r
+  backspace   <esc>backspace.         backspace key p/r
+  bksp        <esc>bksp.              backspace key p/r
+  capslk      <esc>capslk.            caps lock key toggled
+  capslock    <esc>capslock.          caps lock key toggled
+  comma       <esc>comma.             comma key p/r
+  control     <esc>control.           control key p/r
+  ctrl        <esc>ctrl.              control key p/r
+  del         <esc>del.               numeric pad del key p/r,
+                                          "." or "del"
+  delete      <esc>delete.            delete key p/r
+  divide      <esc>divide.            divide key p/r,
+                                          "/"
+  down        <esc>down.              down arrow key p/r
+  end         <esc>end.               end key p/r
+  enter       <esc>enter.             enter or return key p/r
+  esc         <esc>esc.               escape key p/r
+  escape      <esc>escape.            escape key p/r
+  f1          <esc>f1.                function 1 key p/r
+  f2          <esc>f2.                function 2 key p/r
+  f3          <esc>f3.                function 3 key p/r
+  f4          <esc>f4.                function 4 key p/r
+  f5          <esc>f5.                function 5 key p/r
+  f6          <esc>f6.                function 6 key p/r
+  f7          <esc>f7.                function 7 key p/r
+  f8          <esc>f8.                function 8 key p/r
+  f9          <esc>f9.                function 9 key p/r
+  f10         <esc>f10.               function 10 key p/r
+  f11         <esc>f11.               function 11 key p/r
+  f12         <esc>f12.               function 12 key p/r
+  home        <esc>home               home key p/r
+  ins         <esc>ins.               numeric pad ins key p/r,
+                                          "0" or "ins"
+  insert      <esc>insert.            insert key toggled
+  kp*         <esc>kp*.               numeric pad star key p/r,
+                                          "*"
+  kp+         <esc>kp+.               numeric pad plus key p/r,
+                                          "+"
+  kp-         <esc>kp-.               numeric pad minus key p/r,
+                                          "-"
+  kp/         <esc>kp/.               numeric divide key p/r,
+                                          "/"
+  kp0         <esc>kp0.               numeric pad 0 key p/r,
+                                          "0" or "ins"
+  kp1         <esc>kp1.               numeric pad 1 key p/r,
+                                          "1" or "end"
+  kp2         <esc>kp2.               numeric pad 2 key p/r,
+                                          "2" or "down arrow"
+  kp3         <esc>kp3.               numeric pad 3 key p/r,
+                                          "3" or "pgdn"
+  kp4         <esc>kp4.               numeric pad 4 key p/r,
+                                          "4" or "left p/r, arrow"
+  kp5         <esc>kp5.               numeric pad 5 key p/r,
+                                          "5"
+  kp6         <esc>kp6.               numeric pad 6 key p/r,
+                                          "6" or "right arrow"
+  kp7         <esc>kp7.               numeric pad 7 key p/r,
+                                          "7" or "home
+  kp8         <esc>kp8.               numeric pad 8 key p/r,
+                                          "8" or "up arrow"
+  kp9         <esc>kp9.               numeric pad 9 key p/r,
+                                          "9" or "pgup"
+  kpdel       <esc>kpdel.             numeric pad . key p/r,
+                                          "." or "del"
+  kpdelete    <esc>kpdelete.          numeric pad . key p/r,
+                                          "." or "delete"
+  kpdivide    <esc>kpdivide.          numeric pad divide key p/r,
+                                          "/"
+  kpdown      <esc>kpdown.            numeric pad 2 key p/r,
+                                          "2" or "down arrow"
+  kpdp        <esc>kpdp.              numeric pad . key p/r,
+                                          "." or "del"
+  kpend       <esc>kpend.             numeric pad 1 key p/r,
+                                          "1" or "end"
+  kpenter     <esc>kpenter.           numeric pad enter key p/r,
+  kphome      <esc>kphome.            numeric pad 7 key p/r,
+                                          "7" or "home"
+  kpins       <esc>kpins.             numeric pad 0 key p/r,
+                                          "0" or "ins"
+  kpinsert    <esc>kpinsert.          numeric pad 0 key p/r,
+                                          "0" or "ins"
+  kpleft      <esc>kpleft.            numeric pad 4 key p/r,
+                                          "4" or "left arrow"
+  kpmidl      <esc>kpmidl.            numeric pad 5 key p/r,
+                                          "5"
+  kpminus     <esc>kpminus.           numeric pad minus key p/r,
+                                          "-"
+  kppagedown  <esc>kppagedown.        numeric pad 3 key p/r,
+                                          "3" or "pgdn"
+  kppageup    <esc>kppageup.          numeric pad 9 key p/r,
+                                          "9" or "pgup"
+  kppgdn      <esc>kppgdn.            numeric pad 3 key p/r,
+                                          "3" or "pgdn"
+  kppgup      <esc>kppgup.            numeric pad 9 key p/r,
+                                          "9" or "pgup"
+  kpplus      <esc>kpplus.            numeric pad plus key p/r,
+                                          "+"
+  kpright     <esc>kpright.           numeric pad 6 key p/r,
+                                          "6" or "right arrow"
+  kpslash     <esc>kpslash.           numeric pad divide key p/r,
+                                          "/"
+  kpstar      <esc>kpstar.            numeric pad star key p/r,
+                                          "*"
+  kptimes     <esc>kptimes.           numeric pad star key p/r,
+                                          "*"
+  kpup        <esc>kpup.              numeric pad 8 key p/r,
+                                          "8" or "up arrow"
+  lalt        <esc>lalt.              left alternate key p/r
+  lcontrol    <esc>lcontrol.          left control key p/r
+  lctrl       <esc>lctrl.             left control key p/r
+  left        <esc>left.              left arrow key p/r
+  leftalt     <esc>leftalt.           left alternate key p/r
+  leftcontrol <esc>leftcontrol.       left control key p/r
+  leftctrl    <esc>leftctrl.          left control key p/r
+  leftshift   <esc>leftshift.         left shift key p/r
+  lshift      <esc>lshift.            left shift key p/r
+  multiply    <esc>multiply.          star key p/r,
+                                          "*"
+  numlk       <esc>numlk.             num lock key toggled
+  numlock     <esc>numlock.           num lock key toggled
+  pagedown    <esc>pagedown.          page down key p/r
+  pageup      <esc>pageup.            page up key p/r
+  pause       <esc>pause.             pause key p/r
+  period      <esc>period.            period key p/r,
+                                          "."
+  pgdn        <esc>pgdn.              page down key p/r
+  pgup        <esc>pgup.              page up key p/r
+  ralt        <esc>ralt.              right alternate key p/r
+  rcontrol    <esc>rcontrol.          right control key p/r
+  rctrl       <esc>rctrl.             right control key p/r
+  ret         <esc>ret.               return or enter key p/r
+  return      <esc>return.            return or enter key p/r
+  right       <esc>right.             right arrow key p/r
+  rightalt    <esc>rightalt.          right alternate key p/r
+  rightcontrol <esc>rightcontrol.     right control key p/r
+  rightctrl   <esc>rightctrl.         right control key p/r
+  rightshift  <esc>rightshift.        right shift key p/r
+  rshift      <esc>rshift.            right shift key p/r
+  scroll      <esc>scroll.            scroll lock key toggled
+  scrolllock  <esc>scrolllock.        scroll lock key toggled
+  shift       <esc>shift.             shift key p/r
+  space       <esc>space.             space key p/r
+  tab         <esc>tab.               tab key p/r
+  tilde       <esc>tilde.             tilde key p/r,
+                                          "`"
+  up          <esc>up.                up arrow key p/r
+
+3)      All modifier keys
+
+  Action      Send from aid           Action(s)
+
+  alt         <esc>,hold,alt.         alternate key pressed down
+  control     <esc>,hold,control.     control key pressed down
+  ctrl        <esc>,hold,ctrl.        control key pressed down
+  lalt        <esc>,hold,lalt.        left alternate key pressed down
+  lcontrol    <esc>,hold,lcontrol.    left control key pressed down
+  lctrl       <esc>,hold,lctrl.       left control key pressed down
+  leftalt     <esc>,hold,leftalt.     left alternate key pressed down
+  leftcontrol <esc>,hold,leftcontrol. left control key pressed down
+  leftctrl    <esc>,hold,leftctrl.    left control key pressed down
+  leftshift   <esc>,hold,leftshift.   left shift key pressed down
+  lshift      <esc>,hold,lshift.      left shift key pressed down
+  ralt        <esc>,hold,ralt.        right alternate key pressed
+                                          down
+  rcontrol    <esc>,hold,rcontrol.    right control key pressed down
+  rctrl       <esc>,hold,rctrl.       right control key pressed down
+  rightalt    <esc>,hold,rightalt.    right alternate key pressed
+                                          down
+  rightcontrol  <esc>,hold,rightcontrol.
+                                      right control key pressed down
+  rightctrl   <esc>,hold,rightctrl.   right control key pressed down
+  rightshift  <esc>,hold,rightshift.  right shift key pressed down
+  rshift      <esc>,hold,rshift.      right shift key pressd down
+  shift       <esc>,hold,shift.       shift key pressed down
+
+4)      Additional key combination commands
+
+  Action       Send from aid         Action(s)
+
+  combine      <esc>,combine,<key1>,...<key5>.
+                                     combines up to five keys, all
+                                         pressed simultaneously.
+  hold         <esc>,hold,<key>.     holds down <key> until the next
+                                         key is pressed and released.
+
+  lock         <esc>,lock,<key>.     locks down <key> until the rel
+                                         command is used.
+  rel          <esc>,rel.            releases any keys held down
+                                           by the lock command.
+
+5)      Mouse commands
+
+  Action       Send from aid          Action(s)
+
+  click        <esc>,click,left.      clicks the left mouse button
+  click        <esc>,click,left,right.
+                                      clicks the left and right
+                                          mouse buttons at the
+                                          same time
+  click        <esc>,click,right.     clicks the right mouse button
+  dlbclick     <esc>,dblclick,left.   double-clicks the left mouse
+                                          button
+  dlbclick     <esc>,dblclick,right.  double-clicks the right mouse
+                                          button
+  dlbclick     <esc>,dblclick,left,right.
+                                      double-clicks the left and
+                                          right mouse buttons at
+                                          the same time
+  goto         <esc>,goto,+<n>,+<m>.  moves mouse pointer to
+                                          absolute coordinates
+                                          <n>,<m>.
+  mouanchor    <esc>,mouanchor.       saves current mouse location
+                                          OR returns to previously
+                                          saved location.
+  moulock      <esc>,moulock,left.    locks the left mouse button
+  moulock      <esc>,moulock,left,right.
+                                      locks the left and right
+                                          mouse buttons at the
+                                          same time
+  moulock      <esc>,moulock,right.   locks the right mouse button
+  mourel       <esc>,mourel.          releases any mouse buttons
+                                      currently locked by the
+                                          moulock command
+  moureset     <esc>moureset.         resets mouse and moves to
+                                          upper left corner
+  move         <esc>,move,<n>,<m>.    moves the mouse cursor
+                                          <n> units right and
+                                          <m> units down
+6)      Miscellaneous commands
+
+  Action       Send from aid          Action(s)
+
+  baudrate     <esc>,baudrate,300.    sets SerialKeys to 300 baud
+  baudrate     <esc>,baudrate,600.    sets SerialKeys to 600 baud.
+  baudrate     <esc>,baudrate,1200.   sets SerialKeys to 1200 baud.
+  baudrate     <esc>,baudrate,2400.   sets SerialKeys to 2400 baud.
+  baudrate     <esc>,baudrate,4800.   sets SerialKeys to 4800 baud.
+  baudrate     <esc>,baudrate,9600.   sets SerialKeys to 9600 baud.
+  reset        <NUL><NUL><NUL>        initiates SerialKeys session,
+                                          or resets SerialKeys status
+                                          and sets speed to 300 baud.

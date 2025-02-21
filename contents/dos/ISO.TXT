@@ -1,0 +1,70 @@
+ISO.TXT
+=======
+This file provides information about the ISO.CPI file. 
+
+The ISO.CPI file contains ISO-compliant versions of certain character 
+sets (codepages).
+
+ISO-compliant fonts are special monospace (nonproportional) display fonts 
+that, on some displays, are more readable than standard display fonts. 
+(ISO fonts work only in 25-line mode; they do not support 43- or 50-line 
+mode.) The ISO fonts included with MS-DOS 6.22 comply with Part 3 of 
+the ISO 9241 Specification.
+
+The ISO.CPI file contains ISO-compliant versions of the following character 
+sets (codepages):
+
+        437  United States            
+        737  Greek II                 
+        850  Multilingual (Latin I)   
+        852  Slavic/Eastern European (Latin II)        
+        855  Cyrillic I               
+        857  Turkish
+        860  Portuguese
+        861  Icelandic
+        863  Canadian-French
+        865  Nordic
+        866  Russian (Cyrillic II)
+        869  Greek I
+
+To install ISO fonts, you add or edit commands in your AUTOEXEC.BAT and 
+CONFIG.SYS files. If your system is already set up to load a character
+set (code page) other than the standard United States character set, 
+carry out Procedure 1. Otherwise, carry out Procedure 2.
+
+Procedure 1 -- If your system is already set up to load a character set 
+other than the standard United States character set:
+
+1. In your AUTOEXEC.BAT file, change the MODE CON CODEPAGE PREPARE
+   command so that it specifies ISO.CPI instead of your usual 
+   codepage (.CPI) file. 
+   
+   For example, suppose your current MODE command loads the Portugese 
+   character set (860) and looks like the following:
+       
+       MODE CON CODEPAGE PREPARE=((860) C:\DOS\EGA.CPI)
+
+   To use the ISO-compliant version of the Portugese character set, you 
+   would change this command to specify ISO.CPI, as follows:
+
+       MODE CON CODEPAGE PREPARE=((860) C:\DOS\ISO.CPI)
+
+Procedure 2 -- If you are using the standard US character set:
+
+1. Add a DEVICE command for DISPLAY.SYS to your CONFIG.SYS file. For
+   example, if you want to use the United States hardware character 
+   set (437), and if DISPLAY.SYS is in the C:\DOS directory, you would
+   add the following command to your CONFIG.SYS file:
+ 
+       DEVICE=C:\DOS\DISPLAY.SYS CON=(EGA,437,2)
+ 
+   Note that DISPLAY.SYS uses about 12K of memory.
+
+2. Add MODE commands to your AUTOEXEC.BAT file to load and select the
+   proper character sets (code pages). For example, to use the ISO
+   version of the United States character set (437), you would add 
+   the following commands to your AUTOEXEC.BAT files:
+ 
+       MODE CON CODEPAGE PREPARE=((437) C:\DOS\ISO.CPI)
+       MODE CON CODEPAGE SELECT=437
+

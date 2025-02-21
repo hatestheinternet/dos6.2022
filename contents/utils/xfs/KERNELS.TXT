@@ -1,0 +1,13 @@
+
+XFSKRNL		Normal kernel (10 sockets)
+XFSKRNLX	20 sockets
+XFSKRNLF	Write buffer up to 8192 bytes due IP fragmentation
+XFSKRNLM	Minimal version, no print support, 4 sockets
+
+Resource        Socket count
+-----------------------------
+drive		1 socket
+printer		2 sockets
+
+NETSTAT displays the configured socket count in its [UDP Sockets]
+section.

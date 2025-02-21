@@ -1,0 +1,64 @@
+Quarterdeck QEMM 8.01
+Released in 1996 by Quarterdeck
+For DOS/Win 3.x/95
+
+Serial: 000-08A-00009
+
+Notes:
+Use MS-DOS 6.x.  DOS 7.x contains elements that DOS-UP and DOSDATA can't load
+high.  If you have hardware that uses ROM memory, try to configure it such
+that the ROM is immediately after your video ROM (usually at C800).  If you
+have multiple devices with ROMs and you can configure them so they are
+adjacent, you will get larger blocks of high memory into which your TSRs can
+load.  See the TECHNOTE directory if you have questions.
+
+Install QEMM801 but do not let INSTALL start OPTIMIZE.
+
+Rename your CONFIG.SYS and AUTOEXEC.BAT files, then put the files from disk
+1 in the root directory.  Boot and reboot using these files.  If something
+horrible happens, you can prevent QEMM386.SYS from loading by holding the
+ALT key during the boot, then hitting ESCAPE when prompted.  In that event,
+try using the TROUBLESHOOTING "DEVICE" line in CONFIG.SYS.  If the trouble-
+shooting switches work, remove one at a time and boot and reboot, putting
+back the one(s) that is (are) needed.  The most commonly needed switches are
+SH:N and RH:N.  If you need SH:N, QEMM will warn you when you boot.  Too bad
+OPTIMIZE can't add SH:N if it is needed, but Steve Goodrich refused, so...
+
+When you can boot and reboot, delete \QEMM\OPTIMIZE.INI and then run
+OPTIMIZE /ST /Q
+
+/ST means to run the STEALTH testing first, which is far more likely to
+succeed than if you let the testing occur later in the OPTIMIZE process.
+
+If you can't get a working ST:M then you're wasting your time to attempt to
+run DVX.  You can run DV with ST:F but your windows will have constricted
+conventional memory available.  Try another video card,  Or try another
+computer.  Video cards are the most common reason for ST:M to fail.
+
+After getting an ST:M or ST:F parameter on the QEMM line with OPTIMIZE, put
+QEMM803D.EXE into your QEMM directory and run it.  When it finishes
+extracting, run the RUNME.BAT file.  Ignore any "error" messages.
+
+Run MFT and hit all the options.  If MFT causes any problems (except in
+detecting your CPU; that's OK), then RTFM; find and fix the problem.
+
+Restore your original CONFIG.SYS and put the QEMM386.SYS device line you
+generated from running OPTIMIZE /ST /Q at the top of it.  Be sure to REM
+any HIMEM.SYS and EMM386.EXE lines that might exist in your CONFIG.  Leave
+AUTOEXEC.BAT as it is and run
+OPTIMIZE /NH /Q
+
+/NH means "skip the hardware testing".
+
+Assuming that all goes well, restore your original AUTOEXEC.BAT and add QEMM
+to your PATH.  Again run OPTIMIZE /NH /Q 
+
+Run QSETUP and enable DOS-UP.  Do not let OPTIMIZE run.  Edit CONFIG.SYS and
+remove DOS=HIGH.  DOS=UMB will allow Microsoft MEM to see your high RAM, but
+you should use Manifest (MFT) rather than MEM anyway, so UMB is superflous.
+
+QDPMI is for C programming; you probably don't want or need it.
+
+One more time: OPTIMIZE /NH /Q
+
+Now install DV or DVX.  DVX will ask to install QEMM; Just Say No.

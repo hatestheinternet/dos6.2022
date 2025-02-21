@@ -1,0 +1,12 @@
+000-08W-00009
+
+Notes:
+
+Install QEMM!  DV relies on it.  If you can't get ST:M, then try another
+computer.  See QEMM803.  When you set up CONFIG.SYS, be sure to NOT set
+DOS=HIGH.  DV uses 100% of the HMA but DOS uses only about 40K of it, so
+you waste 24K of precious RAM if you set DOS=HIGH.
+
+Use DOS 6.x, not 7.x.
+
+Hint:  The ALT key is not held down; just tap it.

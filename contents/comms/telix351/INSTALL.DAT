@@ -1,0 +1,15 @@
+You are currently  using the Telix  installation program.
+This installation program  will extract and  install your
+Telix  version  into  your  desired directory,  and allow
+you to  setup your modem  from an offered  modem list for
+proper use with  Telix. You can  also restart this  modem
+configuration  program  later  during  a Telix session at
+any time by pressing Alt-F1.
+
+PLEASE  NOTE! When you enter a  directory name during the
+installation, where an  older Telix version  already does
+exist,  all  Telix  related   files  (in  the  scope   of
+delivery)  are  being  overwritten.  However,  all  Telix
+configuration  files  *.CNF  as  well  as Telix phonebook
+files *.FON won't  be overwritten. In  any case a  backup
+copy of all existing files is strongly recommended.

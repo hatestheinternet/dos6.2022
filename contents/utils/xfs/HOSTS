@@ -1,0 +1,14 @@
+#
+# XFS Version 1.71
+# hosts
+#
+# Note: Please keep this file in LF/CR (DOS) format!
+#
+
+131.245.2.1	gateway
+131.245.2.255	broadcast
+255.255.255.0	netmask
+
+131.245.2.1	speedy-bb	
+131.245.2.2     speedy		nfs-server
+131.245.2.3     dino
