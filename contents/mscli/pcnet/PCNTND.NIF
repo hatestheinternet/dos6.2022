@@ -1,0 +1,6 @@
+Model           = PCNet Family Ethernet Adapter
+Path            = ETHERNET\PCNTND
+DeviceDriver    = PCNTND.DOS
+DeviceName      = PCNTND
+Type            = NDIS
+XPorts          = NETBEUI
